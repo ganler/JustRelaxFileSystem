@@ -1,8 +1,0 @@
-//
-// Created by bytedance on 2020/6/10.
-//
-
-#ifndef JUSTRELAXFILESYSTEM_JRFS_H
-#define JUSTRELAXFILESYSTEM_JRFS_H
-
-#endif //JUSTRELAXFILESYSTEM_JRFS_H
