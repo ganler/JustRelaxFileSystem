@@ -5,6 +5,7 @@
 
 #include "JRFS/util/term_style.hpp"
 #include "JRFS/util/utility.hpp"
+
 #include <gflags/gflags.h>
 
 DEFINE_string(mount_path, "", "Path to mount the image.");
@@ -110,11 +111,12 @@ private:
 };
 }
 
-struct alignas(128) a{
+struct alignas(128) a {
     int x;
 };
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[])
+{
     gflags::ParseCommandLineFlags(&argc, &argv, true);
 
     jrfs::cli command_line;

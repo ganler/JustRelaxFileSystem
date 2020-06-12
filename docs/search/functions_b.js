@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['termstyle_120',['TermStyle',['../classpt_1_1_term_style.html#ac2e8746d7f1ef81c9fb86c18fc11d94f',1,'pt::TermStyle']]]
+  ['termstyle_148',['TermStyle',['../classpt_1_1_term_style.html#ac2e8746d7f1ef81c9fb86c18fc11d94f',1,'pt::TermStyle']]]
 ];

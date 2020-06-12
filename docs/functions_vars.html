@@ -71,14 +71,11 @@ $(function() {
 <li>block_total
 : <a class="el" href="structjrfs_1_1super__block.html#a57ad56d3f6b86c117a008183bbd41a19">jrfs::super_block</a>
 </li>
-<li>blocks_indexes
-: <a class="el" href="structjrfs_1_1indirect__block.html#a3b9de95c600f7b1522a221da01616cb5">jrfs::indirect_block</a>
+<li>data_content
+: <a class="el" href="structjrfs_1_1data__block.html#acf297348513f899b390c17bed7116086">jrfs::data_block</a>
 </li>
 <li>direct_block
-: <a class="el" href="structjrfs_1_1inode.html#ad92c6a4b732ba6a879135fc7eab997a9">jrfs::inode</a>
-</li>
-<li>indirect_block
-: <a class="el" href="structjrfs_1_1inode.html#a487f1e09b38572454afef9617a44ea0f">jrfs::inode</a>
+: <a class="el" href="structjrfs_1_1inode.html#abe25efe5e098c40a4333858af8d4b64e">jrfs::inode</a>
 </li>
 <li>inode_bitmap
 : <a class="el" href="structjrfs_1_1filesystem.html#a62fde206a923c1ea77395ecfb2cdfcff">jrfs::filesystem</a>
@@ -92,6 +89,12 @@ $(function() {
 <li>is_directory
 : <a class="el" href="structjrfs_1_1inode.html#a0464ef6394f47d37a3139169c58d0ec3">jrfs::inode</a>
 </li>
+<li>kContentSize
+: <a class="el" href="structjrfs_1_1data__block.html#a94e8b181b725b5897ab6252e64711fc9">jrfs::data_block</a>
+</li>
+<li>m_fstream
+: <a class="el" href="structjrfs_1_1filesystem.html#a6645ec25e5f47e3f6a3a57b798c99271">jrfs::filesystem</a>
+</li>
 <li>magic
 : <a class="el" href="structjrfs_1_1super__block.html#a6d2c6a932748237e2bdce47800c326f7">jrfs::super_block</a>
 </li>
@@ -104,8 +107,12 @@ $(function() {
 <li>name
 : <a class="el" href="structjrfs_1_1inode.html#ad7684e5adb139c7452bccfc62d03fa0d">jrfs::inode</a>
 </li>
+<li>next
+: <a class="el" href="structjrfs_1_1data__block.html#a9a3d51f245c9394b2db48f4b37d07fc9">jrfs::data_block</a>
+</li>
 <li>size
-: <a class="el" href="structjrfs_1_1inode.html#a44ecb244068972450cf78f3b970ded2d">jrfs::inode</a>
+: <a class="el" href="structjrfs_1_1data__block.html#a527ccde40c1e9d28d942fdd5bd24721e">jrfs::data_block</a>
+, <a class="el" href="structjrfs_1_1inode.html#a44ecb244068972450cf78f3b970ded2d">jrfs::inode</a>
 </li>
 <li>style_array
 : <a class="el" href="classpt_1_1_term_style.html#acad80ce05dec0d6f7f157960b99091ea">pt::TermStyle&lt; MAX_STYLE_NUM &gt;</a>

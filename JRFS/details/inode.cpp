@@ -1,35 +1,43 @@
 #include "inode.hpp"
-#include <iomanip>
 #include <fstream>
+#include <iomanip>
 
 namespace jrfs {
 
-    bool inode::is_dir() const {
-        return is_directory;
-    }
+inode make_empty_dir()
+{
+    inode ret;
+    ret.is_directory = true;
+    ret.valid = 1;
+    ret.unix_time = std::time(nullptr);
+    return ret;
+}
 
-    void inode::write(std::fstream& fstream) {
-        fstream << valid;
-        fstream << size;
-        fstream << is_directory;
-        fstream << std::setfill(' ') << std::setw(sizeof(name)) << name;
-        fstream << unix_time;
-        for(auto&& db : direct_block)
-            fstream << db;
-        for(auto&& id : indirect_block)
-            fstream << id;
-    }
+bool inode::is_dir() const
+{
+    return is_directory;
+}
 
-    void inode::read(std::fstream& fstream) {
-        fstream >> valid;
-        fstream >> size;
-        fstream >> is_directory;
-        fstream >> name;
-        fstream >> unix_time;
-        for(auto&& db : direct_block)
-            fstream >> db;
-        for(auto&& id : indirect_block)
-            fstream >> id;
-    }
+void inode::write(std::fstream& fstream)
+{
+    fstream << valid;
+    fstream << size;
+    fstream << is_directory;
+    fstream << std::setfill(' ') << std::setw(sizeof(name)) << name;
+    fstream << unix_time;
+    for (auto&& db : direct_block)
+        fstream << db;
+}
+
+void inode::read(std::fstream& fstream)
+{
+    fstream >> valid;
+    fstream >> size;
+    fstream >> is_directory;
+    fstream >> name;
+    fstream >> unix_time;
+    for (auto&& db : direct_block)
+        fstream >> db;
+}
 
 }

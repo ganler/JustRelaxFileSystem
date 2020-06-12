@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>JustRelaxFileSystem: /Users/bytedance/CLionProjects/JustRelaxFileSystem/JRFS/file_handler.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">JustRelaxFileSystem
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_e4833ef13470368fdd7fe4fbda5ea4d5.html">JRFS</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">file_handler.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="file__handler_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="inode_8hpp.html">details/inode.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="filesystem_8hpp.html">filesystem.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string_view&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacejrfs.html">jrfs</a> {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classjrfs_1_1file__handler.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classjrfs_1_1file__handler.html">file_handler</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classjrfs_1_1file__handler.html#aef05d6d14104b1465059931237a04095">   12</a></span>&#160;    <a class="code" href="classjrfs_1_1file__handler.html#aef05d6d14104b1465059931237a04095">file_handler</a>(<a class="code" href="structjrfs_1_1inode.html">inode</a>&amp; inode_ref, <a class="code" href="structjrfs_1_1filesystem.html">filesystem</a>&amp; fs_ref)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        : m_seekp(0)</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        , m_inode_ref(inode_ref)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        , m_fs_ref</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        assert(!inode_ref.<a class="code" href="structjrfs_1_1inode.html#ac04b9538f8e0dd8f6db23186e60acde4">is_dir</a>());</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    }</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> seekp(<span class="keywordtype">int</span> pos)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        m_seekp = pos;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classjrfs_1_1file__handler.html#aff58ca69d4d2e75e0eb158a110963129">   24</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classjrfs_1_1file__handler.html#aff58ca69d4d2e75e0eb158a110963129">write</a>(std::string_view data)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="comment">// FIXME: Append Only.</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">int</span> i = 1;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">while</span> (i &lt; m_inode_ref.<a class="code" href="structjrfs_1_1inode.html#abe25efe5e098c40a4333858af8d4b64e">direct_block</a>.size() &amp;&amp; m_inode_ref.<a class="code" href="structjrfs_1_1inode.html#abe25efe5e098c40a4333858af8d4b64e">direct_block</a>[i] != <a class="code" href="namespacejrfs.html#ad08d6878092f6e0dbdd71b4efbbedf5a">kNULL</a>)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            ;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classjrfs_1_1file__handler.html#a91ad3445ff827d5fb3d35f365ff2e9c9">   32</a></span>&#160;    std::string <a class="code" href="classjrfs_1_1file__handler.html#a91ad3445ff827d5fb3d35f365ff2e9c9">read</a>(<span class="keywordtype">int</span> size)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        std::string ret;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">if</span> (m_seekp + size &gt; m_inode_ref.<a class="code" href="structjrfs_1_1inode.html#a44ecb244068972450cf78f3b970ded2d">size</a>)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;Cross Border When Reading The File: seekp = &quot;</span> + std::to_string(m_seekp) + <span class="stringliteral">&quot;, readsize = &quot;</span> + std::to_string(size) + <span class="stringliteral">&quot;, file size: &quot;</span> + std::to_string(m_inode_ref.<a class="code" href="structjrfs_1_1inode.html#a44ecb244068972450cf78f3b970ded2d">size</a>) + <span class="charliteral">&#39;.&#39;</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">int</span> p = 0;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; m_inode_ref.<a class="code" href="structjrfs_1_1inode.html#abe25efe5e098c40a4333858af8d4b64e">direct_block</a>.size(); ++i) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordtype">int</span> index = m_inode_ref.<a class="code" href="structjrfs_1_1inode.html#abe25efe5e098c40a4333858af8d4b64e">direct_block</a>[i];</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keyword">auto</span> blk = m_fs_ref.<a class="code" href="structjrfs_1_1filesystem.html#af331109e68742092069211e7843ae853">get_block</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">if</span> (p + size &gt; m_seekp) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordtype">int</span> read_size = std::min(blk.size, size - (p - m_seekp));</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                std::istreambuf_iterator&lt;char&gt; it(m_fs_ref);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                std::copy_n(it, read_size, std::back_insert_iterator(ret));</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">if</span> (p + blk.size - m_seekp &gt;= size)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            p += blk.size;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">int</span> m_seekp;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="structjrfs_1_1inode.html">inode</a>&amp; m_inode_ref;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="structjrfs_1_1filesystem.html">filesystem</a>&amp; m_fs_ref;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassjrfs_1_1file__handler_html"><div class="ttname"><a href="classjrfs_1_1file__handler.html">jrfs::file_handler</a></div><div class="ttdef"><b>Definition:</b> file_handler.hpp:10</div></div>
+<div class="ttc" id="ainode_8hpp_html"><div class="ttname"><a href="inode_8hpp.html">inode.hpp</a></div></div>
+<div class="ttc" id="astructjrfs_1_1filesystem_html_af331109e68742092069211e7843ae853"><div class="ttname"><a href="structjrfs_1_1filesystem.html#af331109e68742092069211e7843ae853">jrfs::filesystem::get_block</a></div><div class="ttdeci">data_block get_block(int id)</div><div class="ttdef"><b>Definition:</b> filesystem.cpp:121</div></div>
+<div class="ttc" id="afilesystem_8hpp_html"><div class="ttname"><a href="filesystem_8hpp.html">filesystem.hpp</a></div></div>
+<div class="ttc" id="astructjrfs_1_1inode_html_abe25efe5e098c40a4333858af8d4b64e"><div class="ttname"><a href="structjrfs_1_1inode.html#abe25efe5e098c40a4333858af8d4b64e">jrfs::inode::direct_block</a></div><div class="ttdeci">std::array&lt; int, 20 &gt; direct_block</div><div class="ttdef"><b>Definition:</b> inode.hpp:17</div></div>
+<div class="ttc" id="aclassjrfs_1_1file__handler_html_a91ad3445ff827d5fb3d35f365ff2e9c9"><div class="ttname"><a href="classjrfs_1_1file__handler.html#a91ad3445ff827d5fb3d35f365ff2e9c9">jrfs::file_handler::read</a></div><div class="ttdeci">std::string read(int size)</div><div class="ttdef"><b>Definition:</b> file_handler.hpp:32</div></div>
+<div class="ttc" id="astructjrfs_1_1inode_html_ac04b9538f8e0dd8f6db23186e60acde4"><div class="ttname"><a href="structjrfs_1_1inode.html#ac04b9538f8e0dd8f6db23186e60acde4">jrfs::inode::is_dir</a></div><div class="ttdeci">bool is_dir() const</div><div class="ttdoc">直接索引的数据块</div><div class="ttdef"><b>Definition:</b> inode.cpp:16</div></div>
+<div class="ttc" id="aclassjrfs_1_1file__handler_html_aff58ca69d4d2e75e0eb158a110963129"><div class="ttname"><a href="classjrfs_1_1file__handler.html#aff58ca69d4d2e75e0eb158a110963129">jrfs::file_handler::write</a></div><div class="ttdeci">void write(std::string_view data)</div><div class="ttdef"><b>Definition:</b> file_handler.hpp:24</div></div>
+<div class="ttc" id="astructjrfs_1_1inode_html_a44ecb244068972450cf78f3b970ded2d"><div class="ttname"><a href="structjrfs_1_1inode.html#a44ecb244068972450cf78f3b970ded2d">jrfs::inode::size</a></div><div class="ttdeci">int size</div><div class="ttdoc">是否当前inode正在被使用</div><div class="ttdef"><b>Definition:</b> inode.hpp:11</div></div>
+<div class="ttc" id="anamespacejrfs_html_ad08d6878092f6e0dbdd71b4efbbedf5a"><div class="ttname"><a href="namespacejrfs.html#ad08d6878092f6e0dbdd71b4efbbedf5a">jrfs::kNULL</a></div><div class="ttdeci">constexpr int kNULL</div><div class="ttdef"><b>Definition:</b> config.hpp:9</div></div>
+<div class="ttc" id="astructjrfs_1_1filesystem_html"><div class="ttname"><a href="structjrfs_1_1filesystem.html">jrfs::filesystem</a></div><div class="ttdef"><b>Definition:</b> filesystem.hpp:12</div></div>
+<div class="ttc" id="astructjrfs_1_1inode_html"><div class="ttname"><a href="structjrfs_1_1inode.html">jrfs::inode</a></div><div class="ttdef"><b>Definition:</b> inode.hpp:9</div></div>
+<div class="ttc" id="anamespacejrfs_html"><div class="ttname"><a href="namespacejrfs.html">jrfs</a></div><div class="ttdef"><b>Definition:</b> config.hpp:3</div></div>
+<div class="ttc" id="aclassjrfs_1_1file__handler_html_aef05d6d14104b1465059931237a04095"><div class="ttname"><a href="classjrfs_1_1file__handler.html#aef05d6d14104b1465059931237a04095">jrfs::file_handler::file_handler</a></div><div class="ttdeci">file_handler(inode &amp;inode_ref, filesystem &amp;fs_ref)</div><div class="ttdef"><b>Definition:</b> file_handler.hpp:12</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>

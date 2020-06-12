@@ -79,6 +79,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:ac04b9538f8e0dd8f6db23186e60acde4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html#ac04b9538f8e0dd8f6db23186e60acde4">is_dir</a> () const</td></tr>
+<tr class="memdesc:ac04b9538f8e0dd8f6db23186e60acde4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><blockquote class="doxtable">
+<p>直接索引的数据块 </p>
+</blockquote>
+ <a href="structjrfs_1_1inode.html#ac04b9538f8e0dd8f6db23186e60acde4">更多...</a><br /></td></tr>
 <tr class="separator:ac04b9538f8e0dd8f6db23186e60acde4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81edfdba7b616aa98701f70b2c308e68"><td class="memItemLeft" align="right" valign="top">int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html#a81edfdba7b616aa98701f70b2c308e68">current_dir</a> ()</td></tr>
 <tr class="separator:a81edfdba7b616aa98701f70b2c308e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -115,16 +119,10 @@ Public 属性</h2></td></tr>
 </blockquote>
  <a href="structjrfs_1_1inode.html#ad7684e5adb139c7452bccfc62d03fa0d">更多...</a><br /></td></tr>
 <tr class="separator:ad7684e5adb139c7452bccfc62d03fa0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e476a564c794f73781242183977bbf1"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html#a7e476a564c794f73781242183977bbf1">unix_time</a></td></tr>
+<tr class="memitem:a7e476a564c794f73781242183977bbf1"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html#a7e476a564c794f73781242183977bbf1">unix_time</a> {}</td></tr>
 <tr class="separator:a7e476a564c794f73781242183977bbf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad92c6a4b732ba6a879135fc7eab997a9"><td class="memItemLeft" align="right" valign="top">std::array&lt; int, 12 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html#ad92c6a4b732ba6a879135fc7eab997a9">direct_block</a> {}</td></tr>
-<tr class="separator:ad92c6a4b732ba6a879135fc7eab997a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a487f1e09b38572454afef9617a44ea0f"><td class="memItemLeft" align="right" valign="top">std::array&lt; int, 8 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html#a487f1e09b38572454afef9617a44ea0f">indirect_block</a> {}</td></tr>
-<tr class="memdesc:a487f1e09b38572454afef9617a44ea0f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><blockquote class="doxtable">
-<p>直接索引的数据块 </p>
-</blockquote>
- <a href="structjrfs_1_1inode.html#a487f1e09b38572454afef9617a44ea0f">更多...</a><br /></td></tr>
-<tr class="separator:a487f1e09b38572454afef9617a44ea0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe25efe5e098c40a4333858af8d4b64e"><td class="memItemLeft" align="right" valign="top">std::array&lt; int, 20 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html#abe25efe5e098c40a4333858af8d4b64e">direct_block</a> {}</td></tr>
+<tr class="separator:abe25efe5e098c40a4333858af8d4b64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">成员函数说明</h2>
 <a id="a81edfdba7b616aa98701f70b2c308e68"></a>
@@ -191,6 +189,11 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><blockquote class="doxtable">
+<p>直接索引的数据块 </p>
+</blockquote>
+</p>
 
 </div>
 </div>
@@ -281,36 +284,17 @@ Public 属性</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">类成员变量说明</h2>
-<a id="ad92c6a4b732ba6a879135fc7eab997a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad92c6a4b732ba6a879135fc7eab997a9">&#9670;&nbsp;</a></span>direct_block</h2>
+<a id="abe25efe5e098c40a4333858af8d4b64e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe25efe5e098c40a4333858af8d4b64e">&#9670;&nbsp;</a></span>direct_block</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::array&lt;int, 12&gt; jrfs::inode::direct_block {}</td>
+          <td class="memname">std::array&lt;int, 20&gt; jrfs::inode::direct_block {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a487f1e09b38572454afef9617a44ea0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a487f1e09b38572454afef9617a44ea0f">&#9670;&nbsp;</a></span>indirect_block</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::array&lt;int, 8&gt; jrfs::inode::indirect_block {}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><blockquote class="doxtable">
-<p>直接索引的数据块 </p>
-</blockquote>
-</p>
 
 </div>
 </div>
@@ -378,7 +362,7 @@ Public 属性</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t jrfs::inode::unix_time</td>
+          <td class="memname">uint32_t jrfs::inode::unix_time {}</td>
         </tr>
       </table>
 </div><div class="memdoc">

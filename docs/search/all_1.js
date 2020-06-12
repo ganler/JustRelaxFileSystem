@@ -4,7 +4,8 @@ var searchData=
   ['color_10',['color',['../classpt_1_1_term_style.html#ae43b5d024213a59dbd9a207ca3e2655e',1,'pt::TermStyle::color()'],['../namespacept.html#a277f8043801eba941aa93db8a3a7b644',1,'pt::Color()']]],
   ['conceal_11',['CONCEAL',['../namespacept.html#a2abcf259cf55e9e395c071f79c75725ea98aeb47485bc29de0e9033b414b108cc',1,'pt']]],
   ['config_2ehpp_12',['config.hpp',['../config_8hpp.html',1,'']]],
-  ['cross_5fout_13',['CROSS_OUT',['../namespacept.html#a2abcf259cf55e9e395c071f79c75725ea41cd6be0f67e0e3c6d79e7b346d58076',1,'pt']]],
-  ['current_5fdir_14',['current_dir',['../structjrfs_1_1inode.html#a81edfdba7b616aa98701f70b2c308e68',1,'jrfs::inode::current_dir()'],['../structjrfs_1_1inode.html#a33e370b59fbae4c6006b98825c5c65aa',1,'jrfs::inode::current_dir() const']]],
-  ['cyan_15',['CYAN',['../namespacept.html#acb8b3099de5439e5fc9c7ee4778bf15c',1,'pt::CYAN(Color::CYAN)'],['../namespacept.html#a277f8043801eba941aa93db8a3a7b644a344dd8cd533280795b9db82ef0c92749',1,'pt::CYAN()']]]
+  ['create_5fimage_13',['create_image',['../structjrfs_1_1filesystem.html#a5c6c96c018e6786e7d96d1b748ce92b3',1,'jrfs::filesystem']]],
+  ['cross_5fout_14',['CROSS_OUT',['../namespacept.html#a2abcf259cf55e9e395c071f79c75725ea41cd6be0f67e0e3c6d79e7b346d58076',1,'pt']]],
+  ['current_5fdir_15',['current_dir',['../structjrfs_1_1inode.html#a81edfdba7b616aa98701f70b2c308e68',1,'jrfs::inode::current_dir()'],['../structjrfs_1_1inode.html#a33e370b59fbae4c6006b98825c5c65aa',1,'jrfs::inode::current_dir() const']]],
+  ['cyan_16',['CYAN',['../namespacept.html#acb8b3099de5439e5fc9c7ee4778bf15c',1,'pt::CYAN(Color::CYAN)'],['../namespacept.html#a277f8043801eba941aa93db8a3a7b644a344dd8cd533280795b9db82ef0c92749',1,'pt::CYAN()']]]
 ];

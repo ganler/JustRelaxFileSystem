@@ -82,6 +82,24 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a18491cc4b123f5bc9a7f997b0de0121d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba95d17f8e4a9edf68091364ecadcea9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#aba95d17f8e4a9edf68091364ecadcea9">filesystem</a> (int count_blocks, const std::string &amp;path)</td></tr>
 <tr class="separator:aba95d17f8e4a9edf68091364ecadcea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaf8d2aeca9d82d94a5105752cf177a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#aeaf8d2aeca9d82d94a5105752cf177a5">load_image</a> (const std::string &amp;path)</td></tr>
+<tr class="separator:aeaf8d2aeca9d82d94a5105752cf177a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c6c96c018e6786e7d96d1b748ce92b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a5c6c96c018e6786e7d96d1b748ce92b3">create_image</a> (int count_blocks, const std::string &amp;path)</td></tr>
+<tr class="separator:a5c6c96c018e6786e7d96d1b748ce92b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a383874eb1d61f3f5fd90b59c256686d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a383874eb1d61f3f5fd90b59c256686d1">scan_bitmap</a> ()</td></tr>
+<tr class="separator:a383874eb1d61f3f5fd90b59c256686d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc8ed2f2b9dca8b71f776ddef5727ddb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#adc8ed2f2b9dca8b71f776ddef5727ddb">mark_bitmap</a> (int inode_id)</td></tr>
+<tr class="separator:adc8ed2f2b9dca8b71f776ddef5727ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a2ae5ccdd964c85587f5cc895283a85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjrfs_1_1inode.html">inode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a9a2ae5ccdd964c85587f5cc895283a85">get_root</a> ()</td></tr>
+<tr class="separator:a9a2ae5ccdd964c85587f5cc895283a85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6e37c40efa1dc0862bd64c6eeb1dc8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjrfs_1_1inode.html">inode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#ab6e37c40efa1dc0862bd64c6eeb1dc8e">get_inode</a> (int id)</td></tr>
+<tr class="separator:ab6e37c40efa1dc0862bd64c6eeb1dc8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af331109e68742092069211e7843ae853"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjrfs_1_1data__block.html">data_block</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#af331109e68742092069211e7843ae853">get_block</a> (int id)</td></tr>
+<tr class="separator:af331109e68742092069211e7843ae853"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82bb8658f8f25aa24c4c3a24de1b8f47"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a82bb8658f8f25aa24c4c3a24de1b8f47">inode_begin_index</a> ()</td></tr>
+<tr class="separator:a82bb8658f8f25aa24c4c3a24de1b8f47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b90ca1e444a312d1b3eef7b550a9a1f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a2b90ca1e444a312d1b3eef7b550a9a1f">block_begin_index</a> ()</td></tr>
+<tr class="separator:a2b90ca1e444a312d1b3eef7b550a9a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public 属性</h2></td></tr>
@@ -105,6 +123,12 @@ Public 属性</h2></td></tr>
 </blockquote>
  <a href="structjrfs_1_1filesystem.html#a62fde206a923c1ea77395ecfb2cdfcff">更多...</a><br /></td></tr>
 <tr class="separator:a62fde206a923c1ea77395ecfb2cdfcff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6645ec25e5f47e3f6a3a57b798c99271"><td class="memItemLeft" align="right" valign="top">std::fstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a6645ec25e5f47e3f6a3a57b798c99271">m_fstream</a></td></tr>
+<tr class="memdesc:a6645ec25e5f47e3f6a3a57b798c99271"><td class="mdescLeft">&#160;</td><td class="mdescRight"><blockquote class="doxtable">
+<p>对于全局inode进行标记，如果是空闲的则为0，否则为1 </p>
+</blockquote>
+ <a href="structjrfs_1_1filesystem.html#a6645ec25e5f47e3f6a3a57b798c99271">更多...</a><br /></td></tr>
+<tr class="separator:a6645ec25e5f47e3f6a3a57b798c99271"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">构造及析构函数说明</h2>
 <a id="a18491cc4b123f5bc9a7f997b0de0121d"></a>
@@ -153,6 +177,175 @@ Public 属性</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a2b90ca1e444a312d1b3eef7b550a9a1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b90ca1e444a312d1b3eef7b550a9a1f">&#9670;&nbsp;</a></span>block_begin_index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int jrfs::filesystem::block_begin_index </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5c6c96c018e6786e7d96d1b748ce92b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c6c96c018e6786e7d96d1b748ce92b3">&#9670;&nbsp;</a></span>create_image()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jrfs::filesystem::create_image </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>count_blocks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af331109e68742092069211e7843ae853"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af331109e68742092069211e7843ae853">&#9670;&nbsp;</a></span>get_block()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structjrfs_1_1data__block.html">data_block</a> jrfs::filesystem::get_block </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab6e37c40efa1dc0862bd64c6eeb1dc8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6e37c40efa1dc0862bd64c6eeb1dc8e">&#9670;&nbsp;</a></span>get_inode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structjrfs_1_1inode.html">inode</a> jrfs::filesystem::get_inode </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9a2ae5ccdd964c85587f5cc895283a85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a2ae5ccdd964c85587f5cc895283a85">&#9670;&nbsp;</a></span>get_root()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structjrfs_1_1inode.html">inode</a> jrfs::filesystem::get_root </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a82bb8658f8f25aa24c4c3a24de1b8f47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82bb8658f8f25aa24c4c3a24de1b8f47">&#9670;&nbsp;</a></span>inode_begin_index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int jrfs::filesystem::inode_begin_index </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeaf8d2aeca9d82d94a5105752cf177a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaf8d2aeca9d82d94a5105752cf177a5">&#9670;&nbsp;</a></span>load_image()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jrfs::filesystem::load_image </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adc8ed2f2b9dca8b71f776ddef5727ddb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc8ed2f2b9dca8b71f776ddef5727ddb">&#9670;&nbsp;</a></span>mark_bitmap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jrfs::filesystem::mark_bitmap </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>inode_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a383874eb1d61f3f5fd90b59c256686d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a383874eb1d61f3f5fd90b59c256686d1">&#9670;&nbsp;</a></span>scan_bitmap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jrfs::filesystem::scan_bitmap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">类成员变量说明</h2>
 <a id="a07ecc4814e8aa5bf0b940e4a370204db"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a07ecc4814e8aa5bf0b940e4a370204db">&#9670;&nbsp;</a></span>block_bitmap</h2>
@@ -187,6 +380,25 @@ Public 属性</h2></td></tr>
 
 <p><blockquote class="doxtable">
 <p>对于全局所有block的标记，如果是空闲的则为0，否则为1 </p>
+</blockquote>
+</p>
+
+</div>
+</div>
+<a id="a6645ec25e5f47e3f6a3a57b798c99271"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6645ec25e5f47e3f6a3a57b798c99271">&#9670;&nbsp;</a></span>m_fstream</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::fstream jrfs::filesystem::m_fstream</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><blockquote class="doxtable">
+<p>对于全局inode进行标记，如果是空闲的则为0，否则为1 </p>
 </blockquote>
 </p>
 
