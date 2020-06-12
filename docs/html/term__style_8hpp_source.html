@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>JustRelaxFileSystem: /Users/bytedance/CLionProjects/JustRelaxFileSystem/JRFS/util/term_style.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">JustRelaxFileSystem
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_e4833ef13470368fdd7fe4fbda5ea4d5.html">JRFS</a></li><li class="navelem"><a class="el" href="dir_3a9566a59065b472db4c35197e4145cd.html">util</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">term_style.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="term__style_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;sys/ioctl.h&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespacept.html">   15</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacept.html">pt</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespacept.html#a2abcf259cf55e9e395c071f79c75725e">   19</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespacept.html#a2abcf259cf55e9e395c071f79c75725e">Style</a> : uint8_t {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea1e23852820b9154316c7c06e2b7ba051">NORMAL</a> = 0,</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea2909dd0e0336f10b6da9735b859a3d19">BOLD</a> = 1,</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea509b5416bf705c10f9812317852300db">FAINT</a> = 2,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea25093123b8943308104129e1d762f3b7">ITALIC</a> = 3,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea0086c73c90c261db630b4dc8aea09bcf">UNDERLINE</a> = 4,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea92073ead6c4077b506a40e9caab4190f">SLOW_BLINK</a> = 5,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea37124ad1fc66e68535d0bebba57f414b">RAPID_BLINK</a> = 6, <span class="comment">// Not widely supported.</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea642e0b6684e6165e142c074f1cd8d55c">REVERSE</a> = 7,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea98aeb47485bc29de0e9033b414b108cc">CONCEAL</a> = 8, <span class="comment">// Not widely supported.</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea41cd6be0f67e0e3c6d79e7b346d58076">CROSS_OUT</a> = 9</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644">   32</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644">Color</a> : uint8_t {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644aa88a6a0c276fd853999a1faedf19c00e">CLEAN</a> = 0,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644a08d0012388564e95c3b4a7407cf04965">BLACK</a> = 30,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644aa2d9547b5d3dd9f05984475f7c926da0">RED</a> = 31,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644a9de0e5dd94e861317e74964bed179fa0">GREEN</a> = 32,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644a8a568e5f41b7e4da88fe5c4a00aad34e">YELLOW</a> = 33,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644a1b3e1ee9bff86431dea6b181365ba65f">BLUE</a> = 34,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644aec9c138095a352a9b7ef9ca5363b14d9">PURPLE</a> = 35,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644a344dd8cd533280795b9db82ef0c92749">CYAN</a> = 36,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644ab5bf627e448384cf3a4c35121ca6008d">WHITE</a> = 37,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644a5b39c8b553c821e7cddc6da64b5bd2ee">DEFAULT</a> = 39,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespacept.html#a6dd437356bb8fd7cd97e5ec842b8a32c">   45</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">size_t</span> <a class="code" href="namespacept.html#a6dd437356bb8fd7cd97e5ec842b8a32c">get_term_length</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> max_len = 256)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    winsize w;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    ioctl(STDOUT_FILENO, TIOCGWINSZ, &amp;w);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">return</span> std::min(w.ws_col, max_len);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">size_t</span> MAX_STYLE_NUM = 0&gt;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classpt_1_1_term_style.html">   54</a></span>&#160;<span class="keyword">class </span><a class="code" href="classpt_1_1_term_style.html">TermStyle</a> {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classpt_1_1_term_style.html#af3c8cbf7e0bfc5ce362c8b3d5c5606e6">   56</a></span>&#160;    <span class="keyword">static</span> constexpr <span class="keywordtype">size_t</span> <a class="code" href="classpt_1_1_term_style.html#af3c8cbf7e0bfc5ce362c8b3d5c5606e6">max_style_num</a> = MAX_STYLE_NUM;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classpt_1_1_term_style.html#ac2e8746d7f1ef81c9fb86c18fc11d94f">   61</a></span>&#160;    constexpr <a class="code" href="classpt_1_1_term_style.html#ac2e8746d7f1ef81c9fb86c18fc11d94f">TermStyle</a>(<a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644">Color</a> <a class="code" href="classpt_1_1_term_style.html#ae43b5d024213a59dbd9a207ca3e2655e">color</a>, std::array&lt;Style, MAX_STYLE_NUM&gt; styles = std::array&lt;Style, MAX_STYLE_NUM&gt; { {} })</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        : m_color_code(<span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(<a class="code" href="classpt_1_1_term_style.html#ae43b5d024213a59dbd9a207ca3e2655e">color</a>))</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        , <a class="code" href="classpt_1_1_term_style.html#acad80ce05dec0d6f7f157960b99091ea">style_array</a>(styles)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classpt_1_1_term_style.html#a6cf3d66d599556d81fa27585ea512fdf">   69</a></span>&#160;    constexpr <span class="keyword">inline</span> <a class="code" href="classpt_1_1_term_style.html">TermStyle</a> <a class="code" href="classpt_1_1_term_style.html#a6cf3d66d599556d81fa27585ea512fdf">background</a>() const noexcept</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">return</span> termcolor_from_int(m_color_code + 10);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classpt_1_1_term_style.html#a527f790944f737062540d509012be7bf">   76</a></span>&#160;    constexpr <span class="keyword">inline</span> <a class="code" href="classpt_1_1_term_style.html">TermStyle</a> <a class="code" href="classpt_1_1_term_style.html#a527f790944f737062540d509012be7bf">bright</a>() const noexcept</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> termcolor_from_int(m_color_code + 60);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classpt_1_1_term_style.html#abc407cccc86fda93ba162a03db6908c0">   84</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="classpt_1_1_term_style.html">TermStyle&lt;MAX_STYLE_NUM + 1&gt;</a> <a class="code" href="classpt_1_1_term_style.html#abc407cccc86fda93ba162a03db6908c0">style</a>(<a class="code" href="namespacept.html#a2abcf259cf55e9e395c071f79c75725e">Style</a> s_) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <a class="code" href="namespacept.html#a2abcf259cf55e9e395c071f79c75725e">Style</a> sarr[] { s_ };</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classpt_1_1_term_style.html#abc407cccc86fda93ba162a03db6908c0">style</a>(sarr);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">template</span> &lt;<span class="keywordtype">size_t</span> N&gt;</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classpt_1_1_term_style.html#a6f4d8046384fb5d20f415a0ffbfe47a9">   95</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="classpt_1_1_term_style.html">TermStyle&lt;MAX_STYLE_NUM + N&gt;</a> <a class="code" href="classpt_1_1_term_style.html#a6f4d8046384fb5d20f415a0ffbfe47a9">style</a>(<span class="keyword">const</span> <a class="code" href="namespacept.html#a2abcf259cf55e9e395c071f79c75725e">Style</a> (&amp;sl)[N]) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <a class="code" href="classpt_1_1_term_style.html">TermStyle&lt;MAX_STYLE_NUM + N&gt;</a> t(this-&gt;<a class="code" href="classpt_1_1_term_style.html#ae43b5d024213a59dbd9a207ca3e2655e">color</a>());</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        std::copy(this-&gt;<a class="code" href="classpt_1_1_term_style.html#acad80ce05dec0d6f7f157960b99091ea">style_array</a>.begin(), this-&gt;style_array.end(), t.<a class="code" href="classpt_1_1_term_style.html#acad80ce05dec0d6f7f157960b99091ea">style_array</a>.begin());</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        std::copy(sl, sl + N, t.<a class="code" href="classpt_1_1_term_style.html#acad80ce05dec0d6f7f157960b99091ea">style_array</a>.begin() + MAX_STYLE_NUM);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordflow">return</span> t;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="classpt_1_1_term_style.html#ae43b5d024213a59dbd9a207ca3e2655e">  105</a></span>&#160;    constexpr <span class="keyword">inline</span> <a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644">Color</a> <a class="code" href="classpt_1_1_term_style.html#ae43b5d024213a59dbd9a207ca3e2655e">color</a>() const noexcept</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644">Color</a><span class="keyword">&gt;</span>(m_color_code);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classpt_1_1_term_style.html#aad36764eb59d84b45d614e8859898fc1">  114</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classpt_1_1_term_style.html#aad36764eb59d84b45d614e8859898fc1">line</a>(<span class="keywordtype">char</span> pattern = <span class="charliteral">&#39;-&#39;</span>, <span class="keywordtype">int</span> n = 0, std::ostream&amp; os = std::cout)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">if</span> (0 == n)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            n = <a class="code" href="namespacept.html#a6dd437356bb8fd7cd97e5ec842b8a32c">get_term_length</a>() - 2;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        n = std::min(n, 256);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        os &lt;&lt; (*this) &lt;&lt; <span class="charliteral">&#39;+&#39;</span>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <a class="code" href="classpt_1_1_term_style.html#a39ef842f6141dc6ef0ac9955f0420392">padding</a>(n, pattern, os);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        os &lt;&lt; &#39;+&#39; &lt;&lt; TermStyle&lt;0&gt;(<a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644aa88a6a0c276fd853999a1faedf19c00e">Color::CLEAN</a>) &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="classpt_1_1_term_style.html#a39ef842f6141dc6ef0ac9955f0420392">  130</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classpt_1_1_term_style.html#a39ef842f6141dc6ef0ac9955f0420392">padding</a>(<span class="keywordtype">int</span> n, <span class="keywordtype">char</span> pattern = <span class="charliteral">&#39; &#39;</span>, std::ostream&amp; os = std::cout)</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; ++i)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            os &lt;&lt; pattern;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    };</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="classpt_1_1_term_style.html#ab3ac567aa5d05bd0609a9f6d1218e13d">  140</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classpt_1_1_term_style.html#ab3ac567aa5d05bd0609a9f6d1218e13d">string_field</a>(<span class="keyword">const</span> std::string&amp; res, <span class="keywordtype">size_t</span> max_len = 0, std::ostream&amp; os = std::cout)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordflow">if</span> (0 == max_len)</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            max_len = res.size();</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        assert(max_len &gt;= res.size());</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        os &lt;&lt; (*this) &lt;&lt; res;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <a class="code" href="classpt_1_1_term_style.html#a39ef842f6141dc6ef0ac9955f0420392">padding</a>(max_len - res.size());</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        os &lt;&lt; TermStyle&lt;0&gt;(<a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644aa88a6a0c276fd853999a1faedf19c00e">Color::CLEAN</a>);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    };</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="classpt_1_1_term_style.html#ab63ba02dca68e580b45117230af5f534">  154</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">inline</span> std::ostream&amp; <a class="code" href="classpt_1_1_term_style.html#ab63ba02dca68e580b45117230af5f534">operator&lt;&lt;</a>(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="classpt_1_1_term_style.html">TermStyle</a>&amp; term_color)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    {</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;\033[0m\033[&quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(term_color.m_color_code);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> s : term_color.<a class="code" href="classpt_1_1_term_style.html#acad80ce05dec0d6f7f157960b99091ea">style_array</a>)</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            <span class="keywordflow">if</span> (s == <a class="code" href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea1e23852820b9154316c7c06e2b7ba051">Style::NORMAL</a>)</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                os &lt;&lt; &#39;;&#39; &lt;&lt; static_cast&lt;int&gt;(s);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keywordflow">return</span> os &lt;&lt; <span class="charliteral">&#39;m&#39;</span>;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    }</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    constexpr <span class="keyword">inline</span> <a class="code" href="classpt_1_1_term_style.html">TermStyle</a> termcolor_from_int(uint8_t c) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    {</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classpt_1_1_term_style.html">TermStyle</a> { <span class="keyword">static_cast&lt;</span><a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644">Color</a><span class="keyword">&gt;</span>(c) };</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    }</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    uint8_t m_color_code;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="classpt_1_1_term_style.html#acad80ce05dec0d6f7f157960b99091ea">  175</a></span>&#160;    std::array&lt;Style, MAX_STYLE_NUM&gt; <a class="code" href="classpt_1_1_term_style.html#acad80ce05dec0d6f7f157960b99091ea">style_array</a>;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;};</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="namespacept.html#a04bb36042b1e99bbfc347df68717d7c4">  178</a></span>&#160;constexpr <a class="code" href="classpt_1_1_term_style.html">TermStyle&lt;0&gt;</a> <a class="code" href="namespacept.html#a04bb36042b1e99bbfc347df68717d7c4">RED</a>(<a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644aa2d9547b5d3dd9f05984475f7c926da0">Color::RED</a>), <a class="code" href="namespacept.html#ab52d2aa0eb6b82199a55b91d59af5407">BLUE</a>(<a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644a1b3e1ee9bff86431dea6b181365ba65f">Color::BLUE</a>), <a class="code" href="namespacept.html#aae9e5bb6e42d7c352aa12ed9af78f5d2">GREEN</a>(<a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644a9de0e5dd94e861317e74964bed179fa0">Color::GREEN</a>), <a class="code" href="namespacept.html#ab65aab90391dfc929c2d76ad4b588a8e">BLACK</a>(<a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644a08d0012388564e95c3b4a7407cf04965">Color::BLACK</a>),</div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="namespacept.html#aad0c9b96473a0e55ed17a960ed0815c0">  179</a></span>&#160;    <a class="code" href="namespacept.html#aad0c9b96473a0e55ed17a960ed0815c0">YELLOW</a>(<a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644a8a568e5f41b7e4da88fe5c4a00aad34e">Color::YELLOW</a>), <a class="code" href="namespacept.html#ad92cacc72f518e28d090619d841ff9b2">PURPLE</a>(<a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644aec9c138095a352a9b7ef9ca5363b14d9">Color::PURPLE</a>), <a class="code" href="namespacept.html#acb8b3099de5439e5fc9c7ee4778bf15c">CYAN</a>(<a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644a344dd8cd533280795b9db82ef0c92749">Color::CYAN</a>), <a class="code" href="namespacept.html#a152f42a2014a8f86c778754c244d95a3">WHITE</a>(<a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644ab5bf627e448384cf3a4c35121ca6008d">Color::WHITE</a>), <a class="code" href="namespacept.html#a2373881eb34f5fc50ea241b236037b82">DEF</a>(<a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644a5b39c8b553c821e7cddc6da64b5bd2ee">Color::DEFAULT</a>),</div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="namespacept.html#a5900c319d577cf42c8fb3c206cff3e33">  180</a></span>&#160;    <a class="code" href="namespacept.html#a5900c319d577cf42c8fb3c206cff3e33">CLEAN</a>(<a class="code" href="namespacept.html#a277f8043801eba941aa93db8a3a7b644aa88a6a0c276fd853999a1faedf19c00e">Color::CLEAN</a>);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclasspt_1_1_term_style_html_a527f790944f737062540d509012be7bf"><div class="ttname"><a href="classpt_1_1_term_style.html#a527f790944f737062540d509012be7bf">pt::TermStyle::bright</a></div><div class="ttdeci">constexpr TermStyle bright() const noexcept</div><div class="ttdef"><b>Definition:</b> term_style.hpp:76</div></div>
+<div class="ttc" id="anamespacept_html"><div class="ttname"><a href="namespacept.html">pt</a></div><div class="ttdef"><b>Definition:</b> term_style.hpp:15</div></div>
+<div class="ttc" id="anamespacept_html_a2abcf259cf55e9e395c071f79c75725ea98aeb47485bc29de0e9033b414b108cc"><div class="ttname"><a href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea98aeb47485bc29de0e9033b414b108cc">pt::Style::CONCEAL</a></div><div class="ttdeci">@ CONCEAL</div></div>
+<div class="ttc" id="anamespacept_html_aae9e5bb6e42d7c352aa12ed9af78f5d2"><div class="ttname"><a href="namespacept.html#aae9e5bb6e42d7c352aa12ed9af78f5d2">pt::GREEN</a></div><div class="ttdeci">constexpr TermStyle&lt; 0 &gt; GREEN(Color::GREEN)</div></div>
+<div class="ttc" id="anamespacept_html_a277f8043801eba941aa93db8a3a7b644ab5bf627e448384cf3a4c35121ca6008d"><div class="ttname"><a href="namespacept.html#a277f8043801eba941aa93db8a3a7b644ab5bf627e448384cf3a4c35121ca6008d">pt::Color::WHITE</a></div><div class="ttdeci">@ WHITE</div></div>
+<div class="ttc" id="anamespacept_html_ab52d2aa0eb6b82199a55b91d59af5407"><div class="ttname"><a href="namespacept.html#ab52d2aa0eb6b82199a55b91d59af5407">pt::BLUE</a></div><div class="ttdeci">constexpr TermStyle&lt; 0 &gt; BLUE(Color::BLUE)</div></div>
+<div class="ttc" id="anamespacept_html_a277f8043801eba941aa93db8a3a7b644a5b39c8b553c821e7cddc6da64b5bd2ee"><div class="ttname"><a href="namespacept.html#a277f8043801eba941aa93db8a3a7b644a5b39c8b553c821e7cddc6da64b5bd2ee">pt::Color::DEFAULT</a></div><div class="ttdeci">@ DEFAULT</div></div>
+<div class="ttc" id="aclasspt_1_1_term_style_html_aad36764eb59d84b45d614e8859898fc1"><div class="ttname"><a href="classpt_1_1_term_style.html#aad36764eb59d84b45d614e8859898fc1">pt::TermStyle::line</a></div><div class="ttdeci">void line(char pattern='-', int n=0, std::ostream &amp;os=std::cout) const</div><div class="ttdef"><b>Definition:</b> term_style.hpp:114</div></div>
+<div class="ttc" id="aclasspt_1_1_term_style_html"><div class="ttname"><a href="classpt_1_1_term_style.html">pt::TermStyle</a></div><div class="ttdoc">Class to help stylize the stream outputs.</div><div class="ttdef"><b>Definition:</b> term_style.hpp:54</div></div>
+<div class="ttc" id="anamespacept_html_a277f8043801eba941aa93db8a3a7b644aa88a6a0c276fd853999a1faedf19c00e"><div class="ttname"><a href="namespacept.html#a277f8043801eba941aa93db8a3a7b644aa88a6a0c276fd853999a1faedf19c00e">pt::Color::CLEAN</a></div><div class="ttdeci">@ CLEAN</div></div>
+<div class="ttc" id="aclasspt_1_1_term_style_html_a6cf3d66d599556d81fa27585ea512fdf"><div class="ttname"><a href="classpt_1_1_term_style.html#a6cf3d66d599556d81fa27585ea512fdf">pt::TermStyle::background</a></div><div class="ttdeci">constexpr TermStyle background() const noexcept</div><div class="ttdef"><b>Definition:</b> term_style.hpp:69</div></div>
+<div class="ttc" id="anamespacept_html_a2abcf259cf55e9e395c071f79c75725ea25093123b8943308104129e1d762f3b7"><div class="ttname"><a href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea25093123b8943308104129e1d762f3b7">pt::Style::ITALIC</a></div><div class="ttdeci">@ ITALIC</div></div>
+<div class="ttc" id="aclasspt_1_1_term_style_html_ac2e8746d7f1ef81c9fb86c18fc11d94f"><div class="ttname"><a href="classpt_1_1_term_style.html#ac2e8746d7f1ef81c9fb86c18fc11d94f">pt::TermStyle::TermStyle</a></div><div class="ttdeci">constexpr TermStyle(Color color, std::array&lt; Style, MAX_STYLE_NUM &gt; styles=std::array&lt; Style, MAX_STYLE_NUM &gt; { {} })</div><div class="ttdef"><b>Definition:</b> term_style.hpp:61</div></div>
+<div class="ttc" id="aclasspt_1_1_term_style_html_ab3ac567aa5d05bd0609a9f6d1218e13d"><div class="ttname"><a href="classpt_1_1_term_style.html#ab3ac567aa5d05bd0609a9f6d1218e13d">pt::TermStyle::string_field</a></div><div class="ttdeci">void string_field(const std::string &amp;res, size_t max_len=0, std::ostream &amp;os=std::cout) const</div><div class="ttdef"><b>Definition:</b> term_style.hpp:140</div></div>
+<div class="ttc" id="anamespacept_html_a2abcf259cf55e9e395c071f79c75725ea642e0b6684e6165e142c074f1cd8d55c"><div class="ttname"><a href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea642e0b6684e6165e142c074f1cd8d55c">pt::Style::REVERSE</a></div><div class="ttdeci">@ REVERSE</div></div>
+<div class="ttc" id="anamespacept_html_a5900c319d577cf42c8fb3c206cff3e33"><div class="ttname"><a href="namespacept.html#a5900c319d577cf42c8fb3c206cff3e33">pt::CLEAN</a></div><div class="ttdeci">constexpr TermStyle&lt; 0 &gt; CLEAN(Color::CLEAN)</div></div>
+<div class="ttc" id="anamespacept_html_acb8b3099de5439e5fc9c7ee4778bf15c"><div class="ttname"><a href="namespacept.html#acb8b3099de5439e5fc9c7ee4778bf15c">pt::CYAN</a></div><div class="ttdeci">constexpr TermStyle&lt; 0 &gt; CYAN(Color::CYAN)</div></div>
+<div class="ttc" id="anamespacept_html_a2abcf259cf55e9e395c071f79c75725e"><div class="ttname"><a href="namespacept.html#a2abcf259cf55e9e395c071f79c75725e">pt::Style</a></div><div class="ttdeci">Style</div><div class="ttdef"><b>Definition:</b> term_style.hpp:19</div></div>
+<div class="ttc" id="anamespacept_html_ab65aab90391dfc929c2d76ad4b588a8e"><div class="ttname"><a href="namespacept.html#ab65aab90391dfc929c2d76ad4b588a8e">pt::BLACK</a></div><div class="ttdeci">constexpr TermStyle&lt; 0 &gt; BLACK(Color::BLACK)</div></div>
+<div class="ttc" id="anamespacept_html_a277f8043801eba941aa93db8a3a7b644"><div class="ttname"><a href="namespacept.html#a277f8043801eba941aa93db8a3a7b644">pt::Color</a></div><div class="ttdeci">Color</div><div class="ttdef"><b>Definition:</b> term_style.hpp:32</div></div>
+<div class="ttc" id="aclasspt_1_1_term_style_html_a39ef842f6141dc6ef0ac9955f0420392"><div class="ttname"><a href="classpt_1_1_term_style.html#a39ef842f6141dc6ef0ac9955f0420392">pt::TermStyle::padding</a></div><div class="ttdeci">static void padding(int n, char pattern=' ', std::ostream &amp;os=std::cout)</div><div class="ttdef"><b>Definition:</b> term_style.hpp:130</div></div>
+<div class="ttc" id="anamespacept_html_a277f8043801eba941aa93db8a3a7b644aec9c138095a352a9b7ef9ca5363b14d9"><div class="ttname"><a href="namespacept.html#a277f8043801eba941aa93db8a3a7b644aec9c138095a352a9b7ef9ca5363b14d9">pt::Color::PURPLE</a></div><div class="ttdeci">@ PURPLE</div></div>
+<div class="ttc" id="anamespacept_html_a277f8043801eba941aa93db8a3a7b644a344dd8cd533280795b9db82ef0c92749"><div class="ttname"><a href="namespacept.html#a277f8043801eba941aa93db8a3a7b644a344dd8cd533280795b9db82ef0c92749">pt::Color::CYAN</a></div><div class="ttdeci">@ CYAN</div></div>
+<div class="ttc" id="anamespacept_html_a2abcf259cf55e9e395c071f79c75725ea509b5416bf705c10f9812317852300db"><div class="ttname"><a href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea509b5416bf705c10f9812317852300db">pt::Style::FAINT</a></div><div class="ttdeci">@ FAINT</div></div>
+<div class="ttc" id="anamespacept_html_a277f8043801eba941aa93db8a3a7b644a08d0012388564e95c3b4a7407cf04965"><div class="ttname"><a href="namespacept.html#a277f8043801eba941aa93db8a3a7b644a08d0012388564e95c3b4a7407cf04965">pt::Color::BLACK</a></div><div class="ttdeci">@ BLACK</div></div>
+<div class="ttc" id="anamespacept_html_a277f8043801eba941aa93db8a3a7b644a9de0e5dd94e861317e74964bed179fa0"><div class="ttname"><a href="namespacept.html#a277f8043801eba941aa93db8a3a7b644a9de0e5dd94e861317e74964bed179fa0">pt::Color::GREEN</a></div><div class="ttdeci">@ GREEN</div></div>
+<div class="ttc" id="anamespacept_html_a6dd437356bb8fd7cd97e5ec842b8a32c"><div class="ttname"><a href="namespacept.html#a6dd437356bb8fd7cd97e5ec842b8a32c">pt::get_term_length</a></div><div class="ttdeci">size_t get_term_length(unsigned short int max_len=256)</div><div class="ttdef"><b>Definition:</b> term_style.hpp:45</div></div>
+<div class="ttc" id="anamespacept_html_a04bb36042b1e99bbfc347df68717d7c4"><div class="ttname"><a href="namespacept.html#a04bb36042b1e99bbfc347df68717d7c4">pt::RED</a></div><div class="ttdeci">constexpr TermStyle&lt; 0 &gt; RED(Color::RED)</div></div>
+<div class="ttc" id="aclasspt_1_1_term_style_html_a6f4d8046384fb5d20f415a0ffbfe47a9"><div class="ttname"><a href="classpt_1_1_term_style.html#a6f4d8046384fb5d20f415a0ffbfe47a9">pt::TermStyle::style</a></div><div class="ttdeci">TermStyle&lt; MAX_STYLE_NUM+N &gt; style(const Style(&amp;sl)[N]) const noexcept</div><div class="ttdef"><b>Definition:</b> term_style.hpp:95</div></div>
+<div class="ttc" id="aclasspt_1_1_term_style_html_af3c8cbf7e0bfc5ce362c8b3d5c5606e6"><div class="ttname"><a href="classpt_1_1_term_style.html#af3c8cbf7e0bfc5ce362c8b3d5c5606e6">pt::TermStyle::max_style_num</a></div><div class="ttdeci">static constexpr size_t max_style_num</div><div class="ttdef"><b>Definition:</b> term_style.hpp:56</div></div>
+<div class="ttc" id="anamespacept_html_a277f8043801eba941aa93db8a3a7b644a8a568e5f41b7e4da88fe5c4a00aad34e"><div class="ttname"><a href="namespacept.html#a277f8043801eba941aa93db8a3a7b644a8a568e5f41b7e4da88fe5c4a00aad34e">pt::Color::YELLOW</a></div><div class="ttdeci">@ YELLOW</div></div>
+<div class="ttc" id="aclasspt_1_1_term_style_html_abc407cccc86fda93ba162a03db6908c0"><div class="ttname"><a href="classpt_1_1_term_style.html#abc407cccc86fda93ba162a03db6908c0">pt::TermStyle::style</a></div><div class="ttdeci">TermStyle&lt; MAX_STYLE_NUM+1 &gt; style(Style s_) const noexcept</div><div class="ttdef"><b>Definition:</b> term_style.hpp:84</div></div>
+<div class="ttc" id="anamespacept_html_a2abcf259cf55e9e395c071f79c75725ea0086c73c90c261db630b4dc8aea09bcf"><div class="ttname"><a href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea0086c73c90c261db630b4dc8aea09bcf">pt::Style::UNDERLINE</a></div><div class="ttdeci">@ UNDERLINE</div></div>
+<div class="ttc" id="anamespacept_html_ad92cacc72f518e28d090619d841ff9b2"><div class="ttname"><a href="namespacept.html#ad92cacc72f518e28d090619d841ff9b2">pt::PURPLE</a></div><div class="ttdeci">constexpr TermStyle&lt; 0 &gt; PURPLE(Color::PURPLE)</div></div>
+<div class="ttc" id="anamespacept_html_a2abcf259cf55e9e395c071f79c75725ea1e23852820b9154316c7c06e2b7ba051"><div class="ttname"><a href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea1e23852820b9154316c7c06e2b7ba051">pt::Style::NORMAL</a></div><div class="ttdeci">@ NORMAL</div></div>
+<div class="ttc" id="anamespacept_html_a2373881eb34f5fc50ea241b236037b82"><div class="ttname"><a href="namespacept.html#a2373881eb34f5fc50ea241b236037b82">pt::DEF</a></div><div class="ttdeci">constexpr TermStyle&lt; 0 &gt; DEF(Color::DEFAULT)</div></div>
+<div class="ttc" id="aclasspt_1_1_term_style_html_ab63ba02dca68e580b45117230af5f534"><div class="ttname"><a href="classpt_1_1_term_style.html#ab63ba02dca68e580b45117230af5f534">pt::TermStyle::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const TermStyle &amp;term_color)</div><div class="ttdef"><b>Definition:</b> term_style.hpp:154</div></div>
+<div class="ttc" id="anamespacept_html_a2abcf259cf55e9e395c071f79c75725ea41cd6be0f67e0e3c6d79e7b346d58076"><div class="ttname"><a href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea41cd6be0f67e0e3c6d79e7b346d58076">pt::Style::CROSS_OUT</a></div><div class="ttdeci">@ CROSS_OUT</div></div>
+<div class="ttc" id="aclasspt_1_1_term_style_html_ae43b5d024213a59dbd9a207ca3e2655e"><div class="ttname"><a href="classpt_1_1_term_style.html#ae43b5d024213a59dbd9a207ca3e2655e">pt::TermStyle::color</a></div><div class="ttdeci">constexpr Color color() const noexcept</div><div class="ttdef"><b>Definition:</b> term_style.hpp:105</div></div>
+<div class="ttc" id="anamespacept_html_aad0c9b96473a0e55ed17a960ed0815c0"><div class="ttname"><a href="namespacept.html#aad0c9b96473a0e55ed17a960ed0815c0">pt::YELLOW</a></div><div class="ttdeci">constexpr TermStyle&lt; 0 &gt; YELLOW(Color::YELLOW)</div></div>
+<div class="ttc" id="anamespacept_html_a277f8043801eba941aa93db8a3a7b644aa2d9547b5d3dd9f05984475f7c926da0"><div class="ttname"><a href="namespacept.html#a277f8043801eba941aa93db8a3a7b644aa2d9547b5d3dd9f05984475f7c926da0">pt::Color::RED</a></div><div class="ttdeci">@ RED</div></div>
+<div class="ttc" id="anamespacept_html_a2abcf259cf55e9e395c071f79c75725ea37124ad1fc66e68535d0bebba57f414b"><div class="ttname"><a href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea37124ad1fc66e68535d0bebba57f414b">pt::Style::RAPID_BLINK</a></div><div class="ttdeci">@ RAPID_BLINK</div></div>
+<div class="ttc" id="aclasspt_1_1_term_style_html_acad80ce05dec0d6f7f157960b99091ea"><div class="ttname"><a href="classpt_1_1_term_style.html#acad80ce05dec0d6f7f157960b99091ea">pt::TermStyle::style_array</a></div><div class="ttdeci">std::array&lt; Style, MAX_STYLE_NUM &gt; style_array</div><div class="ttdef"><b>Definition:</b> term_style.hpp:175</div></div>
+<div class="ttc" id="anamespacept_html_a277f8043801eba941aa93db8a3a7b644a1b3e1ee9bff86431dea6b181365ba65f"><div class="ttname"><a href="namespacept.html#a277f8043801eba941aa93db8a3a7b644a1b3e1ee9bff86431dea6b181365ba65f">pt::Color::BLUE</a></div><div class="ttdeci">@ BLUE</div></div>
+<div class="ttc" id="anamespacept_html_a2abcf259cf55e9e395c071f79c75725ea92073ead6c4077b506a40e9caab4190f"><div class="ttname"><a href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea92073ead6c4077b506a40e9caab4190f">pt::Style::SLOW_BLINK</a></div><div class="ttdeci">@ SLOW_BLINK</div></div>
+<div class="ttc" id="anamespacept_html_a2abcf259cf55e9e395c071f79c75725ea2909dd0e0336f10b6da9735b859a3d19"><div class="ttname"><a href="namespacept.html#a2abcf259cf55e9e395c071f79c75725ea2909dd0e0336f10b6da9735b859a3d19">pt::Style::BOLD</a></div><div class="ttdeci">@ BOLD</div></div>
+<div class="ttc" id="anamespacept_html_a152f42a2014a8f86c778754c244d95a3"><div class="ttname"><a href="namespacept.html#a152f42a2014a8f86c778754c244d95a3">pt::WHITE</a></div><div class="ttdeci">constexpr TermStyle&lt; 0 &gt; WHITE(Color::WHITE)</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>

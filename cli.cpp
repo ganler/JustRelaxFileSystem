@@ -5,6 +5,12 @@
 
 #include "JRFS/util/term_style.hpp"
 #include "JRFS/util/utility.hpp"
+#include <gflags/gflags.h>
+
+DEFINE_string(mount_path, "", "Path to mount the image.");
+
+DEFINE_bool(create, false, "Whether to create new image.");
+DEFINE_int32(block_size, 2048, "Total numbers of blocks in new image.");
 
 /*
  * TODO LIST:
@@ -22,6 +28,7 @@ public:
     int rm(std::string_view dest);
     int mkdir(std::string_view dest);
     int echo(std::string_view input);
+    int cd(std::string_view dest);
     int to_jrfs(std::string_view from, std::string_view to);
     int from_jrfs(std::string_view from, std::string_view to);
     int exit();
@@ -44,6 +51,10 @@ public:
                 } else if (string_vector[0] == "rm") {
                     if (string_vector.size() != 2)
                         throw std::logic_error("Invalid use of `rm`. Run like this: `rm ${FILE_PATH}`");
+                    return rm(string_vector[1]);
+                } else if (string_vector[0] == "cd") {
+                    if (string_vector.size() != 2)
+                        throw std::logic_error("Invalid use of `cd`. Run like this: `cd ${FILE_PATH}`");
                     return rm(string_vector[1]);
                 } else if (string_vector[0] == "mkdir") {
                     if (string_vector.size() != 2)
@@ -99,8 +110,13 @@ private:
 };
 }
 
-int main()
-{
+struct alignas(128) a{
+    int x;
+};
+
+int main(int argc, char* argv[]) {
+    gflags::ParseCommandLineFlags(&argc, &argv, true);
+
     jrfs::cli command_line;
     while (true) {
         command_line.shell();
@@ -151,6 +167,12 @@ int cli::to_jrfs(std::string_view from, std::string_view to)
 }
 
 int cli::ls()
+{
+    std::cout << __PRETTY_FUNCTION__ << ": Not Implemented.\n";
+    return 0;
+}
+
+int cli::cd(std::string_view dest)
 {
     std::cout << __PRETTY_FUNCTION__ << ": Not Implemented.\n";
     return 0;
