@@ -41,7 +41,6 @@ filesystem::filehander filesystem::fopen(std::string_view path_) {
     return filehander(*this, inode_index);
 }
 
-
 void filesystem::fcreate(std::string_view path_) {
     std::string path(path_);
     auto tokens = utility::split(path, '/');
@@ -54,6 +53,8 @@ void filesystem::fcreate(std::string_view path_) {
     tokens.pop_back();
 
     int dir = path_to_inode(tokens, path);
+
+    assert(inode_list[dir].valid);
     assert(inode_list[dir].is_dir());
     assert(inode_bitmap[dir]);
 
@@ -114,6 +115,39 @@ void filesystem::fdelete(std::string_view path_) {
     delete_file_inode(inode_index);
 }
 
+void filesystem::rmdir(std::string_view path_) {
+    std::string path(path_);
+    auto tokens = utility::split(path, '/');
+    auto inode_index = path_to_inode(tokens, path);
+    delete_directory_inode(inode_index);
+}
+
+void filesystem::mkdir(std::string_view path_) {
+    std::string path(path_);
+    auto tokens = utility::split(path, '/');
+    auto new_dir_name = std::move(tokens.back());
+
+    if (new_dir_name.length() >= sizeof(inode{}.name))
+        throw std::logic_error("The Directory Name Length Must Be Less Than " + std::to_string(sizeof(inode{}.name) - 1));
+    tokens.pop_back();
+
+    int father_dir = path_to_inode(tokens, path);
+    auto& directory_inode = inode_list[father_dir];
+
+    assert(inode_list[father_dir].valid);
+    assert(inode_list[father_dir].is_dir());
+    assert(inode_bitmap[father_dir]);
+
+    // OK, we got the root path now. Let's create a new one.
+    int next_slot = 2;
+    for(; next_slot < directory_inode.direct_block.size() && directory_inode.direct_block[next_slot] != kNULL; ++next_slot);
+
+    if (next_slot == directory_inode.direct_block.size())
+        throw std::logic_error("A Directory Can Only Contain " + std::to_string(directory_inode.direct_block.size()) + " At Most.");
+
+    directory_inode.direct_block[next_slot] = create_unlinked_directory(path, father_dir);
+}
+
 void filesystem::delete_file_inode(int index) {
     auto& inode = inode_list[index];
 
@@ -169,6 +203,27 @@ int filesystem::create_unlinked_file(const std::string &new_file_name, int dir_i
     new_file_name.copy(new_inode.name, new_file_name.length());
     new_inode.unix_time = std::time(nullptr);
     new_inode.direct_block[0] = dir_ind;
+    new_inode.size = 0;
+
+    return new_inode_index;
+}
+
+int filesystem::create_unlinked_directory(const std::string &new_dir_name, int dir_index) {
+    auto it = std::find(inode_bitmap.begin(), inode_bitmap.end(), true);
+    if (it == inode_bitmap.end())
+        throw std::logic_error("There's Not Enough Inodes Now!");
+
+    int new_inode_index = std::distance(inode_bitmap.begin(), it);
+
+    inode_bitmap[new_inode_index] = true;
+    auto& new_inode = inode_list[new_inode_index];
+
+    new_inode.valid = true;
+    new_inode.is_directory = true;
+    new_dir_name.copy(new_inode.name, new_dir_name.length());
+    new_inode.unix_time = std::time(nullptr);
+    new_inode.direct_block[0] = new_inode_index;
+    new_inode.direct_block[1] = dir_index;
     new_inode.size = 0;
 
     return new_inode_index;

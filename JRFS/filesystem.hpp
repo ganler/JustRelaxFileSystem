@@ -44,6 +44,7 @@ struct filesystem {
     void delete_directory_inode(int index);
     int path_to_inode(const std::vector<std::string>& tokens, const std::string& path); // 只支持全局路径(can be file | directory)
     int create_unlinked_file(const std::string& new_file_name, int dir_index);
+    int create_unlinked_directory(const std::string& new_dir_name, int dir_index);
 
     void load_image();
     void create_image(int count_blocks);
