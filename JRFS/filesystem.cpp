@@ -65,10 +65,96 @@ void filesystem::fcreate(std::string_view path_) {
     if (next_slot == directory_inode.direct_block.size())
         throw std::logic_error("A Directory Can Only Contain " + std::to_string(directory_inode.direct_block.size()) + " At Most.");
 
-    directory_inode.direct_block[next_slot] = create_unlinked_file(path);
+    directory_inode.direct_block[next_slot] = create_unlinked_file(path, dir);
 }
 
-int filesystem::create_unlinked_file(const std::string &new_file_name) {
+void filesystem::delete_directory_inode(int index) {
+    auto& inode = inode_list[index];
+
+    assert(inode.valid);
+    assert(inode.is_dir());
+    assert(inode.unix_time != 0);
+
+    if (inode.direct_block[1] == -1)
+        throw std::logic_error("Cannot Remove Root Directory!");
+
+    inode.valid = false; // Invalid the flag.
+
+    // Remove The Bitmap.
+    inode_bitmap[index] = false;
+
+    // Remove From Father Directory.
+    auto father_index = inode.direct_block[1];
+    auto& father_inode = inode_list[father_index];
+    for (int i = 2; i < father_inode.direct_block.size(); ++i) {
+        if (father_inode.direct_block[i] == index) {
+            for (int j = i+1; j < father_inode.direct_block.size(); ++j)
+                if (father_inode.direct_block[j] != kNULL)
+                    std::swap(father_inode.direct_block[j], father_inode.direct_block[j-1]);
+            return;
+        }
+    }
+
+    for (int i = 2; i < inode.direct_block.size(); ++i) {
+        int sub_index = inode.direct_block[i];
+        if (kNULL == sub_index)
+            break;
+        auto& sub_node = inode_list[sub_index];
+        if (sub_node.is_dir())
+            delete_directory_inode(sub_index);
+        else
+            delete_file_inode(sub_index);
+    }
+}
+
+void filesystem::fdelete(std::string_view path_) {
+    std::string path(path_);
+    auto tokens = utility::split(path, '/');
+    auto inode_index = path_to_inode(tokens, path);
+    delete_file_inode(inode_index);
+}
+
+void filesystem::delete_file_inode(int index) {
+    auto& inode = inode_list[index];
+
+    assert(inode.valid);
+    assert(!inode.is_dir());
+    assert(inode.unix_time != 0);
+
+    inode.valid = false; // Invalid the flag.
+
+    // Clean Block Bitmap First.
+    int direct_block_index = 1;
+    while (direct_block_index < inode.direct_block.size() && inode.direct_block[direct_block_index] != kNULL) {
+        block_bitmap[inode.direct_block[direct_block_index++]] = false;
+    }
+
+    if (inode.direct_block.size() == direct_block_index) {
+        // Linked List Mode.
+        auto& block = block_list[inode.direct_block.back()];
+        int block_index = block.next;
+
+        while (block_index != kNULL) {
+            block_bitmap[block_index] = false;
+            block_index = block_list[block_index].next;
+        }
+    }
+
+    // Block Data Cleaned. Now lets clean the inode data.
+    auto& father_inode = inode_list[inode.direct_block[0]];
+    for (int i = 2; i < father_inode.direct_block.size(); ++i) {
+        if (father_inode.direct_block[i] == index) {
+            for (int j = i+1; j < father_inode.direct_block.size(); ++j)
+                if (father_inode.direct_block[j] != kNULL)
+                    std::swap(father_inode.direct_block[j], father_inode.direct_block[j-1]);
+            return;
+        }
+    }
+
+    assert(false); // Cannot find current inode in his father directory.
+}
+
+int filesystem::create_unlinked_file(const std::string &new_file_name, int dir_ind) {
     auto it = std::find(inode_bitmap.begin(), inode_bitmap.end(), true);
     if (it == inode_bitmap.end())
         throw std::logic_error("There's Not Enough Inodes Now!");
@@ -82,7 +168,7 @@ int filesystem::create_unlinked_file(const std::string &new_file_name) {
     new_inode.is_directory = false;
     new_file_name.copy(new_inode.name, new_file_name.length());
     new_inode.unix_time = std::time(nullptr);
-    new_inode.direct_block[0] = new_inode_index;
+    new_inode.direct_block[0] = dir_ind;
     new_inode.size = 0;
 
     return new_inode_index;
@@ -136,7 +222,7 @@ void filesystem::create_image(int count_blocks) {
 
     this->generate_image();
 
-
+    // MK ROOT DIR.
     block_bitmap = decltype(block_bitmap)(super_block.block_total, false);
     block_bitmap[0] = true;
     inode_bitmap = decltype(inode_bitmap)(super_block.inode_total, false);

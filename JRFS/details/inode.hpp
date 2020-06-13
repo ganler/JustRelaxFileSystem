@@ -13,7 +13,7 @@ struct alignas(kInodeSize) inode {
     int is_directory = false; ///> 是否是文件夹
 
     char name[32] = "";
-    uint32_t unix_time {};
+    uint32_t unix_time {0};
 
     std::array<int, 20> direct_block {}; ///> 直接索引的数据块
     // Dir:  [Curr] [UpLevel] [...]

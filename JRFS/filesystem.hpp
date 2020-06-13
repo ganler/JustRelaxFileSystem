@@ -40,8 +40,10 @@ struct filesystem {
     void fdelete(std::string_view path);
 
     // Low Level API (Dangerous)
+    void delete_file_inode(int index);
+    void delete_directory_inode(int index);
     int path_to_inode(const std::vector<std::string>& tokens, const std::string& path); // 只支持全局路径(can be file | directory)
-    int create_unlinked_file(const std::string& new_file_name);
+    int create_unlinked_file(const std::string& new_file_name, int dir_index);
 
     void load_image();
     void create_image(int count_blocks);
