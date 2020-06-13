@@ -1,6 +1,7 @@
 #pragma once
 
 #include "config.hpp"
+#include "data_block.hpp"
 #include <array>
 #include <ctime>
 
@@ -18,6 +19,7 @@ struct alignas(kInodeSize) inode {
     // Dir:  [Curr] [UpLevel] [...]
     // File: [Curr] [...]
 
+    static constexpr int kMaxFileSize = sizeof(direct_block) / sizeof(int) * data_block{}.kContentSize;
 public:
     bool is_dir() const;
 

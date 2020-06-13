@@ -4,7 +4,7 @@ project(JustRelaxFileSystem)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-file(GLOB JRFS_LIB_SOURCES JRFS/details/*pp)
+file(GLOB JRFS_LIB_SOURCES JRFS/details/*pp JRFS/util/*pp)
 
 MESSAGE(STATUS "Found JRFS Source Files: ${JRFS_LIB_SOURCES}")
 

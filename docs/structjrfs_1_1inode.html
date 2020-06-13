@@ -68,6 +68,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="#pub-attribs">Public 属性</a> &#124;
+<a href="#pub-static-attribs">静态 Public 属性</a> &#124;
 <a href="structjrfs_1_1inode-members.html">所有成员列表</a>  </div>
   <div class="headertitle">
 <div class="title">jrfs::inode结构体 参考</div>  </div>
@@ -79,10 +80,6 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:ac04b9538f8e0dd8f6db23186e60acde4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html#ac04b9538f8e0dd8f6db23186e60acde4">is_dir</a> () const</td></tr>
-<tr class="memdesc:ac04b9538f8e0dd8f6db23186e60acde4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><blockquote class="doxtable">
-<p>直接索引的数据块 </p>
-</blockquote>
- <a href="structjrfs_1_1inode.html#ac04b9538f8e0dd8f6db23186e60acde4">更多...</a><br /></td></tr>
 <tr class="separator:ac04b9538f8e0dd8f6db23186e60acde4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81edfdba7b616aa98701f70b2c308e68"><td class="memItemLeft" align="right" valign="top">int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html#a81edfdba7b616aa98701f70b2c308e68">current_dir</a> ()</td></tr>
 <tr class="separator:a81edfdba7b616aa98701f70b2c308e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,6 +120,15 @@ Public 属性</h2></td></tr>
 <tr class="separator:a7e476a564c794f73781242183977bbf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe25efe5e098c40a4333858af8d4b64e"><td class="memItemLeft" align="right" valign="top">std::array&lt; int, 20 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html#abe25efe5e098c40a4333858af8d4b64e">direct_block</a> {}</td></tr>
 <tr class="separator:abe25efe5e098c40a4333858af8d4b64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+静态 Public 属性</h2></td></tr>
+<tr class="memitem:a6fde6e8f82ee5f33819197d71d6e7a1a"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html#a6fde6e8f82ee5f33819197d71d6e7a1a">kMaxFileSize</a> = sizeof(<a class="el" href="structjrfs_1_1inode.html#abe25efe5e098c40a4333858af8d4b64e">direct_block</a>) / sizeof(int) * <a class="el" href="structjrfs_1_1data__block.html">data_block</a>{}.kContentSize</td></tr>
+<tr class="memdesc:a6fde6e8f82ee5f33819197d71d6e7a1a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><blockquote class="doxtable">
+<p>直接索引的数据块 </p>
+</blockquote>
+ <a href="structjrfs_1_1inode.html#a6fde6e8f82ee5f33819197d71d6e7a1a">更多...</a><br /></td></tr>
+<tr class="separator:a6fde6e8f82ee5f33819197d71d6e7a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">成员函数说明</h2>
 <a id="a81edfdba7b616aa98701f70b2c308e68"></a>
@@ -189,11 +195,6 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p><blockquote class="doxtable">
-<p>直接索引的数据块 </p>
-</blockquote>
-</p>
 
 </div>
 </div>
@@ -312,6 +313,33 @@ Public 属性</h2></td></tr>
 
 <p><blockquote class="doxtable">
 <p>inode数据的逻辑字节大小 </p>
+</blockquote>
+</p>
+
+</div>
+</div>
+<a id="a6fde6e8f82ee5f33819197d71d6e7a1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fde6e8f82ee5f33819197d71d6e7a1a">&#9670;&nbsp;</a></span>kMaxFileSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int jrfs::inode::kMaxFileSize = sizeof(<a class="el" href="structjrfs_1_1inode.html#abe25efe5e098c40a4333858af8d4b64e">direct_block</a>) / sizeof(int) * <a class="el" href="structjrfs_1_1data__block.html">data_block</a>{}.kContentSize</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><blockquote class="doxtable">
+<p>直接索引的数据块 </p>
 </blockquote>
 </p>
 
