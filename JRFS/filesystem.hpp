@@ -24,10 +24,10 @@ struct filesystem {
         void seekp(int p);
         void write(std::string_view data);
         std::string read(int size);
-        filehander(filesystem& fs, int ind) : m_fs_ref(fs), inode_id(ind) {}
+        filehander(filesystem& fs, int ind) : m_fs_ref(fs), m_inode_id(ind) {}
     private:
         filesystem& m_fs_ref;
-        int inode_id;
+        const int m_inode_id;
         int m_seekp = 0;
     };
 

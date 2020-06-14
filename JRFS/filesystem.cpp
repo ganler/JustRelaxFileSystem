@@ -329,4 +329,128 @@ void filesystem::scan_bitmap() {
     mark_bitmap(0);
 }
 
+std::string filesystem::filehander::read(int size) {
+    std::string ret;
+    const auto& inode = m_fs_ref.inode_list[m_inode_id];
+
+    assert(inode.valid);
+    assert(!inode.is_dir());
+    assert(inode.unix_time != 0);
+
+    if (m_seekp + size > inode.size)
+        throw std::logic_error(
+                "Overflow When Reading File. Your File Only Has " + std::to_string(inode.size) + " Bytes. But You Want To Read " + std::to_string(size) + " Bytes From Point " + std::to_string(m_seekp));
+
+    int curr_point = 0;
+    for (int i = 1; i < inode.direct_block.size(); ++i) {
+        const auto& blk = m_fs_ref.block_list[inode.direct_block[i]];
+
+        if (curr_point + blk.size >= m_seekp) { // Now We Can Read!
+            if (curr_point > m_seekp + size) // No More Bytes To Read...
+                break;
+            int bytes_to_read_in_this_block = std::min(blk.size, m_seekp + size - curr_point);
+            std::string_view data_view(blk.data_content, bytes_to_read_in_this_block);
+            ret += data_view;
+        }
+
+        curr_point += blk.size;
+    }
+
+    return ret;
+}
+
+void filesystem::filehander::write(std::string_view data) { // Currently This Is Implemented In Append Fashion.
+    int read_index = 0;
+    auto& inode = m_fs_ref.inode_list[m_inode_id];
+
+    assert(inode.valid);
+    assert(!inode.is_dir());
+    assert(inode.unix_time != 0);
+
+    int index_in_inode = 1;
+    for (; index_in_inode < inode.direct_block.size(); ++index_in_inode) {
+        if (inode.direct_block[index_in_inode] == kNULL) {
+            // Check If Current Block Is The Answer.
+            if (index_in_inode == 1 || m_fs_ref.block_list[inode.direct_block[index_in_inode-1]].size == data_block::kContentSize)
+                break;
+            --index_in_inode;
+            break;
+        }
+    }
+
+    // Pad The Unfilled Block.
+    if (index_in_inode < inode.direct_block.size() && inode.direct_block[index_in_inode] != kNULL) { // This Means Padding.
+        auto& blk = m_fs_ref.block_list[inode.direct_block[index_in_inode]];
+        assert(blk.size != data_block::kContentSize);
+
+        const int read_amount = std::min(blk.kContentSize - blk.size, static_cast<int>(data.size() - read_index));
+        data.copy(blk.data_content + blk.size, read_amount);
+        read_index += read_amount;
+
+        ++index_in_inode;
+    }
+
+    // Entire Blocks.
+    int left_amount = data.size() - read_index;
+    int blk_num_needed = (left_amount + data_block::kContentSize - 1) / data_block::kContentSize;
+
+    if (blk_num_needed == 0)
+        return;
+
+    // Allocate Blocks.
+    std::vector<int> blk_indexes{};
+    for (int i = 1; i < m_fs_ref.block_bitmap.size() && blk_indexes.size() < blk_num_needed; ++i) {
+        if (!m_fs_ref.block_bitmap[i])
+            blk_indexes.push_back(i);
+    }
+
+    if (blk_indexes.size() < blk_num_needed)
+        throw std::logic_error("Blocks Not Enough! " + std::to_string(blk_num_needed - blk_indexes.size()) + " required.");
+
+    // Mark the bitmap.
+    for (int ind : blk_indexes)
+        m_fs_ref.block_bitmap[ind] = true;
+
+    // Fill the blocks.
+    int link_index = 0;
+
+    // Connect the indexes in the inode.
+    for (; index_in_inode < inode.direct_block.size() && link_index < blk_indexes.size(); ++index_in_inode) {
+        inode.direct_block[index_in_inode] = blk_indexes[link_index++];
+    }
+
+    if (index_in_inode == inode.direct_block.size()) { // Linked List Mode.
+        // Let's Find The Tail First.
+        int next_blk_id = inode.direct_block.back();
+
+        while (true) {
+            auto& blk = m_fs_ref.block_list[next_blk_id];
+            if (blk.next != kNULL) {
+                next_blk_id = blk.next;
+            } else break;
+        }
+
+        for(; link_index < blk_indexes.size(); ++link_index) {
+            auto& blk = m_fs_ref.block_list[next_blk_id];
+            blk.next = link_index;
+            next_blk_id = blk_indexes[link_index];
+        }
+    }
+
+    for (const auto& ind : blk_indexes) { // Fill The Contents. // !Size
+        auto& blk = m_fs_ref.block_list[ind];
+        const int read_amount = std::min(blk.kContentSize, static_cast<int>(data.size() - read_index));
+
+        std::string_view data_(data.data() + read_index, data.size() - read_index);
+        data_.copy(blk.data_content, read_amount);
+        blk.size = read_amount;
+
+        read_index += read_amount;
+    }
+}
+
+void filesystem::filehander::seekp(int p) {
+    m_seekp = p;
+}
+
 }

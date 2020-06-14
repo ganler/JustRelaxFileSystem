@@ -84,7 +84,7 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#a0464ef6394f47d37a3139169c58d0ec3">   13</a></span>&#160;    <span class="keywordtype">int</span> is_directory = <span class="keyword">false</span>; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#ad7684e5adb139c7452bccfc62d03fa0d">   15</a></span>&#160;    <span class="keywordtype">char</span> name[32] = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#a7e476a564c794f73781242183977bbf1">   16</a></span>&#160;    uint32_t unix_time {};</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#a7e476a564c794f73781242183977bbf1">   16</a></span>&#160;    uint32_t unix_time {0};</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#abe25efe5e098c40a4333858af8d4b64e">   18</a></span>&#160;    std::array&lt;int, 20&gt; direct_block {}; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">// Dir:  [Curr] [UpLevel] [...]</span></div>
