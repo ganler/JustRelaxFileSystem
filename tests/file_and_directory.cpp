@@ -1,6 +1,7 @@
 #include "test_util.hpp"
 
-TEST(JRFSFileAndDir, CheckRootDir) {
+TEST(JRFSFileAndDir, CheckRootDir)
+{
     std::string test_image = "./gtest_image.jrfs";
 
     {
@@ -9,12 +10,11 @@ TEST(JRFSFileAndDir, CheckRootDir) {
         EXPECT_EQ(0, system(("ls " + test_image).c_str()));
 
         // Check If Root Node Index == 0
-        EXPECT_EQ(0, image.path_to_inode({""}, "/"));
+        EXPECT_EQ(0, image.path_to_inode({ "" }, "/"));
         EXPECT_TRUE(image.inode_list[0].valid);
         EXPECT_TRUE(image.inode_list[0].is_dir());
         EXPECT_EQ(image.inode_list[0].name, std::string(""));
         EXPECT_EQ(image.inode_list[0].current_dir(), 0);
-
     }
 
     if (system(("ls " + test_image).c_str()) == 0)
@@ -23,7 +23,8 @@ TEST(JRFSFileAndDir, CheckRootDir) {
     EXPECT_NE(0, system(("ls " + test_image).c_str()));
 }
 
-TEST(JRFSFileAndDir, CheckPathNotFoundThrow) {
+TEST(JRFSFileAndDir, CheckPathNotFoundThrow)
+{
     std::string test_image = "./gtest_image.jrfs";
 
     {
@@ -32,7 +33,7 @@ TEST(JRFSFileAndDir, CheckPathNotFoundThrow) {
         EXPECT_EQ(0, system(("ls " + test_image).c_str()));
 
         // Check If Root Node Index == 0
-        EXPECT_THROW(image.path_to_inode({"", "path", "to", "nowhere"}, "/path/to/nowhere"), std::logic_error);
+        EXPECT_THROW(image.path_to_inode({ "", "path", "to", "nowhere" }, "/path/to/nowhere"), std::logic_error);
     }
 
     if (system(("ls " + test_image).c_str()) == 0)
@@ -41,7 +42,8 @@ TEST(JRFSFileAndDir, CheckPathNotFoundThrow) {
     EXPECT_NE(0, system(("ls " + test_image).c_str()));
 }
 
-TEST(JRFSFileAndDir, CheckFileCreation) {
+TEST(JRFSFileAndDir, CheckFileCreation)
+{
     std::string test_image = "./gtest_image.jrfs";
 
     {
@@ -69,4 +71,39 @@ TEST(JRFSFileAndDir, CheckFileCreation) {
         system(("rm " + test_image).c_str()); // Clean the file.
 
     EXPECT_NE(0, system(("ls " + test_image).c_str()));
+}
+
+TEST(JRFSFileAndDir, CheckFileDeletion)
+{
+    // TODO.
+}
+
+TEST(JRFSFileAndDir, CheckDirectoryCreation)
+{
+    // TODO.
+}
+
+TEST(JRFSFileAndDir, CheckDirectoryDeletion)
+{
+    // TODO.
+}
+
+TEST(JRFSFileAndDir, CheckSmallFileWriting)
+{
+    // TODO.
+}
+
+TEST(JRFSFileAndDir, CheckSmallFileReading)
+{
+    // TODO.
+}
+
+TEST(JRFSFileAndDir, CheckBigFileReading)
+{
+    // TODO.
+}
+
+TEST(JRFSFileAndDir, CheckBigFileWriting)
+{
+    // TODO.
 }

@@ -1,6 +1,7 @@
 #include "test_util.hpp"
 
-TEST(JRFSImage, CheckCreation) {
+TEST(JRFSImage, CheckCreation)
+{
     std::string test_image = "./gtest_image.jrfs";
 
     {
@@ -15,7 +16,8 @@ TEST(JRFSImage, CheckCreation) {
     EXPECT_NE(0, system(("ls " + test_image).c_str()));
 }
 
-TEST(JRFSImage, CheckCapacity) {
+TEST(JRFSImage, CheckCapacity)
+{
     for (int i = 0; i < 10; ++i) {
         std::string test_image = "./gtest_image.jrfs";
         {
@@ -29,7 +31,8 @@ TEST(JRFSImage, CheckCapacity) {
     }
 }
 
-TEST(JRFSImage, CheckSuperBlock) {
+TEST(JRFSImage, CheckSuperBlock)
+{
     std::string test_image = "./gtest_image.jrfs";
     constexpr int block_total = 1000;
 
@@ -42,7 +45,7 @@ TEST(JRFSImage, CheckSuperBlock) {
     { // Read The Headers.
         std::fstream image(test_image, std::ios::in | std::ios::binary);
         jrfs::super_block check_block;
-        EXPECT_NO_THROW([&]{
+        EXPECT_NO_THROW([&] {
             try {
                 check_block.read(image);
             } catch (const std::exception& err) {
@@ -61,7 +64,8 @@ TEST(JRFSImage, CheckSuperBlock) {
     EXPECT_NE(0, system(("ls " + test_image).c_str()));
 }
 
-TEST(JRFSImage, CheckImageSize) {
+TEST(JRFSImage, CheckImageSize)
+{
     std::string test_image = "./gtest_image.jrfs";
 
     {
@@ -90,7 +94,8 @@ TEST(JRFSImage, CheckImageSize) {
     EXPECT_NE(0, system(("ls " + test_image).c_str()));
 }
 
-TEST(JRFSImage, CheckLoad) {
+TEST(JRFSImage, CheckLoad)
+{
     std::string test_image = "./gtest_image.jrfs";
     constexpr int block_total = 1000;
 

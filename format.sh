@@ -13,6 +13,8 @@ cd $(dirname $0)
 
 if [[ "${OSTYPE}" == "darwin"* ]]; then
   format_dir_darwin ./JRFS
+  format_dir_common ./tests
 else
   format_dir_common ./JRFS
+  format_dir_common ./tests
 fi

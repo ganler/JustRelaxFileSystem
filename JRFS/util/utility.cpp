@@ -6,7 +6,7 @@ namespace utility {
     {
         using namespace std;
         if (strtem.size() == 1 && strtem.front() == a)
-            return {""};
+            return { "" };
 
         vector<string> strvec;
         string::size_type pos1, pos2;
