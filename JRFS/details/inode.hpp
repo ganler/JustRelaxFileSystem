@@ -3,6 +3,7 @@
 #include "config.hpp"
 #include "data_block.hpp"
 #include <array>
+#include <cassert>
 #include <ctime>
 
 namespace jrfs {
@@ -13,13 +14,14 @@ struct alignas(kInodeSize) inode {
     int is_directory = false; ///> 是否是文件夹
 
     char name[32] = "";
-    uint32_t unix_time {0};
+    uint32_t unix_time{ 0 };
 
-    std::array<int, 20> direct_block {}; ///> 直接索引的数据块
+    std::array<int, 20> direct_block{}; ///> 直接索引的数据块
     // Dir:  [Curr] [UpLevel] [...]
     // File: [Curr] [...]
 
     static constexpr int kMaxFileSize = sizeof(direct_block) / sizeof(int) * data_block{}.kContentSize;
+
 public:
     bool is_dir() const;
 
