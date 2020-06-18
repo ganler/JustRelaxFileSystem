@@ -1,7 +1,9 @@
 #include "filesystem.hpp"
 #include "details/inode.hpp"
-#include <iostream>
 #include "util/utility.hpp"
+#include <algorithm>
+#include <fstream>
+#include <iostream>
 
 namespace jrfs {
 
@@ -11,37 +13,40 @@ void filesystem::load_image()
     if (!is.is_open())
         throw std::logic_error("Cannot Open Image File: " + std::string(mount_point));
 
-    super_block.read(is);
+    meta_data.read(is);
 
     // TODO: CHECK FILE SIZE.
 
-    inode_list.reserve(super_block.inode_total);
-    for (int i = 0; i < super_block.inode_total; ++i) {
+    inode_list.reserve(meta_data.inode_total);
+    for (int i = 0; i < meta_data.inode_total; ++i) {
         inode inode;
         inode.read(is);
         inode_list.push_back(inode);
     }
 
-    block_list.reserve(super_block.block_total);
-    for (int j = 0; j < super_block.block_total; ++j) {
+    block_list.reserve(meta_data.block_total);
+    for (int j = 0; j < meta_data.block_total; ++j) {
         data_block block;
         block.read(is);
         block_list.push_back(block);
     }
 }
 
-filesystem::~filesystem() {
+filesystem::~filesystem()
+{
     generate_image();
 }
 
-filesystem::filehander filesystem::fopen(std::string_view path_) {
+filesystem::filehander filesystem::fopen(std::string_view path_)
+{
     std::string path(path_);
     auto tokens = utility::split(path, '/');
     auto inode_index = path_to_inode(tokens, path);
     return filehander(*this, inode_index);
 }
 
-void filesystem::fcreate(std::string_view path_) {
+void filesystem::fcreate(std::string_view path_)
+{
     std::string path(path_);
     auto tokens = utility::split(path, '/');
 
@@ -61,7 +66,8 @@ void filesystem::fcreate(std::string_view path_) {
     auto& directory_inode = inode_list[dir];
 
     int next_slot = 2;
-    for(; next_slot < directory_inode.direct_block.size() && directory_inode.direct_block[next_slot] != kNULL; ++next_slot);
+    for (; next_slot < directory_inode.direct_block.size() && directory_inode.direct_block[next_slot] != kNULL; ++next_slot)
+        ;
 
     if (next_slot == directory_inode.direct_block.size())
         throw std::logic_error("A Directory Can Only Contain " + std::to_string(directory_inode.direct_block.size()) + " At Most.");
@@ -69,7 +75,8 @@ void filesystem::fcreate(std::string_view path_) {
     directory_inode.direct_block[next_slot] = create_unlinked_file(path, dir);
 }
 
-void filesystem::delete_directory_inode(int index) {
+void filesystem::delete_directory_inode(int index)
+{
     auto& inode = inode_list[index];
 
     assert(inode.valid);
@@ -89,9 +96,9 @@ void filesystem::delete_directory_inode(int index) {
     auto& father_inode = inode_list[father_index];
     for (int i = 2; i < father_inode.direct_block.size(); ++i) {
         if (father_inode.direct_block[i] == index) {
-            for (int j = i+1; j < father_inode.direct_block.size(); ++j)
+            for (int j = i + 1; j < father_inode.direct_block.size(); ++j)
                 if (father_inode.direct_block[j] != kNULL)
-                    std::swap(father_inode.direct_block[j], father_inode.direct_block[j-1]);
+                    std::swap(father_inode.direct_block[j], father_inode.direct_block[j - 1]);
             return;
         }
     }
@@ -108,21 +115,24 @@ void filesystem::delete_directory_inode(int index) {
     }
 }
 
-void filesystem::fdelete(std::string_view path_) {
+void filesystem::fdelete(std::string_view path_)
+{
     std::string path(path_);
     auto tokens = utility::split(path, '/');
     auto inode_index = path_to_inode(tokens, path);
     delete_file_inode(inode_index);
 }
 
-void filesystem::rmdir(std::string_view path_) {
+void filesystem::rmdir(std::string_view path_)
+{
     std::string path(path_);
     auto tokens = utility::split(path, '/');
     auto inode_index = path_to_inode(tokens, path);
     delete_directory_inode(inode_index);
 }
 
-void filesystem::mkdir(std::string_view path_) {
+void filesystem::mkdir(std::string_view path_)
+{
     std::string path(path_);
     auto tokens = utility::split(path, '/');
     auto new_dir_name = std::move(tokens.back());
@@ -140,7 +150,8 @@ void filesystem::mkdir(std::string_view path_) {
 
     // OK, we got the root path now. Let's create a new one.
     int next_slot = 2;
-    for(; next_slot < directory_inode.direct_block.size() && directory_inode.direct_block[next_slot] != kNULL; ++next_slot);
+    for (; next_slot < directory_inode.direct_block.size() && directory_inode.direct_block[next_slot] != kNULL; ++next_slot)
+        ;
 
     if (next_slot == directory_inode.direct_block.size())
         throw std::logic_error("A Directory Can Only Contain " + std::to_string(directory_inode.direct_block.size()) + " At Most.");
@@ -148,7 +159,8 @@ void filesystem::mkdir(std::string_view path_) {
     directory_inode.direct_block[next_slot] = create_unlinked_directory(path, father_dir);
 }
 
-void filesystem::delete_file_inode(int index) {
+void filesystem::delete_file_inode(int index)
+{
     auto& inode = inode_list[index];
 
     assert(inode.valid);
@@ -178,9 +190,9 @@ void filesystem::delete_file_inode(int index) {
     auto& father_inode = inode_list[inode.direct_block[0]];
     for (int i = 2; i < father_inode.direct_block.size(); ++i) {
         if (father_inode.direct_block[i] == index) {
-            for (int j = i+1; j < father_inode.direct_block.size(); ++j)
+            for (int j = i + 1; j < father_inode.direct_block.size(); ++j)
                 if (father_inode.direct_block[j] != kNULL)
-                    std::swap(father_inode.direct_block[j], father_inode.direct_block[j-1]);
+                    std::swap(father_inode.direct_block[j], father_inode.direct_block[j - 1]);
             return;
         }
     }
@@ -188,7 +200,8 @@ void filesystem::delete_file_inode(int index) {
     assert(false); // Cannot find current inode in his father directory.
 }
 
-int filesystem::create_unlinked_file(const std::string &new_file_name, int dir_ind) {
+int filesystem::create_unlinked_file(const std::string& new_file_name, int dir_ind)
+{
     auto it = std::find(inode_bitmap.begin(), inode_bitmap.end(), true);
     if (it == inode_bitmap.end())
         throw std::logic_error("There's Not Enough Inodes Now!");
@@ -208,7 +221,8 @@ int filesystem::create_unlinked_file(const std::string &new_file_name, int dir_i
     return new_inode_index;
 }
 
-int filesystem::create_unlinked_directory(const std::string &new_dir_name, int dir_index) {
+int filesystem::create_unlinked_directory(const std::string& new_dir_name, int dir_index)
+{
     auto it = std::find(inode_bitmap.begin(), inode_bitmap.end(), true);
     if (it == inode_bitmap.end())
         throw std::logic_error("There's Not Enough Inodes Now!");
@@ -229,7 +243,8 @@ int filesystem::create_unlinked_directory(const std::string &new_dir_name, int d
     return new_inode_index;
 }
 
-int filesystem::path_to_inode(const std::vector<std::string>& tokens, const std::string& path) {
+int filesystem::path_to_inode(const std::vector<std::string>& tokens, const std::string& path)
+{
     if (tokens.empty() || !tokens.front().empty())
         throw std::logic_error("Path Error[We Only Support Global Path!]: Can Not Recognize Root Path.");
 
@@ -247,26 +262,28 @@ int filesystem::path_to_inode(const std::vector<std::string>& tokens, const std:
     return last_dir_index;
 }
 
-void filesystem::generate_image() {
+void filesystem::generate_image()
+{
     std::fstream os(mount_point, std::ios::ate | std::ios::out);
     if (!os.is_open())
         throw std::logic_error("Cannot Write To Image File: " + std::string(mount_point));
 
-    super_block.write(os);
+    meta_data.write(os);
 
-    for(auto&& inode : inode_list)
+    for (auto&& inode : inode_list)
         inode.write(os);
 
-    for(auto&& blk : block_list)
+    for (auto&& blk : block_list)
         blk.write(os);
 }
 
-void filesystem::create_image(int count_blocks) {
-    super_block.block_total = count_blocks;
-    super_block.inode_total = std::max(1, static_cast<int>(count_blocks * kInodePercent));
+void filesystem::create_image(int count_blocks)
+{
+    meta_data.block_total = count_blocks;
+    meta_data.inode_total = std::max(1, static_cast<int>(count_blocks * kInodePercent));
 
-    inode_list = std::vector<inode>(super_block.inode_total);
-    block_list = std::vector<data_block>(super_block.block_total);
+    inode_list = std::vector<inode>(meta_data.inode_total);
+    block_list = std::vector<data_block>(meta_data.block_total);
 
     inode_list.front().valid = true;
     inode_list.front().size = 0;
@@ -278,9 +295,9 @@ void filesystem::create_image(int count_blocks) {
     this->generate_image();
 
     // MK ROOT DIR.
-    block_bitmap = decltype(block_bitmap)(super_block.block_total, false);
+    block_bitmap = decltype(block_bitmap)(meta_data.block_total, false);
     block_bitmap[0] = true;
-    inode_bitmap = decltype(inode_bitmap)(super_block.inode_total, false);
+    inode_bitmap = decltype(inode_bitmap)(meta_data.inode_total, false);
     inode_bitmap[0] = true;
 
     std::cout << "Successfully Created Filesystem : " << mount_point << std::endl;
@@ -325,11 +342,13 @@ void filesystem::mark_bitmap(int inode_id)
     }
 }
 
-void filesystem::scan_bitmap() {
+void filesystem::scan_bitmap()
+{
     mark_bitmap(0);
 }
 
-std::string filesystem::filehander::read(int size) {
+std::string filesystem::filehander::read(int size)
+{
     std::string ret;
     const auto& inode = m_fs_ref.inode_list[m_inode_id];
 
@@ -339,7 +358,7 @@ std::string filesystem::filehander::read(int size) {
 
     if (m_seekp + size > inode.size)
         throw std::logic_error(
-                "Overflow When Reading File. Your File Only Has " + std::to_string(inode.size) + " Bytes. But You Want To Read " + std::to_string(size) + " Bytes From Point " + std::to_string(m_seekp));
+            "Overflow When Reading File. Your File Only Has " + std::to_string(inode.size) + " Bytes. But You Want To Read " + std::to_string(size) + " Bytes From Point " + std::to_string(m_seekp));
 
     int curr_point = 0;
     for (int i = 1; i < inode.direct_block.size(); ++i) {
@@ -359,7 +378,8 @@ std::string filesystem::filehander::read(int size) {
     return ret;
 }
 
-void filesystem::filehander::write(std::string_view data) { // Currently This Is Implemented In Append Fashion.
+void filesystem::filehander::write(std::string_view data)
+{ // Currently This Is Implemented In Append Fashion.
     int read_index = 0;
     auto& inode = m_fs_ref.inode_list[m_inode_id];
 
@@ -371,7 +391,7 @@ void filesystem::filehander::write(std::string_view data) { // Currently This Is
     for (; index_in_inode < inode.direct_block.size(); ++index_in_inode) {
         if (inode.direct_block[index_in_inode] == kNULL) {
             // Check If Current Block Is The Answer.
-            if (index_in_inode == 1 || m_fs_ref.block_list[inode.direct_block[index_in_inode-1]].size == data_block::kContentSize)
+            if (index_in_inode == 1 || m_fs_ref.block_list[inode.direct_block[index_in_inode - 1]].size == data_block::kContentSize)
                 break;
             --index_in_inode;
             break;
@@ -427,10 +447,11 @@ void filesystem::filehander::write(std::string_view data) { // Currently This Is
             auto& blk = m_fs_ref.block_list[next_blk_id];
             if (blk.next != kNULL) {
                 next_blk_id = blk.next;
-            } else break;
+            } else
+                break;
         }
 
-        for(; link_index < blk_indexes.size(); ++link_index) {
+        for (; link_index < blk_indexes.size(); ++link_index) {
             auto& blk = m_fs_ref.block_list[next_blk_id];
             blk.next = link_index;
             next_blk_id = blk_indexes[link_index];
@@ -449,7 +470,8 @@ void filesystem::filehander::write(std::string_view data) { // Currently This Is
     }
 }
 
-void filesystem::filehander::seekp(int p) {
+void filesystem::filehander::seekp(int p)
+{
     m_seekp = p;
 }
 

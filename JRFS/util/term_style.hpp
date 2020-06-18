@@ -58,7 +58,7 @@ public:
     /// Constructor.
     /// \param color The style colors. See class `pt::Color`.
     /// \param styles The styles. See class `pt::Style`.
-    constexpr TermStyle(Color color, std::array<Style, MAX_STYLE_NUM> styles = std::array<Style, MAX_STYLE_NUM> { {} })
+    constexpr TermStyle(Color color, std::array<Style, MAX_STYLE_NUM> styles = std::array<Style, MAX_STYLE_NUM>{ {} })
         : m_color_code(static_cast<uint8_t>(color))
         , style_array(styles)
     {
@@ -83,7 +83,7 @@ public:
     /// \return A new TermStyle class with appended style.
     inline TermStyle<MAX_STYLE_NUM + 1> style(Style s_) const noexcept
     {
-        Style sarr[] { s_ };
+        Style sarr[]{ s_ };
         return style(sarr);
     }
 
@@ -167,7 +167,7 @@ public:
 private:
     constexpr inline TermStyle termcolor_from_int(uint8_t c) const noexcept
     {
-        return TermStyle { static_cast<Color>(c) };
+        return TermStyle{ static_cast<Color>(c) };
     }
     uint8_t m_color_code;
 

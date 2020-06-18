@@ -13,18 +13,23 @@ struct filesystem {
     filesystem(int count_blocks, const std::string& path); // Create filesystem;
     ~filesystem();
 
-    super_block super_block; ///> 文件系统的元数据
-    std::string_view mount_point; ///> 原来镜像的位置
+    super_block meta_data; ///> 文件系统的元数据
+    const std::string& mount_point; ///> 原来镜像的位置
     std::vector<char> block_bitmap; ///> 对于全局所有block的标记，如果是空闲的则为0，否则为1
     std::vector<char> inode_bitmap; ///> 对于全局inode进行标记，如果是空闲的则为0，否则为1
     std::vector<inode> inode_list;
     std::vector<data_block> block_list;
 
-    struct filehander{
+    struct filehander {
         void seekp(int p);
         void write(std::string_view data);
         std::string read(int size);
-        filehander(filesystem& fs, int ind) : m_fs_ref(fs), m_inode_id(ind) {}
+        filehander(filesystem& fs, int ind)
+            : m_fs_ref(fs)
+            , m_inode_id(ind)
+        {
+        }
+
     private:
         filesystem& m_fs_ref;
         const int m_inode_id;
