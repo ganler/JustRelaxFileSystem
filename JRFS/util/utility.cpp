@@ -5,6 +5,8 @@ namespace utility {
     std::vector<std::string> split(std::string strtem, char a)
     {
         using namespace std;
+        if (strtem.size() == 1 && strtem.front() == a)
+            return {""};
 
         vector<string> strvec;
         string::size_type pos1, pos2;

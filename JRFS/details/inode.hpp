@@ -20,14 +20,11 @@ struct alignas(kInodeSize) inode {
     // Dir:  [Curr] [UpLevel] [...]
     // File: [Curr] [...]
 
-    static constexpr int kMaxFileSize = sizeof(direct_block) / sizeof(int) * data_block{}.kContentSize;
-
 public:
     bool is_dir() const;
 
     inline int& current_dir()
     {
-        assert(is_directory);
         return direct_block[0];
     }
 
@@ -39,7 +36,6 @@ public:
 
     inline const int& current_dir() const
     {
-        assert(is_directory);
         return direct_block[0];
     }
 

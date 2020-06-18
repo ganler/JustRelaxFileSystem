@@ -54,11 +54,10 @@ void filesystem::fcreate(std::string_view path_)
     auto tokens = utility::split(path, '/');
 
     auto new_file_name = std::move(tokens.back());
+    tokens.pop_back();
 
     if (new_file_name.length() >= sizeof(inode{}.name))
         throw std::logic_error("The Filename Length Must Be Less Than " + std::to_string(sizeof(inode{}.name) - 1));
-
-    tokens.pop_back();
 
     int dir = path_to_inode(tokens, path);
 
@@ -75,7 +74,7 @@ void filesystem::fcreate(std::string_view path_)
     if (next_slot == directory_inode.direct_block.size())
         throw std::logic_error("A Directory Can Only Contain " + std::to_string(directory_inode.direct_block.size()) + " At Most.");
 
-    directory_inode.direct_block[next_slot] = create_unlinked_file(path, dir);
+    directory_inode.direct_block[next_slot] = create_unlinked_file(std::move(new_file_name), dir);
 }
 
 void filesystem::delete_directory_inode(int index)
@@ -159,7 +158,7 @@ void filesystem::mkdir(std::string_view path_)
     if (next_slot == directory_inode.direct_block.size())
         throw std::logic_error("A Directory Can Only Contain " + std::to_string(directory_inode.direct_block.size()) + " At Most.");
 
-    directory_inode.direct_block[next_slot] = create_unlinked_directory(path, father_dir);
+    directory_inode.direct_block[next_slot] = create_unlinked_directory(std::move(new_dir_name), father_dir);
 }
 
 void filesystem::delete_file_inode(int index)
@@ -205,7 +204,7 @@ void filesystem::delete_file_inode(int index)
 
 int filesystem::create_unlinked_file(const std::string& new_file_name, int dir_ind)
 {
-    auto it = std::find(inode_bitmap.begin(), inode_bitmap.end(), true);
+    auto it = std::find(inode_bitmap.begin(), inode_bitmap.end(), false);
     if (it == inode_bitmap.end())
         throw std::logic_error("There's Not Enough Inodes Now!");
 

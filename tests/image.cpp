@@ -1,6 +1,4 @@
-#include <JRFS/filesystem.hpp>
-#include <gtest/gtest.h>
-#include <fstream>
+#include "test_util.hpp"
 
 TEST(JRFSImage, CheckCreation) {
     std::string test_image = "./gtest_image.jrfs";
@@ -15,6 +13,20 @@ TEST(JRFSImage, CheckCreation) {
         system(("rm " + test_image).c_str()); // Clean the file.
 
     EXPECT_NE(0, system(("ls " + test_image).c_str()));
+}
+
+TEST(JRFSImage, CheckCapacity) {
+    for (int i = 0; i < 10; ++i) {
+        std::string test_image = "./gtest_image.jrfs";
+        {
+            jrfs::filesystem image(100 + i * 1000, test_image);
+
+            EXPECT_EQ(0, system(("ls " + test_image).c_str()));
+        }
+        if (system(("ls " + test_image).c_str()) == 0)
+            system(("rm " + test_image).c_str()); // Clean the file.
+        EXPECT_NE(0, system(("ls " + test_image).c_str()));
+    }
 }
 
 TEST(JRFSImage, CheckSuperBlock) {
