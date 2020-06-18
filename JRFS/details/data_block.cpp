@@ -1,19 +1,20 @@
 #include "data_block.hpp"
+#include "../util/utility.hpp"
 
 namespace jrfs {
 
 void data_block::read(std::fstream& fstream)
 {
-    fstream >> next;
-    fstream >> size;
-    fstream >> data_content;
+    llread(fstream, next);
+    llread(fstream, size);
+    llread(fstream, data_content);
 }
 
 void data_block::write(std::fstream& fstream) const
 {
-    fstream << next;
-    fstream << size;
-    fstream << data_content;
+    llwrite(fstream, next);
+    llwrite(fstream, size);
+    llwrite(fstream, data_content);
 }
 
 }

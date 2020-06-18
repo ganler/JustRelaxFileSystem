@@ -1,7 +1,7 @@
 #include "inode.hpp"
 #include <fstream>
 #include <iomanip>
-
+#include "../util/utility.hpp"
 namespace jrfs {
 
 inode make_empty_dir()
@@ -20,24 +20,24 @@ bool inode::is_dir() const
 
 void inode::write(std::fstream& fstream)
 {
-    fstream << valid;
-    fstream << size;
-    fstream << is_directory;
-    fstream << std::setfill(' ') << std::setw(sizeof(name)) << name;
-    fstream << unix_time;
+    llwrite(fstream, valid);
+    llwrite(fstream, size);
+    llwrite(fstream, is_directory);
+    llwrite(fstream, name);
+    llwrite(fstream, unix_time);
     for (auto&& db : direct_block)
-        fstream << db;
+        llwrite(fstream, db);
 }
 
 void inode::read(std::fstream& fstream)
 {
-    fstream >> valid;
-    fstream >> size;
-    fstream >> is_directory;
-    fstream >> name;
-    fstream >> unix_time;
+    llread(fstream, valid);
+    llread(fstream, size);
+    llread(fstream, is_directory);
+    llread(fstream, name);
+    llread(fstream, unix_time);
     for (auto&& db : direct_block)
-        fstream >> db;
+        llread(fstream, db);
 }
 
 }

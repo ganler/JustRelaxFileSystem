@@ -8,6 +8,7 @@
 #include <vector>
 
 namespace jrfs {
+
 struct filesystem {
     filesystem(const std::string& path); // Load filesystem;
     filesystem(int count_blocks, const std::string& path); // Create filesystem;

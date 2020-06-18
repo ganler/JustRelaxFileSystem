@@ -9,10 +9,11 @@ namespace jrfs {
 
 void filesystem::load_image()
 {
-    std::fstream is(mount_point, std::ios::out | std::ios::in);
+    std::fstream is(mount_point, std::ios::in | std::ios::binary);
     if (!is.is_open())
         throw std::logic_error("Cannot Open Image File: " + std::string(mount_point));
 
+    is.seekp(0);
     meta_data.read(is);
 
     // TODO: CHECK FILE SIZE.
@@ -264,10 +265,11 @@ int filesystem::path_to_inode(const std::vector<std::string>& tokens, const std:
 
 void filesystem::generate_image()
 {
-    std::fstream os(mount_point, std::ios::ate | std::ios::out);
+    std::fstream os(mount_point, std::ios::trunc | std::ios::out | std::ios::binary);
     if (!os.is_open())
         throw std::logic_error("Cannot Write To Image File: " + std::string(mount_point));
 
+    os.seekp(0);
     meta_data.write(os);
 
     for (auto&& inode : inode_list)
