@@ -1,7 +1,7 @@
 #include "super_block.hpp"
-#include <iostream>
-#include <bitset>
 #include "../util/utility.hpp"
+#include <bitset>
+#include <iostream>
 
 namespace jrfs {
 
@@ -11,9 +11,7 @@ void super_block::read(std::fstream& istream)
     llread(istream, check_magic);
     if (check_magic != magic)
         throw std::logic_error(
-            "Magic Number Not Match! Unrecognizable superblock! Expected : " +
-            std::to_string(magic) + "(" + std::bitset<sizeof(int) * 8>(magic).to_string() + "), however got: " +
-            std::to_string(check_magic) + "(" + std::bitset<sizeof(int) * 8>(check_magic).to_string() + ")");
+            "Magic Number Not Match! Unrecognizable superblock! Expected : " + std::to_string(magic) + "(" + std::bitset<sizeof(int) * 8>(magic).to_string() + "), however got: " + std::to_string(check_magic) + "(" + std::bitset<sizeof(int) * 8>(check_magic).to_string() + ")");
 
     llread(istream, block_total);
     llread(istream, inode_total);

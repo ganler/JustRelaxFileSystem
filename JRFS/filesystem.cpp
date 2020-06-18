@@ -19,6 +19,7 @@ void filesystem::load_image()
     // TODO: CHECK FILE SIZE.
 
     inode_list.reserve(meta_data.inode_total);
+    inode_bitmap.resize(meta_data.inode_total, false);
     for (int i = 0; i < meta_data.inode_total; ++i) {
         inode inode;
         inode.read(is);
@@ -26,6 +27,7 @@ void filesystem::load_image()
     }
 
     block_list.reserve(meta_data.block_total);
+    block_bitmap.resize(meta_data.block_total, false);
     for (int j = 0; j < meta_data.block_total; ++j) {
         data_block block;
         block.read(is);
@@ -323,7 +325,7 @@ void filesystem::mark_bitmap(int inode_id)
     auto root = inode_list[inode_id];
     assert(root.valid);
 
-    inode_bitmap[inode_id] = true;
+    inode_bitmap.at(inode_id) = true;
 
     if (root.is_dir()) {
         int i = 2; // For dir.

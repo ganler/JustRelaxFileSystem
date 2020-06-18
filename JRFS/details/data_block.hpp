@@ -15,4 +15,7 @@ struct data_block {
     void read(std::fstream& fstream);
     void write(std::fstream& fstream) const;
 };
+
+static_assert(sizeof(data_block) == kBlockSize, "Block Size Is not 512!");
+
 }

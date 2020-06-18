@@ -1,7 +1,7 @@
 #include "inode.hpp"
+#include "../util/utility.hpp"
 #include <fstream>
 #include <iomanip>
-#include "../util/utility.hpp"
 namespace jrfs {
 
 inode make_empty_dir()
