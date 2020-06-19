@@ -177,7 +177,7 @@ void filesystem::delete_file_inode(int index)
         block_bitmap[inode.direct_block[direct_block_index++]] = false;
     }
 
-    if (inode.direct_block.size() == direct_block_index) {
+    if (inode.direct_block.size() == direct_block_index) { // If the block extends the direct_block range.
         // Linked List Mode.
         auto& block = block_list[inode.direct_block.back()];
         int block_index = block.next;
@@ -192,9 +192,12 @@ void filesystem::delete_file_inode(int index)
     auto& father_inode = inode_list[inode.direct_block[0]];
     for (int i = 2; i < father_inode.direct_block.size(); ++i) {
         if (father_inode.direct_block[i] == index) {
-            for (int j = i + 1; j < father_inode.direct_block.size(); ++j)
+            int j = i + 1;
+            for (; j < father_inode.direct_block.size(); ++j)
                 if (father_inode.direct_block[j] != kNULL)
                     std::swap(father_inode.direct_block[j], father_inode.direct_block[j - 1]);
+                else break;
+            father_inode.direct_block[j-1] = kNULL;
             return;
         }
     }
@@ -255,10 +258,13 @@ int filesystem::path_to_inode(const std::vector<std::string>& tokens, const std:
         const auto& inode_ = inode_list.at(last_dir_index);
         assert(inode_.valid && inode_.is_dir());
         for (int j = 2; j < inode_.direct_block.size(); ++j) {
-            int next_index = inode_.direct_block[j];
-            if (next_index == kNULL || inode_list[next_index].name != tokens[i])
-                throw std::logic_error("Cannot Find Directory [" + tokens[i] + "] in [" + path + "]");
-            last_dir_index = next_index;
+            int next_index = inode_.direct_block[j]; // A SubDirectory / SubFile.
+            if (next_index != kNULL && inode_list[next_index].name == tokens[i]) {
+                last_dir_index = next_index;
+                break;
+            }
+            if (j == inode_.direct_block.size() - 1 || next_index == kNULL)
+                throw std::logic_error("Cannot Find Directory / File [" + tokens[i] + "] in [" + path + "]");
         }
     }
     return last_dir_index;
