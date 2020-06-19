@@ -10,14 +10,14 @@ namespace jrfs {
 
 /// \brief 文件描述节点（文件元数据）
 struct alignas(kInodeSize) inode {
-    int valid = kNULL; ///> 是否当前inode正在被使用
-    int size = 0; ///> inode数据的逻辑字节大小
+    int valid = kNULL; ///< 是否当前inode正在被使用
+    int size = 0; ///< inode数据的逻辑字节大小
     int is_directory = false; ///> 是否是文件夹
 
-    char name[32] = ""; ///> 文件名
-    uint32_t unix_time{ 0 }; ///> 文件上一次修改时间
+    char name[32] = ""; ///< 文件名
+    uint32_t unix_time{ 0 }; ///< 文件上一次修改时间
 
-    std::array<int, 20> direct_block{}; ///> 直接索引的数据块
+    std::array<int, 20> direct_block{}; ///< 直接索引的数据块
 public:
     /// \brief 判断当前inode是否是文件夹
     /// \return 是否是文件夹

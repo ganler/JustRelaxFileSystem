@@ -10,8 +10,8 @@ namespace jrfs {
 struct data_block {
     static constexpr int kContentSize = kBlockSize - sizeof(int) * 2; ///> 数据块最大容量
 
-    int next = kNULL; ///> 后继数据块节点
-    int size = 0; ///> 数据块大小
+    int next = kNULL; ///< 后继数据块节点
+    int size = 0; ///< 数据块大小
     char data_content[kContentSize]; ///> 数据块内容
 
     /// \param fstream 文件系统镜像流

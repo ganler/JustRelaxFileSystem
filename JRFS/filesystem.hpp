@@ -146,11 +146,11 @@ struct filesystem {
     /// \brief [底层API] 标记一个inode（文件夹/文件）下所对应的所有inode和block块
     void mark_bitmap(int inode_id);
 
-    super_block meta_data; ///> 文件系统的元数据
-    const std::string& mount_point; ///> 原来镜像的位置
-    std::vector<char> block_bitmap; ///> 对于全局所有block的标记，如果是空闲的则为0，否则为1
-    std::vector<char> inode_bitmap; ///> 对于全局inode进行标记，如果是空闲的则为0，否则为1
-    std::vector<inode> inode_list; ///> 文件系统inode部分对应内存的映射
-    std::vector<data_block> block_list; ///> 文件系统存储块部分对应内存的映射
+    super_block meta_data; ///< 文件系统的元数据
+    const std::string& mount_point; ///< 原来镜像的位置
+    std::vector<char> block_bitmap; ///< 对于全局所有block的标记，如果是空闲的则为0，否则为1
+    std::vector<char> inode_bitmap; ///< 对于全局inode进行标记，如果是空闲的则为0，否则为1
+    std::vector<inode> inode_list; ///< 文件系统inode部分对应内存的映射
+    std::vector<data_block> block_list; ///< 文件系统存储块部分对应内存的映射
 };
 }
