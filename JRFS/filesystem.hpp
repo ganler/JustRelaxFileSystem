@@ -31,6 +31,7 @@ struct filesystem {
             , m_inode_id(ind)
         {
         }
+
     private:
         filesystem& m_fs_ref;
         const int m_inode_id;

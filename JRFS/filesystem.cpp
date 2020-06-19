@@ -48,7 +48,8 @@ filesystem::filehander filesystem::fopen(std::string_view path_)
     return filehander(*this, inode_index);
 }
 
-int filesystem::path_to_inode(const std::string &path) {
+int filesystem::path_to_inode(const std::string& path)
+{
     auto tokens = utility::split(path, '/');
     return path_to_inode(tokens, path);
 }
@@ -107,7 +108,8 @@ void filesystem::delete_directory_inode(int index)
             for (; j < father_inode.direct_block.size(); ++j)
                 if (father_inode.direct_block[j] != kNULL)
                     std::swap(father_inode.direct_block[j], father_inode.direct_block[j - 1]);
-                else break;
+                else
+                    break;
             father_inode.direct_block[j - 1] = kNULL;
             return;
         }
@@ -204,8 +206,9 @@ void filesystem::delete_file_inode(int index)
             for (; j < father_inode.direct_block.size(); ++j)
                 if (father_inode.direct_block[j] != kNULL)
                     std::swap(father_inode.direct_block[j], father_inode.direct_block[j - 1]);
-                else break;
-            father_inode.direct_block[j-1] = kNULL;
+                else
+                    break;
+            father_inode.direct_block[j - 1] = kNULL;
             return;
         }
     }
@@ -364,7 +367,8 @@ void filesystem::scan_bitmap()
     mark_bitmap(0);
 }
 
-int filesystem::filehander::node_id() const {
+int filesystem::filehander::node_id() const
+{
     return m_inode_id;
 }
 
@@ -392,7 +396,7 @@ std::string filesystem::filehander::read(int size) const
 
         const auto& blk = m_fs_ref.block_list[inode.direct_block[i]]; // This Block Is Readable!
         if (curr_point + blk.size >= m_seekp) { // Now We Can Read!
-            if (curr_point > m_seekp + size)    // No More Bytes To Read...
+            if (curr_point > m_seekp + size) // No More Bytes To Read...
                 break;
             int bytes_to_read_in_this_block = std::min(blk.size, m_seekp + size - curr_point);
             std::string_view data_view(blk.data_content, bytes_to_read_in_this_block);
@@ -415,7 +419,7 @@ std::string filesystem::filehander::read(int size) const
             ret += data_view;
             curr_point += bytes_to_read_in_this_block;
             next_index = blk.next;
-        } while(curr_point < size && next_index != kNULL);
+        } while (curr_point < size && next_index != kNULL);
     }
 
     assert(ret.size() == size);

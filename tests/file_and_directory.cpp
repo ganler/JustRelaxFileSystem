@@ -105,7 +105,7 @@ TEST(JRFSFileAndDir, CheckDirectoryCreation)
 
         // Check If Root Node Index == 0
         EXPECT_NO_THROW(image.mkdir("/what"));
-        EXPECT_NO_THROW( image.mkdir("/what/the"));
+        EXPECT_NO_THROW(image.mkdir("/what/the"));
 
         EXPECT_NO_THROW(image.fcreate("/what/the/hello.txt"));
 
@@ -137,7 +137,7 @@ TEST(JRFSFileAndDir, CheckDirectoryDeletion)
 
         // Check If Root Node Index == 0
         EXPECT_NO_THROW(image.mkdir("/what"));
-        EXPECT_NO_THROW( image.mkdir("/what/the"));
+        EXPECT_NO_THROW(image.mkdir("/what/the"));
         EXPECT_NO_THROW(image.rmdir("/what"));
 
         EXPECT_THROW(image.path_to_inode("/what/the"), std::logic_error);
@@ -159,7 +159,7 @@ TEST(JRFSFileAndDir, CheckSmallFileReadWrite)
         EXPECT_EQ(0, system(("ls " + test_image).c_str()));
 
         // Check If Root Node Index == 0
-        EXPECT_NO_THROW( image.fcreate("/lrznb.txt"));
+        EXPECT_NO_THROW(image.fcreate("/lrznb.txt"));
         auto handler = image.fopen("/lrznb.txt");
 
         constexpr std::string_view test_message = "李润中是神！！！";
@@ -188,7 +188,7 @@ TEST(JRFSFileAndDir, CheckBigFileReadWriteSimple)
         EXPECT_EQ(0, system(("ls " + test_image).c_str()));
 
         // Check If Root Node Index == 0
-        EXPECT_NO_THROW( image.fcreate("/lrznb.txt"));
+        EXPECT_NO_THROW(image.fcreate("/lrznb.txt"));
         auto handler = image.fopen("/lrznb.txt");
 
         std::string simple(12345, '6');
@@ -218,7 +218,7 @@ TEST(JRFSFileAndDir, CheckBigFileReadWriteComplex)
         EXPECT_EQ(0, system(("ls " + test_image).c_str()));
 
         // Check If Root Node Index == 0
-        EXPECT_NO_THROW( image.fcreate("/lrznb.txt"));
+        EXPECT_NO_THROW(image.fcreate("/lrznb.txt"));
         auto handler = image.fopen("/lrznb.txt");
 
         std::string test_str("123456789@");
@@ -251,7 +251,7 @@ TEST(JRFSFileAndDir, CheckBigFileReadWriteVeryComplex)
         EXPECT_EQ(0, system(("ls " + test_image).c_str()));
 
         // Check If Root Node Index == 0
-        EXPECT_NO_THROW( image.fcreate("/lrznb.txt"));
+        EXPECT_NO_THROW(image.fcreate("/lrznb.txt"));
         auto handler = image.fopen("/lrznb.txt");
 
         constexpr std::string_view test_message = R"(李润中牛逼的发生，到底需要如何做到，不李润中牛逼的发生，又会如何产生。 我们都知道，只要有意义，那么就必须慎重考虑。 生活中，若李润中牛逼出现了，我们就不得不考虑它出现了的事实。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 李润中牛逼的发生，到底需要如何做到，不李润中牛逼的发生，又会如何产生。 了解清楚李润中牛逼到底是一种怎么样的存在，是解决一切问题的关键。 在这种困难的抉择下，本人思来想去，寝食难安。 塞涅卡曾经说过，生命如同寓言，其价值不在与长短，而在与内容。这启发了我， 我们不得不面对一个非常尴尬的事实，那就是， 所谓李润中牛逼，关键是李润中牛逼需要如何写。 既然如何， 布尔沃在不经意间这样说过，要掌握书，莫被书掌握；要为生而读，莫为读而生。这句话语虽然很短，但令我浮想联翩。 每个人都不得不面对这些问题。 在面对这种问题时， 我认为， 带着这些问题，我们来审视一下李润中牛逼。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 既然如此。
