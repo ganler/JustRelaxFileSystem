@@ -74,6 +74,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>文件描述节点（文件元数据）  
+ <a href="structjrfs_1_1inode.html#details">更多...</a></p>
+
 <p><code>#include &lt;<a class="el" href="inode_8hpp_source.html">inode.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -85,16 +88,22 @@ Public 成员函数</h2></td></tr>
  <a href="structjrfs_1_1inode.html#ac04b9538f8e0dd8f6db23186e60acde4">更多...</a><br /></td></tr>
 <tr class="separator:ac04b9538f8e0dd8f6db23186e60acde4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81edfdba7b616aa98701f70b2c308e68"><td class="memItemLeft" align="right" valign="top">int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html#a81edfdba7b616aa98701f70b2c308e68">current_dir</a> ()</td></tr>
+<tr class="memdesc:a81edfdba7b616aa98701f70b2c308e68"><td class="mdescLeft">&#160;</td><td class="mdescRight">查找当前所在文件夹  <a href="structjrfs_1_1inode.html#a81edfdba7b616aa98701f70b2c308e68">更多...</a><br /></td></tr>
 <tr class="separator:a81edfdba7b616aa98701f70b2c308e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23012411ff0a7e8066d84888aadaf078"><td class="memItemLeft" align="right" valign="top">int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html#a23012411ff0a7e8066d84888aadaf078">last_level_dir</a> ()</td></tr>
+<tr class="memdesc:a23012411ff0a7e8066d84888aadaf078"><td class="mdescLeft">&#160;</td><td class="mdescRight">上一级文件夹  <a href="structjrfs_1_1inode.html#a23012411ff0a7e8066d84888aadaf078">更多...</a><br /></td></tr>
 <tr class="separator:a23012411ff0a7e8066d84888aadaf078"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33e370b59fbae4c6006b98825c5c65aa"><td class="memItemLeft" align="right" valign="top">const int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html#a33e370b59fbae4c6006b98825c5c65aa">current_dir</a> () const</td></tr>
+<tr class="memdesc:a33e370b59fbae4c6006b98825c5c65aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">查找当前所在文件夹  <a href="structjrfs_1_1inode.html#a33e370b59fbae4c6006b98825c5c65aa">更多...</a><br /></td></tr>
 <tr class="separator:a33e370b59fbae4c6006b98825c5c65aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0fa1befee5020c9f50970d52b4e5df1"><td class="memItemLeft" align="right" valign="top">const int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html#ad0fa1befee5020c9f50970d52b4e5df1">last_level_dir</a> () const</td></tr>
+<tr class="memdesc:ad0fa1befee5020c9f50970d52b4e5df1"><td class="mdescLeft">&#160;</td><td class="mdescRight">上一级文件夹  <a href="structjrfs_1_1inode.html#ad0fa1befee5020c9f50970d52b4e5df1">更多...</a><br /></td></tr>
 <tr class="separator:ad0fa1befee5020c9f50970d52b4e5df1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3d4710f5943d193954cd9e80bdefae3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html#af3d4710f5943d193954cd9e80bdefae3">read</a> (std::fstream &amp;istream)</td></tr>
+<tr class="memdesc:af3d4710f5943d193954cd9e80bdefae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">从文件系统中读取inode块  <a href="structjrfs_1_1inode.html#af3d4710f5943d193954cd9e80bdefae3">更多...</a><br /></td></tr>
 <tr class="separator:af3d4710f5943d193954cd9e80bdefae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b8725f0ee29a296f20aa9e5b3e89ebc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html#a8b8725f0ee29a296f20aa9e5b3e89ebc">write</a> (std::fstream &amp;ostream)</td></tr>
+<tr class="memdesc:a8b8725f0ee29a296f20aa9e5b3e89ebc"><td class="mdescLeft">&#160;</td><td class="mdescRight">将inode块写入二级文件系统  <a href="structjrfs_1_1inode.html#a8b8725f0ee29a296f20aa9e5b3e89ebc">更多...</a><br /></td></tr>
 <tr class="separator:a8b8725f0ee29a296f20aa9e5b3e89ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -120,11 +129,21 @@ Public 属性</h2></td></tr>
  <a href="structjrfs_1_1inode.html#ad7684e5adb139c7452bccfc62d03fa0d">更多...</a><br /></td></tr>
 <tr class="separator:ad7684e5adb139c7452bccfc62d03fa0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e476a564c794f73781242183977bbf1"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html#a7e476a564c794f73781242183977bbf1">unix_time</a> { 0 }</td></tr>
+<tr class="memdesc:a7e476a564c794f73781242183977bbf1"><td class="mdescLeft">&#160;</td><td class="mdescRight"><blockquote class="doxtable">
+<p>文件名 </p>
+</blockquote>
+ <a href="structjrfs_1_1inode.html#a7e476a564c794f73781242183977bbf1">更多...</a><br /></td></tr>
 <tr class="separator:a7e476a564c794f73781242183977bbf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe25efe5e098c40a4333858af8d4b64e"><td class="memItemLeft" align="right" valign="top">std::array&lt; int, 20 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html#abe25efe5e098c40a4333858af8d4b64e">direct_block</a> {}</td></tr>
+<tr class="memdesc:abe25efe5e098c40a4333858af8d4b64e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><blockquote class="doxtable">
+<p>文件上一次修改时间 </p>
+</blockquote>
+ <a href="structjrfs_1_1inode.html#abe25efe5e098c40a4333858af8d4b64e">更多...</a><br /></td></tr>
 <tr class="separator:abe25efe5e098c40a4333858af8d4b64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">成员函数说明</h2>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>文件描述节点（文件元数据） </p>
+</div><h2 class="groupheader">成员函数说明</h2>
 <a id="a81edfdba7b616aa98701f70b2c308e68"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a81edfdba7b616aa98701f70b2c308e68">&#9670;&nbsp;</a></span>current_dir() <span class="overload">[1/2]</span></h2>
 
@@ -147,6 +166,9 @@ Public 属性</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>查找当前所在文件夹 </p>
+<dl class="section return"><dt>返回</dt><dd>当前文件夹下标 </dd></dl>
 
 </div>
 </div>
@@ -173,6 +195,9 @@ Public 属性</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>查找当前所在文件夹 </p>
+<dl class="section return"><dt>返回</dt><dd>当前文件夹下标 </dd></dl>
+
 </div>
 </div>
 <a id="ac04b9538f8e0dd8f6db23186e60acde4"></a>
@@ -194,6 +219,7 @@ Public 属性</h2></td></tr>
 <p>直接索引的数据块 </p>
 </blockquote>
 </p>
+<p>判断当前inode是否是文件夹 </p><dl class="section return"><dt>返回</dt><dd>是否是文件夹 </dd></dl>
 
 </div>
 </div>
@@ -220,6 +246,9 @@ Public 属性</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>上一级文件夹 </p>
+<dl class="section return"><dt>返回</dt><dd>上一级文件夹下标 </dd></dl>
+
 </div>
 </div>
 <a id="ad0fa1befee5020c9f50970d52b4e5df1"></a>
@@ -245,6 +274,9 @@ Public 属性</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>上一级文件夹 </p>
+<dl class="section return"><dt>返回</dt><dd>上一级文件夹下标 </dd></dl>
+
 </div>
 </div>
 <a id="af3d4710f5943d193954cd9e80bdefae3"></a>
@@ -262,6 +294,14 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>从文件系统中读取inode块 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fstream</td><td>文件系统镜像流 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -281,6 +321,14 @@ Public 属性</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>将inode块写入二级文件系统 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fstream</td><td>文件系统镜像流 </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">类成员变量说明</h2>
@@ -295,6 +343,11 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><blockquote class="doxtable">
+<p>文件上一次修改时间 </p>
+</blockquote>
+</p>
 
 </div>
 </div>
@@ -366,6 +419,11 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><blockquote class="doxtable">
+<p>文件名 </p>
+</blockquote>
+</p>
 
 </div>
 </div>

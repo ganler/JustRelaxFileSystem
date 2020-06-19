@@ -83,17 +83,16 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 类</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem_1_1filehander.html">filehander</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><blockquote class="doxtable">
-<p>文件系统存储块部分对应内存的映射 </p>
-</blockquote>
- <a href="structjrfs_1_1filesystem_1_1filehander.html#details">更多...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">文件系统用于操控文件读写的API，类似于C++的std::fstream和C标准库的fread/fwrite操作  <a href="structjrfs_1_1filesystem_1_1filehander.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a18491cc4b123f5bc9a7f997b0de0121d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a18491cc4b123f5bc9a7f997b0de0121d">filesystem</a> (const std::string &amp;path)</td></tr>
+<tr class="memdesc:a18491cc4b123f5bc9a7f997b0de0121d"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数，读取镜像  <a href="structjrfs_1_1filesystem.html#a18491cc4b123f5bc9a7f997b0de0121d">更多...</a><br /></td></tr>
 <tr class="separator:a18491cc4b123f5bc9a7f997b0de0121d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba95d17f8e4a9edf68091364ecadcea9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#aba95d17f8e4a9edf68091364ecadcea9">filesystem</a> (int count_blocks, const std::string &amp;path)</td></tr>
+<tr class="memdesc:aba95d17f8e4a9edf68091364ecadcea9"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数，产生镜像  <a href="structjrfs_1_1filesystem.html#aba95d17f8e4a9edf68091364ecadcea9">更多...</a><br /></td></tr>
 <tr class="separator:aba95d17f8e4a9edf68091364ecadcea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63d3fdb02d24cc7b1e30cadedcae2bb5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a63d3fdb02d24cc7b1e30cadedcae2bb5">~filesystem</a> ()</td></tr>
 <tr class="memdesc:a63d3fdb02d24cc7b1e30cadedcae2bb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">文件系统析构函数，会最后对文件系统进行一次整体同步  <a href="structjrfs_1_1filesystem.html#a63d3fdb02d24cc7b1e30cadedcae2bb5">更多...</a><br /></td></tr>
@@ -113,6 +112,7 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:a17e0deb01708f03bc8911a70bf82227c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a17e0deb01708f03bc8911a70bf82227c">delete_directory_inode</a> (int index)</td></tr>
 <tr class="separator:a17e0deb01708f03bc8911a70bf82227c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a377882f175d080b45d8c839be1c8f939"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a377882f175d080b45d8c839be1c8f939">path_to_inode</a> (const std::vector&lt; std::string &gt; &amp;tokens, const std::string &amp;path)</td></tr>
+<tr class="memdesc:a377882f175d080b45d8c839be1c8f939"><td class="mdescLeft">&#160;</td><td class="mdescRight">[底层API] 将文件（夹）路径转化为inode下标  <a href="structjrfs_1_1filesystem.html#a377882f175d080b45d8c839be1c8f939">更多...</a><br /></td></tr>
 <tr class="separator:a377882f175d080b45d8c839be1c8f939"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8d027dd7283688d9bb5dbb94e928d7d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#af8d027dd7283688d9bb5dbb94e928d7d">path_to_inode</a> (const std::string &amp;path)</td></tr>
 <tr class="separator:af8d027dd7283688d9bb5dbb94e928d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,10 +125,8 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:a26ec9929d2526eed015baaf977925bb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a26ec9929d2526eed015baaf977925bb1">create_image</a> (int count_blocks)</td></tr>
 <tr class="separator:a26ec9929d2526eed015baaf977925bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae54a3c77b3455e84c86b2dd9e450fc4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#ae54a3c77b3455e84c86b2dd9e450fc4c">sync_image</a> ()</td></tr>
-<tr class="memdesc:ae54a3c77b3455e84c86b2dd9e450fc4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">\breif [底层API] 同步内存与磁盘中的镜像  <a href="structjrfs_1_1filesystem.html#ae54a3c77b3455e84c86b2dd9e450fc4c">更多...</a><br /></td></tr>
 <tr class="separator:ae54a3c77b3455e84c86b2dd9e450fc4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a383874eb1d61f3f5fd90b59c256686d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a383874eb1d61f3f5fd90b59c256686d1">scan_bitmap</a> ()</td></tr>
-<tr class="memdesc:a383874eb1d61f3f5fd90b59c256686d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">\breif [底层API] 检查bitmap和当前文件系统是否一致  <a href="structjrfs_1_1filesystem.html#a383874eb1d61f3f5fd90b59c256686d1">更多...</a><br /></td></tr>
 <tr class="separator:a383874eb1d61f3f5fd90b59c256686d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc8ed2f2b9dca8b71f776ddef5727ddb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#adc8ed2f2b9dca8b71f776ddef5727ddb">mark_bitmap</a> (int inode_id)</td></tr>
 <tr class="separator:adc8ed2f2b9dca8b71f776ddef5727ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -186,9 +184,11 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>构造函数，读取镜像 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td></td></tr>
+    <tr><td class="paramname">path</td><td>一级文件系统路径 </td></tr>
   </table>
   </dd>
 </dl>
@@ -220,10 +220,12 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>构造函数，产生镜像 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">count_blocks</td><td></td></tr>
-    <tr><td class="paramname">path</td><td></td></tr>
+    <tr><td class="paramname">path</td><td>一级文件系统路径 </td></tr>
   </table>
   </dd>
 </dl>
@@ -275,14 +277,20 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>\breif [底层API] 创建文件夹inode </p><dl class="params"><dt>参数</dt><dd>
+<dl class="exception"><dt>异常</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">new_dir_name</td><td>文件夹名 </td></tr>
     <tr><td class="paramname">dir_index</td><td>当前文件夹的inode下标 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>inode下标 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>inode下标 \breif [底层API] 创建文件夹inode </dd></dl>
 
 </div>
 </div>
@@ -311,14 +319,20 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>\breif [底层API] 创建文件inode </p><dl class="params"><dt>参数</dt><dd>
+<dl class="exception"><dt>异常</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">new_file_name</td><td>文件名 </td></tr>
     <tr><td class="paramname">dir_index</td><td>所在文件夹的inode下标 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>inode下标 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>inode下标 \breif [底层API] 创建文件inode </dd></dl>
 
 </div>
 </div>
@@ -337,9 +351,15 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>\breif [底层API] 构建镜像 </p><dl class="params"><dt>参数</dt><dd>
+<dl class="exception"><dt>异常</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">count_blocks</td><td>镜像所需的block的大小 </td></tr>
+    <tr><td class="paramname">count_blocks</td><td>镜像所需的block的大小 \breif [底层API] 构建镜像 </td></tr>
   </table>
   </dd>
 </dl>
@@ -361,9 +381,15 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>\breif [底层API] 删除文件夹对应的inode </p><dl class="params"><dt>参数</dt><dd>
+<dl class="exception"><dt>异常</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>inode下标 </td></tr>
+    <tr><td class="paramname">index</td><td>inode下标 \breif [底层API] 删除文件夹对应的inode </td></tr>
   </table>
   </dd>
 </dl>
@@ -385,9 +411,15 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>\breif [底层API] 删除文件对应的inode </p><dl class="params"><dt>参数</dt><dd>
+<dl class="exception"><dt>异常</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>inode下标 </td></tr>
+    <tr><td class="paramname">index</td><td>inode下标 \breif [底层API] 删除文件对应的inode </td></tr>
   </table>
   </dd>
 </dl>
@@ -409,7 +441,7 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>\breif [高层API] 创建文件 </p><dl class="exception"><dt>异常</dt><dd>
+<dl class="exception"><dt>异常</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::logic_error</td><td></td></tr>
   </table>
@@ -417,7 +449,7 @@ Public 属性</h2></td></tr>
 </dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>文件路径，如<code>/path/to/file</code> </td></tr>
+    <tr><td class="paramname">path</td><td>文件路径，如<code>/path/to/file</code> \breif [高层API] 创建文件 </td></tr>
   </table>
   </dd>
 </dl>
@@ -439,7 +471,7 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>\breif [高层API] 删除文件 </p><dl class="exception"><dt>异常</dt><dd>
+<dl class="exception"><dt>异常</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::logic_error</td><td></td></tr>
   </table>
@@ -447,7 +479,7 @@ Public 属性</h2></td></tr>
 </dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>件路径，如<code>/path/to/file</code> </td></tr>
+    <tr><td class="paramname">path</td><td>件路径，如<code>/path/to/file</code> \breif [高层API] 删除文件 </td></tr>
   </table>
   </dd>
 </dl>
@@ -469,7 +501,7 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>\breif [高层API] 打开文件夹，返回handler </p><dl class="params"><dt>参数</dt><dd>
+<dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>件路径，如<code>/path/to/file</code> </td></tr>
   </table>
@@ -481,7 +513,7 @@ Public 属性</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>返回filehander对象，可对其进行文件读写 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>返回filehander对象，可对其进行文件读写 \breif [高层API] 打开文件夹，返回handler </dd></dl>
 
 </div>
 </div>
@@ -499,7 +531,13 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>\breif [底层API] 加载镜像 </p><dl class="section note"><dt>注解</dt><dd>所需的数据信息（如文件位置）已经在filesystem类初始化的时候得到 </dd></dl>
+<dl class="exception"><dt>异常</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>所需的数据信息（如文件位置）已经在filesystem类初始化的时候得到 \breif [底层API] 加载镜像 </dd></dl>
 
 </div>
 </div>
@@ -518,9 +556,9 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>\breif [底层API] 标记一个inode（文件夹/文件）下所对应的所有inode和block块 </p><dl class="params"><dt>参数</dt><dd>
+<dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">inode_id</td><td>inode下标 </td></tr>
+    <tr><td class="paramname">inode_id</td><td>inode下标 \breif [底层API] 标记一个inode（文件夹/文件）下所对应的所有inode和block块 </td></tr>
   </table>
   </dd>
 </dl>
@@ -542,7 +580,7 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>\breif [高层API] 创建文件夹 </p><dl class="exception"><dt>异常</dt><dd>
+<dl class="exception"><dt>异常</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::logic_error</td><td></td></tr>
   </table>
@@ -550,7 +588,7 @@ Public 属性</h2></td></tr>
 </dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>文件夹路径，如<code>/path/to/dir</code> </td></tr>
+    <tr><td class="paramname">path</td><td>文件夹路径，如<code>/path/to/dir</code> \breif [高层API] 创建文件夹 </td></tr>
   </table>
   </dd>
 </dl>
@@ -572,13 +610,19 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>\breif [底层API] 将文件（夹）路径转化为inode下标 </p><dl class="params"><dt>参数</dt><dd>
+<dl class="exception"><dt>异常</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>文件（夹）路径 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>inode下标 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>inode下标 \breif [底层API] 将文件（夹）路径转化为inode下标 </dd></dl>
 
 </div>
 </div>
@@ -607,7 +651,15 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>\breif [底层API] 将文件（夹）路径转化为inode下标 </p><dl class="params"><dt>参数</dt><dd>
+
+<p>[底层API] 将文件（夹）路径转化为inode下标 </p>
+<dl class="exception"><dt>异常</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">tokens</td><td>路径字符串数组 </td></tr>
     <tr><td class="paramname">path</td><td>源路径（用于报错） </td></tr>
@@ -633,7 +685,7 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>\breif [高层API] 删除文件夹 </p><dl class="exception"><dt>异常</dt><dd>
+<dl class="exception"><dt>异常</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::logic_error</td><td></td></tr>
   </table>
@@ -641,7 +693,7 @@ Public 属性</h2></td></tr>
 </dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>文件夹路径，如<code>/path/to/dir</code> </td></tr>
+    <tr><td class="paramname">path</td><td>文件夹路径，如<code>/path/to/dir</code> \breif [高层API] 删除文件夹 </td></tr>
   </table>
   </dd>
 </dl>
@@ -662,8 +714,12 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>\breif [底层API] 检查bitmap和当前文件系统是否一致 </p>
+<dl class="exception"><dt>异常</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td>\breif [底层API] 检查bitmap和当前文件系统是否一致 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -681,8 +737,12 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>\breif [底层API] 同步内存与磁盘中的镜像 </p>
+<p>\breif [底层API] 同步内存与磁盘中的镜像 </p><dl class="exception"><dt>异常</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

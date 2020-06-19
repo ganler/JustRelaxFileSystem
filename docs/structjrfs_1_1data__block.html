@@ -75,22 +75,42 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>数据块的内存映像  
+ <a href="structjrfs_1_1data__block.html#details">更多...</a></p>
+
 <p><code>#include &lt;<a class="el" href="data__block_8hpp_source.html">data_block.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a43275b52af31e6d3ff939febb836b450"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1data__block.html#a43275b52af31e6d3ff939febb836b450">read</a> (std::fstream &amp;fstream)</td></tr>
+<tr class="memdesc:a43275b52af31e6d3ff939febb836b450"><td class="mdescLeft">&#160;</td><td class="mdescRight"><blockquote class="doxtable">
+<p>数据块内容 </p>
+</blockquote>
+ <a href="structjrfs_1_1data__block.html#a43275b52af31e6d3ff939febb836b450">更多...</a><br /></td></tr>
 <tr class="separator:a43275b52af31e6d3ff939febb836b450"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a184373d6b0c43205cb001abb0835e057"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1data__block.html#a184373d6b0c43205cb001abb0835e057">write</a> (std::fstream &amp;fstream) const</td></tr>
+<tr class="memdesc:a184373d6b0c43205cb001abb0835e057"><td class="mdescLeft">&#160;</td><td class="mdescRight">将数据块写入二级文件系统  <a href="structjrfs_1_1data__block.html#a184373d6b0c43205cb001abb0835e057">更多...</a><br /></td></tr>
 <tr class="separator:a184373d6b0c43205cb001abb0835e057"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public 属性</h2></td></tr>
 <tr class="memitem:a9a3d51f245c9394b2db48f4b37d07fc9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1data__block.html#a9a3d51f245c9394b2db48f4b37d07fc9">next</a> = <a class="el" href="namespacejrfs.html#ad08d6878092f6e0dbdd71b4efbbedf5a">kNULL</a></td></tr>
+<tr class="memdesc:a9a3d51f245c9394b2db48f4b37d07fc9"><td class="mdescLeft">&#160;</td><td class="mdescRight"><blockquote class="doxtable">
+<p>数据块最大容量 </p>
+</blockquote>
+ <a href="structjrfs_1_1data__block.html#a9a3d51f245c9394b2db48f4b37d07fc9">更多...</a><br /></td></tr>
 <tr class="separator:a9a3d51f245c9394b2db48f4b37d07fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a527ccde40c1e9d28d942fdd5bd24721e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1data__block.html#a527ccde40c1e9d28d942fdd5bd24721e">size</a> = 0</td></tr>
+<tr class="memdesc:a527ccde40c1e9d28d942fdd5bd24721e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><blockquote class="doxtable">
+<p>后继数据块节点 </p>
+</blockquote>
+ <a href="structjrfs_1_1data__block.html#a527ccde40c1e9d28d942fdd5bd24721e">更多...</a><br /></td></tr>
 <tr class="separator:a527ccde40c1e9d28d942fdd5bd24721e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf297348513f899b390c17bed7116086"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1data__block.html#acf297348513f899b390c17bed7116086">data_content</a> [<a class="el" href="structjrfs_1_1data__block.html#a94e8b181b725b5897ab6252e64711fc9">kContentSize</a>]</td></tr>
+<tr class="memdesc:acf297348513f899b390c17bed7116086"><td class="mdescLeft">&#160;</td><td class="mdescRight"><blockquote class="doxtable">
+<p>数据块大小 </p>
+</blockquote>
+ <a href="structjrfs_1_1data__block.html#acf297348513f899b390c17bed7116086">更多...</a><br /></td></tr>
 <tr class="separator:acf297348513f899b390c17bed7116086"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
@@ -98,7 +118,9 @@ Public 属性</h2></td></tr>
 <tr class="memitem:a94e8b181b725b5897ab6252e64711fc9"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1data__block.html#a94e8b181b725b5897ab6252e64711fc9">kContentSize</a> = <a class="el" href="namespacejrfs.html#a9d38f6cf04562aa7b1ad8711db25d962">kBlockSize</a> - sizeof(int) * 2</td></tr>
 <tr class="separator:a94e8b181b725b5897ab6252e64711fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">成员函数说明</h2>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>数据块的内存映像 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
 <a id="a43275b52af31e6d3ff939febb836b450"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a43275b52af31e6d3ff939febb836b450">&#9670;&nbsp;</a></span>read()</h2>
 
@@ -114,6 +136,18 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><blockquote class="doxtable">
+<p>数据块内容 </p>
+</blockquote>
+</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fstream</td><td>文件系统镜像流</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>从文件系统中读取数据块 </p>
 
 </div>
 </div>
@@ -133,6 +167,14 @@ Public 属性</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>将数据块写入二级文件系统 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fstream</td><td>文件系统镜像流 </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">类成员变量说明</h2>
@@ -147,6 +189,11 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><blockquote class="doxtable">
+<p>数据块大小 </p>
+</blockquote>
+</p>
 
 </div>
 </div>
@@ -184,6 +231,11 @@ Public 属性</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><blockquote class="doxtable">
+<p>数据块最大容量 </p>
+</blockquote>
+</p>
+
 </div>
 </div>
 <a id="a527ccde40c1e9d28d942fdd5bd24721e"></a>
@@ -197,6 +249,11 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><blockquote class="doxtable">
+<p>后继数据块节点 </p>
+</blockquote>
+</p>
 
 </div>
 </div>

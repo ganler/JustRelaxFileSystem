@@ -75,20 +75,25 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>文件系统元数据  
+ <a href="structjrfs_1_1super__block.html#details">更多...</a></p>
+
 <p><code>#include &lt;<a class="el" href="super__block_8hpp_source.html">super_block.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a25fea83ebc92f642f93411c9e2acebf9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1super__block.html#a25fea83ebc92f642f93411c9e2acebf9">read</a> (std::fstream &amp;istream)</td></tr>
 <tr class="separator:a25fea83ebc92f642f93411c9e2acebf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ac58c10f45dbefd7da687563ed000a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1super__block.html#a8ac58c10f45dbefd7da687563ed000a0">write</a> (std::fstream &amp;ostream)</td></tr>
-<tr class="separator:a8ac58c10f45dbefd7da687563ed000a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c3af0de1687838a3823f0137c805489"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1super__block.html#a3c3af0de1687838a3823f0137c805489">write</a> (std::fstream &amp;ostream) const</td></tr>
+<tr class="separator:a3c3af0de1687838a3823f0137c805489"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public 属性</h2></td></tr>
 <tr class="memitem:a57ad56d3f6b86c117a008183bbd41a19"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1super__block.html#a57ad56d3f6b86c117a008183bbd41a19">block_total</a></td></tr>
+<tr class="memdesc:a57ad56d3f6b86c117a008183bbd41a19"><td class="mdescLeft">&#160;</td><td class="mdescRight">block总数  <a href="structjrfs_1_1super__block.html#a57ad56d3f6b86c117a008183bbd41a19">更多...</a><br /></td></tr>
 <tr class="separator:a57ad56d3f6b86c117a008183bbd41a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaab3baf0c4a7cef7ea953864c216fd5f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1super__block.html#aaab3baf0c4a7cef7ea953864c216fd5f">inode_total</a></td></tr>
+<tr class="memdesc:aaab3baf0c4a7cef7ea953864c216fd5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">inode总数  <a href="structjrfs_1_1super__block.html#aaab3baf0c4a7cef7ea953864c216fd5f">更多...</a><br /></td></tr>
 <tr class="separator:aaab3baf0c4a7cef7ea953864c216fd5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
@@ -97,7 +102,9 @@ Public 属性</h2></td></tr>
 <tr class="memdesc:a6d2c6a932748237e2bdce47800c326f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">用来标识文件系统的编号，镜像若前4byte不一致则说明不属于本文件系统；  <a href="structjrfs_1_1super__block.html#a6d2c6a932748237e2bdce47800c326f7">更多...</a><br /></td></tr>
 <tr class="separator:a6d2c6a932748237e2bdce47800c326f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">成员函数说明</h2>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>文件系统元数据 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
 <a id="a25fea83ebc92f642f93411c9e2acebf9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a25fea83ebc92f642f93411c9e2acebf9">&#9670;&nbsp;</a></span>read()</h2>
 
@@ -113,11 +120,17 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>从镜像中读出super block </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">istream</td><td>镜像fstream </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a8ac58c10f45dbefd7da687563ed000a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ac58c10f45dbefd7da687563ed000a0">&#9670;&nbsp;</a></span>write()</h2>
+<a id="a3c3af0de1687838a3823f0137c805489"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c3af0de1687838a3823f0137c805489">&#9670;&nbsp;</a></span>write()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -127,10 +140,16 @@ Public 属性</h2></td></tr>
           <td>(</td>
           <td class="paramtype">std::fstream &amp;&#160;</td>
           <td class="paramname"><em>ostream</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>将super block写入镜像 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ostream</td><td>镜像fstream </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -147,6 +166,8 @@ Public 属性</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>block总数 </p>
+
 </div>
 </div>
 <a id="aaab3baf0c4a7cef7ea953864c216fd5f"></a>
@@ -160,6 +181,8 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>inode总数 </p>
 
 </div>
 </div>
