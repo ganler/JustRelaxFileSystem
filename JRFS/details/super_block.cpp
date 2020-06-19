@@ -17,7 +17,7 @@ void super_block::read(std::fstream& istream)
     llread(istream, inode_total);
 }
 
-void super_block::write(std::fstream& ostream)
+void super_block::write(std::fstream& ostream) const
 {
     llwrite(ostream, magic);
     llwrite(ostream, block_total);
