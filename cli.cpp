@@ -9,7 +9,6 @@
 #include <gflags/gflags.h>
 
 DEFINE_string(mount_path, "", "Path to mount the image.");
-
 DEFINE_bool(create, false, "Whether to create new image.");
 DEFINE_int32(block_size, 2048, "Total numbers of blocks in new image.");
 
@@ -92,20 +91,20 @@ public:
 private:
     void user_prompt()
     {
-        auto style = pt::CYAN.style({ pt::Style::UNDERLINE, pt::Style::BOLD });
+        auto style = pt::CYAN.style({ pt::Style::UNDERLINE, pt::Style::BOLD, pt::Style::REVERSE });
         std::cout << style << ":: JRFS: USER   >" << pt::CLEAN << '\t';
     }
 
     void error_report(std::string_view message)
     {
-        auto style = pt::RED.style({ pt::Style::UNDERLINE, pt::Style::BOLD });
+        auto style = pt::RED.style({ pt::Style::UNDERLINE, pt::Style::BOLD, pt::Style::REVERSE  });
         std::cout << style << ":: JRFS: ERROR  >" << pt::CLEAN << '\t';
         std::cout << pt::RED.style(pt::Style::UNDERLINE) << message << pt::CLEAN << std::endl;
     }
 
     void report_return_code(int code)
     {
-        auto style = pt::WHITE.style({ pt::Style::UNDERLINE, pt::Style::BOLD });
+        auto style = pt::WHITE.style({ pt::Style::UNDERLINE, pt::Style::BOLD, pt::Style::REVERSE  });
         std::cout << style << ":: JRFS: RETURN >" << pt::CLEAN << '\t' << code << std::endl;
     }
 };

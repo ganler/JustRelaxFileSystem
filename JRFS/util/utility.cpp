@@ -20,6 +20,9 @@ namespace utility {
         }
 
         strvec.push_back(strtem.substr(pos1));
+
+        if (strvec.back().empty())
+            strvec.pop_back();
         return strvec;
     }
 }

@@ -27,3 +27,10 @@ TEST(Utility, CheckSplitFunction3)
     auto tokens = jrfs::utility::split(src, '/');
     EXPECT_TRUE(equal_container(tokens, std::vector<std::string>{ "", "what", "the", "f" }));
 }
+
+TEST(Utility, CheckSplitFunction4)
+{
+    std::string src = "/what/the/f/";
+    auto tokens = jrfs::utility::split(src, '/');
+    EXPECT_TRUE(equal_container(tokens, std::vector<std::string>{ "", "what", "the", "f" }));
+}

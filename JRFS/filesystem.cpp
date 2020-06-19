@@ -48,6 +48,11 @@ filesystem::filehander filesystem::fopen(std::string_view path_)
     return filehander(*this, inode_index);
 }
 
+int filesystem::path_to_inode(const std::string &path) {
+    auto tokens = utility::split(path, '/');
+    return path_to_inode(tokens, path);
+}
+
 void filesystem::fcreate(std::string_view path_)
 {
     std::string path(path_);
@@ -98,9 +103,12 @@ void filesystem::delete_directory_inode(int index)
     auto& father_inode = inode_list[father_index];
     for (int i = 2; i < father_inode.direct_block.size(); ++i) {
         if (father_inode.direct_block[i] == index) {
-            for (int j = i + 1; j < father_inode.direct_block.size(); ++j)
+            int j = i + 1;
+            for (; j < father_inode.direct_block.size(); ++j)
                 if (father_inode.direct_block[j] != kNULL)
                     std::swap(father_inode.direct_block[j], father_inode.direct_block[j - 1]);
+                else break;
+            father_inode.direct_block[j - 1] = kNULL;
             return;
         }
     }
@@ -228,7 +236,7 @@ int filesystem::create_unlinked_file(const std::string& new_file_name, int dir_i
 
 int filesystem::create_unlinked_directory(const std::string& new_dir_name, int dir_index)
 {
-    auto it = std::find(inode_bitmap.begin(), inode_bitmap.end(), true);
+    auto it = std::find(inode_bitmap.begin(), inode_bitmap.end(), false);
     if (it == inode_bitmap.end())
         throw std::logic_error("There's Not Enough Inodes Now!");
 
@@ -356,7 +364,11 @@ void filesystem::scan_bitmap()
     mark_bitmap(0);
 }
 
-std::string filesystem::filehander::read(int size)
+int filesystem::filehander::node_id() const {
+    return m_inode_id;
+}
+
+std::string filesystem::filehander::read(int size) const
 {
     std::string ret;
     const auto& inode = m_fs_ref.inode_list[m_inode_id];
@@ -371,23 +383,46 @@ std::string filesystem::filehander::read(int size)
 
     int curr_point = 0;
     for (int i = 1; i < inode.direct_block.size(); ++i) {
-        const auto& blk = m_fs_ref.block_list[inode.direct_block[i]];
+        if (inode.direct_block[i] == kNULL) {
+            if (curr_point != m_seekp + size)
+                throw std::logic_error("No Enough Space To Read!");
+            else
+                break;
+        }
 
+        const auto& blk = m_fs_ref.block_list[inode.direct_block[i]]; // This Block Is Readable!
         if (curr_point + blk.size >= m_seekp) { // Now We Can Read!
-            if (curr_point > m_seekp + size) // No More Bytes To Read...
+            if (curr_point > m_seekp + size)    // No More Bytes To Read...
                 break;
             int bytes_to_read_in_this_block = std::min(blk.size, m_seekp + size - curr_point);
             std::string_view data_view(blk.data_content, bytes_to_read_in_this_block);
             ret += data_view;
+            curr_point += bytes_to_read_in_this_block;
         }
-
-        curr_point += blk.size;
     }
 
+    if (curr_point < size) { // Still Need Read in Linked List Mode.
+        const auto& last_block = m_fs_ref.block_list[inode.direct_block.back()];
+        assert(last_block.size == last_block.kContentSize);
+        assert(last_block.next != kNULL);
+        int next_index = last_block.next;
+        do {
+            const auto& blk = m_fs_ref.block_list[next_index];
+            int bytes_to_read_in_this_block = std::min(blk.size, m_seekp + size - curr_point);
+
+            std::string_view data_view(blk.data_content, bytes_to_read_in_this_block);
+
+            ret += data_view;
+            curr_point += bytes_to_read_in_this_block;
+            next_index = blk.next;
+        } while(curr_point < size && next_index != kNULL);
+    }
+
+    assert(ret.size() == size);
     return ret;
 }
 
-void filesystem::filehander::write(std::string_view data)
+void filesystem::filehander::write(const std::string_view data)
 { // Currently This Is Implemented In Append Fashion.
     int read_index = 0;
     auto& inode = m_fs_ref.inode_list[m_inode_id];
@@ -395,6 +430,8 @@ void filesystem::filehander::write(std::string_view data)
     assert(inode.valid);
     assert(!inode.is_dir());
     assert(inode.unix_time != 0);
+
+    inode.size += data.size();
 
     int index_in_inode = 1;
     for (; index_in_inode < inode.direct_block.size(); ++index_in_inode) {
@@ -405,7 +442,7 @@ void filesystem::filehander::write(std::string_view data)
             --index_in_inode;
             break;
         }
-    }
+    } // 我晕我都看不懂我写的是啥的 = =...
 
     // Pad The Unfilled Block.
     if (index_in_inode < inode.direct_block.size() && inode.direct_block[index_in_inode] != kNULL) { // This Means Padding.
@@ -415,6 +452,7 @@ void filesystem::filehander::write(std::string_view data)
         const int read_amount = std::min(blk.kContentSize - blk.size, static_cast<int>(data.size() - read_index));
         data.copy(blk.data_content + blk.size, read_amount);
         read_index += read_amount;
+        blk.size += read_amount;
 
         ++index_in_inode;
     }
@@ -454,29 +492,30 @@ void filesystem::filehander::write(std::string_view data)
 
         while (true) {
             auto& blk = m_fs_ref.block_list[next_blk_id];
-            if (blk.next != kNULL) {
+            if (blk.next != kNULL)
                 next_blk_id = blk.next;
-            } else
+            else
                 break;
         }
 
+        // Now:: next_blk_id is a node without a valid next.
         for (; link_index < blk_indexes.size(); ++link_index) {
             auto& blk = m_fs_ref.block_list[next_blk_id];
-            blk.next = link_index;
-            next_blk_id = blk_indexes[link_index];
+            next_blk_id = blk.next = blk_indexes[link_index];
         }
     }
 
+    // * Checked. This piece of codes is OK.
     for (const auto& ind : blk_indexes) { // Fill The Contents. // !Size
         auto& blk = m_fs_ref.block_list[ind];
         const int read_amount = std::min(blk.kContentSize, static_cast<int>(data.size() - read_index));
-
-        std::string_view data_(data.data() + read_index, data.size() - read_index);
+        std::string_view data_(data.begin() + read_index, data.size() - read_index);
         data_.copy(blk.data_content, read_amount);
         blk.size = read_amount;
-
         read_index += read_amount;
     }
+
+    assert(read_index == data.size());
 }
 
 void filesystem::filehander::seekp(int p)

@@ -23,14 +23,14 @@ struct filesystem {
 
     struct filehander {
         void seekp(int p);
-        void write(std::string_view data);
-        std::string read(int size);
+        void write(const std::string_view data);
+        std::string read(int size) const;
+        int node_id() const;
         filehander(filesystem& fs, int ind)
             : m_fs_ref(fs)
             , m_inode_id(ind)
         {
         }
-
     private:
         filesystem& m_fs_ref;
         const int m_inode_id;
@@ -49,6 +49,7 @@ struct filesystem {
     void delete_file_inode(int index);
     void delete_directory_inode(int index);
     int path_to_inode(const std::vector<std::string>& tokens, const std::string& path); // 只支持全局路径(can be file | directory)
+    int path_to_inode(const std::string& path);
     int create_unlinked_file(const std::string& new_file_name, int dir_index);
     int create_unlinked_directory(const std::string& new_dir_name, int dir_index);
 
