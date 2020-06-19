@@ -1,0 +1,4 @@
+<map id="jrfs::filesystem" name="jrfs::filesystem">
+<area shape="rect" id="node1" title="　文件系统类，包含对整个文件系统的系统调用" alt="" coords="11,95,119,121"/>
+<area shape="rect" id="node2" href="$structjrfs_1_1super__block.html" title="文件系统元数据" alt="" coords="5,5,124,32"/>
+</map>

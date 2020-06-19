@@ -53,11 +53,11 @@ public:
         return direct_block[1];
     }
 
-    /// \param fstream 文件系统镜像流
+    /// \param istream 文件系统镜像流
     /// \brief 从文件系统中读取inode块
     void read(std::fstream& istream);
 
-    /// \param fstream 文件系统镜像流
+    /// \param ostream 文件系统镜像流
     /// \brief 将inode块写入二级文件系统
     void write(std::fstream& ostream);
 };

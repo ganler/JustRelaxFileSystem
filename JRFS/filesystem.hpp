@@ -23,7 +23,7 @@ struct filesystem {
     /// \brief 文件系统析构函数，会最后对文件系统进行一次整体同步
     ~filesystem();
 
-    /// \brief 文件系统用于操控文件读写的API，类似于C++的std::fstream和C标准库的fread/fwrite操作
+    /// \brief 文件系统用于操控文件读写的API，类似于Cpp的std::fstream和C标准库的fread或fwrite操作
     struct filehander {
 
         /// 将文件视为逻辑上的一个byte block，seekp用于选择当前文件读写指针定位
@@ -63,38 +63,38 @@ struct filesystem {
 
     /// \throws std::logic_error
     /// \param path 文件夹路径，如`/path/to/dir`
-    /// \breif [高层API] 创建文件夹
+    /// \brief [高层API] 创建文件夹
     void mkdir(std::string_view path);
 
     /// \throws std::logic_error
     /// \param path 文件夹路径，如`/path/to/dir`
-    /// \breif [高层API] 删除文件夹
+    /// \brief [高层API] 删除文件夹
     void rmdir(std::string_view path);
 
     /// \throws std::logic_error
     /// \param path 文件路径，如`/path/to/file`
-    /// \breif [高层API] 创建文件
+    /// \brief [高层API] 创建文件
     void fcreate(std::string_view path);
 
     /// \param path 件路径，如`/path/to/file`
     /// \throws std::logic_error
     /// \return 返回filehander对象，可对其进行文件读写
-    /// \breif [高层API] 打开文件夹，返回handler
+    /// \brief [高层API] 打开文件夹，返回handler
     filehander fopen(std::string_view path);
 
     /// \throws std::logic_error
     /// \param path 件路径，如`/path/to/file`
-    /// \breif [高层API] 删除文件
+    /// \brief [高层API] 删除文件
     void fdelete(std::string_view path);
 
     /// \throws std::logic_error
     /// \param index inode下标
-    /// \breif [底层API] 删除文件对应的inode
+    /// \brief [底层API] 删除文件对应的inode
     void delete_file_inode(int index);
 
     /// \throws std::logic_error
     /// \param index inode下标
-    /// \breif [底层API] 删除文件夹对应的inode
+    /// \brief [底层API] 删除文件夹对应的inode
     void delete_directory_inode(int index);
 
     /// \throws std::logic_error
@@ -107,43 +107,43 @@ struct filesystem {
     /// \throws std::logic_error
     /// \param path 文件（夹）路径
     /// \return inode下标
-    /// \breif [底层API] 将文件（夹）路径转化为inode下标
+    /// \brief [底层API] 将文件（夹）路径转化为inode下标
     int path_to_inode(const std::string& path);
 
     /// \throws std::logic_error
     /// \param new_file_name 文件名
     /// \param dir_index 所在文件夹的inode下标
     /// \return inode下标
-    /// \breif [底层API] 创建文件inode
+    /// \brief [底层API] 创建文件inode
     int create_file_inode(const std::string& new_file_name, int dir_index);
 
     /// \throws std::logic_error
     /// \param new_dir_name 文件夹名
     /// \param dir_index 当前文件夹的inode下标
     /// \return inode下标
-    /// \breif [底层API] 创建文件夹inode
+    /// \brief [底层API] 创建文件夹inode
     int create_dir_inode(const std::string& new_dir_name, int dir_index);
 
     /// \throws std::logic_error
     /// \note 所需的数据信息（如文件位置）已经在filesystem类初始化的时候得到
-    /// \breif [底层API] 加载镜像
+    /// \brief [底层API] 加载镜像
     void load_image();
 
     /// \throws std::logic_error
     /// \param count_blocks 镜像所需的block的大小
-    /// \breif [底层API] 构建镜像
+    /// \brief [底层API] 构建镜像
     void create_image(int count_blocks);
 
-    /// \breif [底层API] 同步内存与磁盘中的镜像
     /// \throws std::logic_error
+    /// \brief [底层API] 同步内存与磁盘中的镜像
     void sync_image();
 
     /// \throws std::logic_error
-    /// \breif [底层API] 检查bitmap和当前文件系统是否一致
+    /// \brief [底层API] 检查bitmap和当前文件系统是否一致
     void scan_bitmap();
 
     /// \param inode_id inode下标
-    /// \breif [底层API] 标记一个inode（文件夹/文件）下所对应的所有inode和block块
+    /// \brief [底层API] 标记一个inode（文件夹/文件）下所对应的所有inode和block块
     void mark_bitmap(int inode_id);
 
     super_block meta_data; ///> 文件系统的元数据

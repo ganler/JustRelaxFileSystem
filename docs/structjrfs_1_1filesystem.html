@@ -79,11 +79,20 @@ $(function() {
  <a href="structjrfs_1_1filesystem.html#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="filesystem_8hpp_source.html">filesystem.hpp</a>&gt;</code></p>
+<div class="dynheader">
+jrfs::filesystem 的协作图:</div>
+<div class="dyncontent">
+<div class="center"><img src="structjrfs_1_1filesystem__coll__graph.png" border="0" usemap="#jrfs_1_1filesystem_coll__map" alt="Collaboration graph"/></div>
+<map name="jrfs_1_1filesystem_coll__map" id="jrfs_1_1filesystem_coll__map">
+<area shape="rect" title="　文件系统类，包含对整个文件系统的系统调用" alt="" coords="11,95,119,121"/>
+<area shape="rect" href="structjrfs_1_1super__block.html" title="文件系统元数据" alt="" coords="5,5,124,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">图例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 类</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem_1_1filehander.html">filehander</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">文件系统用于操控文件读写的API，类似于C++的std::fstream和C标准库的fread/fwrite操作  <a href="structjrfs_1_1filesystem_1_1filehander.html#details">更多...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">文件系统用于操控文件读写的API，类似于Cpp的std::fstream和C标准库的fread或fwrite操作  <a href="structjrfs_1_1filesystem_1_1filehander.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -98,37 +107,52 @@ Public 成员函数</h2></td></tr>
 <tr class="memdesc:a63d3fdb02d24cc7b1e30cadedcae2bb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">文件系统析构函数，会最后对文件系统进行一次整体同步  <a href="structjrfs_1_1filesystem.html#a63d3fdb02d24cc7b1e30cadedcae2bb5">更多...</a><br /></td></tr>
 <tr class="separator:a63d3fdb02d24cc7b1e30cadedcae2bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e995f5752a7f5d2502c41627d8f6b6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a1e995f5752a7f5d2502c41627d8f6b6f">mkdir</a> (std::string_view path)</td></tr>
+<tr class="memdesc:a1e995f5752a7f5d2502c41627d8f6b6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">[高层API] 创建文件夹  <a href="structjrfs_1_1filesystem.html#a1e995f5752a7f5d2502c41627d8f6b6f">更多...</a><br /></td></tr>
 <tr class="separator:a1e995f5752a7f5d2502c41627d8f6b6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34214b143e5e602bb0b703fefd194710"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a34214b143e5e602bb0b703fefd194710">rmdir</a> (std::string_view path)</td></tr>
+<tr class="memdesc:a34214b143e5e602bb0b703fefd194710"><td class="mdescLeft">&#160;</td><td class="mdescRight">[高层API] 删除文件夹  <a href="structjrfs_1_1filesystem.html#a34214b143e5e602bb0b703fefd194710">更多...</a><br /></td></tr>
 <tr class="separator:a34214b143e5e602bb0b703fefd194710"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad70d4ecc9dd3fd11e97570c6e8dc3b76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#ad70d4ecc9dd3fd11e97570c6e8dc3b76">fcreate</a> (std::string_view path)</td></tr>
+<tr class="memdesc:ad70d4ecc9dd3fd11e97570c6e8dc3b76"><td class="mdescLeft">&#160;</td><td class="mdescRight">[高层API] 创建文件  <a href="structjrfs_1_1filesystem.html#ad70d4ecc9dd3fd11e97570c6e8dc3b76">更多...</a><br /></td></tr>
 <tr class="separator:ad70d4ecc9dd3fd11e97570c6e8dc3b76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acee327c9df2d044a0d279218e595df60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjrfs_1_1filesystem_1_1filehander.html">filehander</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#acee327c9df2d044a0d279218e595df60">fopen</a> (std::string_view path)</td></tr>
+<tr class="memdesc:acee327c9df2d044a0d279218e595df60"><td class="mdescLeft">&#160;</td><td class="mdescRight">[高层API] 打开文件夹，返回handler  <a href="structjrfs_1_1filesystem.html#acee327c9df2d044a0d279218e595df60">更多...</a><br /></td></tr>
 <tr class="separator:acee327c9df2d044a0d279218e595df60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46a53166108a8cfbfa9bc2b8955ae00b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a46a53166108a8cfbfa9bc2b8955ae00b">fdelete</a> (std::string_view path)</td></tr>
+<tr class="memdesc:a46a53166108a8cfbfa9bc2b8955ae00b"><td class="mdescLeft">&#160;</td><td class="mdescRight">[高层API] 删除文件  <a href="structjrfs_1_1filesystem.html#a46a53166108a8cfbfa9bc2b8955ae00b">更多...</a><br /></td></tr>
 <tr class="separator:a46a53166108a8cfbfa9bc2b8955ae00b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb89b0aec7285461cbb8124747de9dae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#acb89b0aec7285461cbb8124747de9dae">delete_file_inode</a> (int index)</td></tr>
+<tr class="memdesc:acb89b0aec7285461cbb8124747de9dae"><td class="mdescLeft">&#160;</td><td class="mdescRight">[底层API] 删除文件对应的inode  <a href="structjrfs_1_1filesystem.html#acb89b0aec7285461cbb8124747de9dae">更多...</a><br /></td></tr>
 <tr class="separator:acb89b0aec7285461cbb8124747de9dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17e0deb01708f03bc8911a70bf82227c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a17e0deb01708f03bc8911a70bf82227c">delete_directory_inode</a> (int index)</td></tr>
+<tr class="memdesc:a17e0deb01708f03bc8911a70bf82227c"><td class="mdescLeft">&#160;</td><td class="mdescRight">[底层API] 删除文件夹对应的inode  <a href="structjrfs_1_1filesystem.html#a17e0deb01708f03bc8911a70bf82227c">更多...</a><br /></td></tr>
 <tr class="separator:a17e0deb01708f03bc8911a70bf82227c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a377882f175d080b45d8c839be1c8f939"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a377882f175d080b45d8c839be1c8f939">path_to_inode</a> (const std::vector&lt; std::string &gt; &amp;tokens, const std::string &amp;path)</td></tr>
 <tr class="memdesc:a377882f175d080b45d8c839be1c8f939"><td class="mdescLeft">&#160;</td><td class="mdescRight">[底层API] 将文件（夹）路径转化为inode下标  <a href="structjrfs_1_1filesystem.html#a377882f175d080b45d8c839be1c8f939">更多...</a><br /></td></tr>
 <tr class="separator:a377882f175d080b45d8c839be1c8f939"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8d027dd7283688d9bb5dbb94e928d7d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#af8d027dd7283688d9bb5dbb94e928d7d">path_to_inode</a> (const std::string &amp;path)</td></tr>
+<tr class="memdesc:af8d027dd7283688d9bb5dbb94e928d7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">[底层API] 将文件（夹）路径转化为inode下标  <a href="structjrfs_1_1filesystem.html#af8d027dd7283688d9bb5dbb94e928d7d">更多...</a><br /></td></tr>
 <tr class="separator:af8d027dd7283688d9bb5dbb94e928d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f6758f06dc8871a2978ffa628af04f4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a6f6758f06dc8871a2978ffa628af04f4">create_file_inode</a> (const std::string &amp;new_file_name, int dir_index)</td></tr>
+<tr class="memdesc:a6f6758f06dc8871a2978ffa628af04f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">[底层API] 创建文件inode  <a href="structjrfs_1_1filesystem.html#a6f6758f06dc8871a2978ffa628af04f4">更多...</a><br /></td></tr>
 <tr class="separator:a6f6758f06dc8871a2978ffa628af04f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a510d4b454a2a520059b7321be3674bdb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a510d4b454a2a520059b7321be3674bdb">create_dir_inode</a> (const std::string &amp;new_dir_name, int dir_index)</td></tr>
+<tr class="memdesc:a510d4b454a2a520059b7321be3674bdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">[底层API] 创建文件夹inode  <a href="structjrfs_1_1filesystem.html#a510d4b454a2a520059b7321be3674bdb">更多...</a><br /></td></tr>
 <tr class="separator:a510d4b454a2a520059b7321be3674bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9370de99938007f975eeb620d6ed12d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#ad9370de99938007f975eeb620d6ed12d">load_image</a> ()</td></tr>
+<tr class="memdesc:ad9370de99938007f975eeb620d6ed12d"><td class="mdescLeft">&#160;</td><td class="mdescRight">[底层API] 加载镜像  <a href="structjrfs_1_1filesystem.html#ad9370de99938007f975eeb620d6ed12d">更多...</a><br /></td></tr>
 <tr class="separator:ad9370de99938007f975eeb620d6ed12d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26ec9929d2526eed015baaf977925bb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a26ec9929d2526eed015baaf977925bb1">create_image</a> (int count_blocks)</td></tr>
+<tr class="memdesc:a26ec9929d2526eed015baaf977925bb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">[底层API] 构建镜像  <a href="structjrfs_1_1filesystem.html#a26ec9929d2526eed015baaf977925bb1">更多...</a><br /></td></tr>
 <tr class="separator:a26ec9929d2526eed015baaf977925bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae54a3c77b3455e84c86b2dd9e450fc4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#ae54a3c77b3455e84c86b2dd9e450fc4c">sync_image</a> ()</td></tr>
+<tr class="memdesc:ae54a3c77b3455e84c86b2dd9e450fc4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">[底层API] 同步内存与磁盘中的镜像  <a href="structjrfs_1_1filesystem.html#ae54a3c77b3455e84c86b2dd9e450fc4c">更多...</a><br /></td></tr>
 <tr class="separator:ae54a3c77b3455e84c86b2dd9e450fc4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a383874eb1d61f3f5fd90b59c256686d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a383874eb1d61f3f5fd90b59c256686d1">scan_bitmap</a> ()</td></tr>
+<tr class="memdesc:a383874eb1d61f3f5fd90b59c256686d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">[底层API] 检查bitmap和当前文件系统是否一致  <a href="structjrfs_1_1filesystem.html#a383874eb1d61f3f5fd90b59c256686d1">更多...</a><br /></td></tr>
 <tr class="separator:a383874eb1d61f3f5fd90b59c256686d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc8ed2f2b9dca8b71f776ddef5727ddb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#adc8ed2f2b9dca8b71f776ddef5727ddb">mark_bitmap</a> (int inode_id)</td></tr>
+<tr class="memdesc:adc8ed2f2b9dca8b71f776ddef5727ddb"><td class="mdescLeft">&#160;</td><td class="mdescRight">[底层API] 标记一个inode（文件夹/文件）下所对应的所有inode和block块  <a href="structjrfs_1_1filesystem.html#adc8ed2f2b9dca8b71f776ddef5727ddb">更多...</a><br /></td></tr>
 <tr class="separator:adc8ed2f2b9dca8b71f776ddef5727ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -193,6 +217,8 @@ Public 属性</h2></td></tr>
   </dd>
 </dl>
 
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1filesystem.html#ad9370de99938007f975eeb620d6ed12d">load_image()</a> , 以及 <a class="el" href="structjrfs_1_1filesystem.html#a383874eb1d61f3f5fd90b59c256686d1">scan_bitmap()</a>.</p>
+
 </div>
 </div>
 <a id="aba95d17f8e4a9edf68091364ecadcea9"></a>
@@ -230,6 +256,8 @@ Public 属性</h2></td></tr>
   </dd>
 </dl>
 
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1filesystem.html#a26ec9929d2526eed015baaf977925bb1">create_image()</a>.</p>
+
 </div>
 </div>
 <a id="a63d3fdb02d24cc7b1e30cadedcae2bb5"></a>
@@ -248,6 +276,8 @@ Public 属性</h2></td></tr>
 </div><div class="memdoc">
 
 <p>文件系统析构函数，会最后对文件系统进行一次整体同步 </p>
+
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1filesystem.html#ae54a3c77b3455e84c86b2dd9e450fc4c">sync_image()</a>.</p>
 
 </div>
 </div>
@@ -277,6 +307,8 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>[底层API] 创建文件夹inode </p>
 <dl class="exception"><dt>异常</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::logic_error</td><td></td></tr>
@@ -290,7 +322,11 @@ Public 属性</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>inode下标 \breif [底层API] 创建文件夹inode </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>inode下标 </dd></dl>
+
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1filesystem.html#ae953fecf93701fe32d9e344f9e276432">inode_bitmap</a> , 以及 <a class="el" href="structjrfs_1_1filesystem.html#a95d98188e38e335a7be2f5d97c401750">inode_list</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#a1e995f5752a7f5d2502c41627d8f6b6f">mkdir()</a>.</p>
 
 </div>
 </div>
@@ -319,6 +355,8 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>[底层API] 创建文件inode </p>
 <dl class="exception"><dt>异常</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::logic_error</td><td></td></tr>
@@ -332,7 +370,11 @@ Public 属性</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>inode下标 \breif [底层API] 创建文件inode </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>inode下标 </dd></dl>
+
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1filesystem.html#ae953fecf93701fe32d9e344f9e276432">inode_bitmap</a> , 以及 <a class="el" href="structjrfs_1_1filesystem.html#a95d98188e38e335a7be2f5d97c401750">inode_list</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#ad70d4ecc9dd3fd11e97570c6e8dc3b76">fcreate()</a>.</p>
 
 </div>
 </div>
@@ -351,6 +393,8 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>[底层API] 构建镜像 </p>
 <dl class="exception"><dt>异常</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::logic_error</td><td></td></tr>
@@ -359,10 +403,14 @@ Public 属性</h2></td></tr>
 </dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">count_blocks</td><td>镜像所需的block的大小 \breif [底层API] 构建镜像 </td></tr>
+    <tr><td class="paramname">count_blocks</td><td>镜像所需的block的大小 </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1filesystem.html#aae333f2b484689834255dd60921c05d5">block_bitmap</a>, <a class="el" href="structjrfs_1_1filesystem.html#abe50fc92fd0d06b5b9c022c9b2587aa0">block_list</a>, <a class="el" href="structjrfs_1_1super__block.html#a57ad56d3f6b86c117a008183bbd41a19">jrfs::super_block::block_total</a>, <a class="el" href="structjrfs_1_1filesystem.html#ae953fecf93701fe32d9e344f9e276432">inode_bitmap</a>, <a class="el" href="structjrfs_1_1filesystem.html#a95d98188e38e335a7be2f5d97c401750">inode_list</a>, <a class="el" href="structjrfs_1_1super__block.html#aaab3baf0c4a7cef7ea953864c216fd5f">jrfs::super_block::inode_total</a>, <a class="el" href="namespacejrfs.html#a14fb6b5833830103b0ccb7a548cd0805">jrfs::kInodePercent</a>, <a class="el" href="structjrfs_1_1filesystem.html#a0d82c9eba689a92ce433b6cf45a85000">meta_data</a>, <a class="el" href="structjrfs_1_1filesystem.html#ab9538c42ac704e826033c3ba4fde7e3e">mount_point</a> , 以及 <a class="el" href="structjrfs_1_1filesystem.html#ae54a3c77b3455e84c86b2dd9e450fc4c">sync_image()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#aba95d17f8e4a9edf68091364ecadcea9">filesystem()</a>.</p>
 
 </div>
 </div>
@@ -381,6 +429,8 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>[底层API] 删除文件夹对应的inode </p>
 <dl class="exception"><dt>异常</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::logic_error</td><td></td></tr>
@@ -389,10 +439,14 @@ Public 属性</h2></td></tr>
 </dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>inode下标 \breif [底层API] 删除文件夹对应的inode </td></tr>
+    <tr><td class="paramname">index</td><td>inode下标 </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1filesystem.html#acb89b0aec7285461cbb8124747de9dae">delete_file_inode()</a>, <a class="el" href="structjrfs_1_1inode.html#abe25efe5e098c40a4333858af8d4b64e">jrfs::inode::direct_block</a>, <a class="el" href="structjrfs_1_1filesystem.html#ae953fecf93701fe32d9e344f9e276432">inode_bitmap</a>, <a class="el" href="structjrfs_1_1filesystem.html#a95d98188e38e335a7be2f5d97c401750">inode_list</a>, <a class="el" href="structjrfs_1_1inode.html#ac04b9538f8e0dd8f6db23186e60acde4">jrfs::inode::is_dir()</a>, <a class="el" href="namespacejrfs.html#ad08d6878092f6e0dbdd71b4efbbedf5a">jrfs::kNULL</a>, <a class="el" href="structjrfs_1_1inode.html#a7e476a564c794f73781242183977bbf1">jrfs::inode::unix_time</a> , 以及 <a class="el" href="structjrfs_1_1inode.html#a1b6fbbe8af9d584049be55c680bca463">jrfs::inode::valid</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#a34214b143e5e602bb0b703fefd194710">rmdir()</a>.</p>
 
 </div>
 </div>
@@ -411,6 +465,8 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>[底层API] 删除文件对应的inode </p>
 <dl class="exception"><dt>异常</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::logic_error</td><td></td></tr>
@@ -419,10 +475,14 @@ Public 属性</h2></td></tr>
 </dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>inode下标 \breif [底层API] 删除文件对应的inode </td></tr>
+    <tr><td class="paramname">index</td><td>inode下标 </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1filesystem.html#aae333f2b484689834255dd60921c05d5">block_bitmap</a>, <a class="el" href="structjrfs_1_1filesystem.html#abe50fc92fd0d06b5b9c022c9b2587aa0">block_list</a>, <a class="el" href="structjrfs_1_1inode.html#abe25efe5e098c40a4333858af8d4b64e">jrfs::inode::direct_block</a>, <a class="el" href="structjrfs_1_1filesystem.html#a95d98188e38e335a7be2f5d97c401750">inode_list</a>, <a class="el" href="structjrfs_1_1inode.html#ac04b9538f8e0dd8f6db23186e60acde4">jrfs::inode::is_dir()</a>, <a class="el" href="namespacejrfs.html#ad08d6878092f6e0dbdd71b4efbbedf5a">jrfs::kNULL</a>, <a class="el" href="structjrfs_1_1inode.html#a7e476a564c794f73781242183977bbf1">jrfs::inode::unix_time</a> , 以及 <a class="el" href="structjrfs_1_1inode.html#a1b6fbbe8af9d584049be55c680bca463">jrfs::inode::valid</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#a17e0deb01708f03bc8911a70bf82227c">delete_directory_inode()</a> , 以及 <a class="el" href="structjrfs_1_1filesystem.html#a46a53166108a8cfbfa9bc2b8955ae00b">fdelete()</a>.</p>
 
 </div>
 </div>
@@ -441,6 +501,8 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>[高层API] 创建文件 </p>
 <dl class="exception"><dt>异常</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::logic_error</td><td></td></tr>
@@ -449,10 +511,12 @@ Public 属性</h2></td></tr>
 </dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>文件路径，如<code>/path/to/file</code> \breif [高层API] 创建文件 </td></tr>
+    <tr><td class="paramname">path</td><td>文件路径，如<code>/path/to/file</code> </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1filesystem.html#a6f6758f06dc8871a2978ffa628af04f4">create_file_inode()</a>, <a class="el" href="structjrfs_1_1filesystem.html#ae953fecf93701fe32d9e344f9e276432">inode_bitmap</a>, <a class="el" href="structjrfs_1_1filesystem.html#a95d98188e38e335a7be2f5d97c401750">inode_list</a>, <a class="el" href="namespacejrfs.html#ad08d6878092f6e0dbdd71b4efbbedf5a">jrfs::kNULL</a>, <a class="el" href="structjrfs_1_1inode.html#ad7684e5adb139c7452bccfc62d03fa0d">jrfs::inode::name</a>, <a class="el" href="structjrfs_1_1filesystem.html#a377882f175d080b45d8c839be1c8f939">path_to_inode()</a> , 以及 <a class="el" href="namespacejrfs_1_1utility.html#a9fb2e784a7954f56b44990d6a5bc34a6">jrfs::utility::split()</a>.</p>
 
 </div>
 </div>
@@ -471,6 +535,8 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>[高层API] 删除文件 </p>
 <dl class="exception"><dt>异常</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::logic_error</td><td></td></tr>
@@ -479,10 +545,12 @@ Public 属性</h2></td></tr>
 </dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>件路径，如<code>/path/to/file</code> \breif [高层API] 删除文件 </td></tr>
+    <tr><td class="paramname">path</td><td>件路径，如<code>/path/to/file</code> </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1filesystem.html#acb89b0aec7285461cbb8124747de9dae">delete_file_inode()</a>, <a class="el" href="structjrfs_1_1filesystem.html#a377882f175d080b45d8c839be1c8f939">path_to_inode()</a> , 以及 <a class="el" href="namespacejrfs_1_1utility.html#a9fb2e784a7954f56b44990d6a5bc34a6">jrfs::utility::split()</a>.</p>
 
 </div>
 </div>
@@ -501,6 +569,8 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>[高层API] 打开文件夹，返回handler </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>件路径，如<code>/path/to/file</code> </td></tr>
@@ -513,7 +583,9 @@ Public 属性</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>返回filehander对象，可对其进行文件读写 \breif [高层API] 打开文件夹，返回handler </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>返回filehander对象，可对其进行文件读写 </dd></dl>
+
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1filesystem.html#a377882f175d080b45d8c839be1c8f939">path_to_inode()</a> , 以及 <a class="el" href="namespacejrfs_1_1utility.html#a9fb2e784a7954f56b44990d6a5bc34a6">jrfs::utility::split()</a>.</p>
 
 </div>
 </div>
@@ -531,13 +603,19 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>[底层API] 加载镜像 </p>
 <dl class="exception"><dt>异常</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::logic_error</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>注解</dt><dd>所需的数据信息（如文件位置）已经在filesystem类初始化的时候得到 \breif [底层API] 加载镜像 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>所需的数据信息（如文件位置）已经在filesystem类初始化的时候得到 </dd></dl>
+
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1filesystem.html#aae333f2b484689834255dd60921c05d5">block_bitmap</a>, <a class="el" href="structjrfs_1_1filesystem.html#abe50fc92fd0d06b5b9c022c9b2587aa0">block_list</a>, <a class="el" href="structjrfs_1_1super__block.html#a57ad56d3f6b86c117a008183bbd41a19">jrfs::super_block::block_total</a>, <a class="el" href="structjrfs_1_1filesystem.html#ae953fecf93701fe32d9e344f9e276432">inode_bitmap</a>, <a class="el" href="structjrfs_1_1filesystem.html#a95d98188e38e335a7be2f5d97c401750">inode_list</a>, <a class="el" href="structjrfs_1_1super__block.html#aaab3baf0c4a7cef7ea953864c216fd5f">jrfs::super_block::inode_total</a>, <a class="el" href="structjrfs_1_1filesystem.html#a0d82c9eba689a92ce433b6cf45a85000">meta_data</a>, <a class="el" href="structjrfs_1_1filesystem.html#ab9538c42ac704e826033c3ba4fde7e3e">mount_point</a>, <a class="el" href="structjrfs_1_1super__block.html#a25fea83ebc92f642f93411c9e2acebf9">jrfs::super_block::read()</a>, <a class="el" href="structjrfs_1_1data__block.html#a43275b52af31e6d3ff939febb836b450">jrfs::data_block::read()</a> , 以及 <a class="el" href="structjrfs_1_1inode.html#af3d4710f5943d193954cd9e80bdefae3">jrfs::inode::read()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#a18491cc4b123f5bc9a7f997b0de0121d">filesystem()</a>.</p>
 
 </div>
 </div>
@@ -556,12 +634,18 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>[底层API] 标记一个inode（文件夹/文件）下所对应的所有inode和block块 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">inode_id</td><td>inode下标 \breif [底层API] 标记一个inode（文件夹/文件）下所对应的所有inode和block块 </td></tr>
+    <tr><td class="paramname">inode_id</td><td>inode下标 </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1filesystem.html#aae333f2b484689834255dd60921c05d5">block_bitmap</a>, <a class="el" href="structjrfs_1_1filesystem.html#abe50fc92fd0d06b5b9c022c9b2587aa0">block_list</a>, <a class="el" href="structjrfs_1_1filesystem.html#ae953fecf93701fe32d9e344f9e276432">inode_bitmap</a>, <a class="el" href="structjrfs_1_1filesystem.html#a95d98188e38e335a7be2f5d97c401750">inode_list</a> , 以及 <a class="el" href="namespacejrfs.html#ad08d6878092f6e0dbdd71b4efbbedf5a">jrfs::kNULL</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#a383874eb1d61f3f5fd90b59c256686d1">scan_bitmap()</a>.</p>
 
 </div>
 </div>
@@ -580,6 +664,8 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>[高层API] 创建文件夹 </p>
 <dl class="exception"><dt>异常</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::logic_error</td><td></td></tr>
@@ -588,10 +674,12 @@ Public 属性</h2></td></tr>
 </dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>文件夹路径，如<code>/path/to/dir</code> \breif [高层API] 创建文件夹 </td></tr>
+    <tr><td class="paramname">path</td><td>文件夹路径，如<code>/path/to/dir</code> </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1filesystem.html#a510d4b454a2a520059b7321be3674bdb">create_dir_inode()</a>, <a class="el" href="structjrfs_1_1filesystem.html#ae953fecf93701fe32d9e344f9e276432">inode_bitmap</a>, <a class="el" href="structjrfs_1_1filesystem.html#a95d98188e38e335a7be2f5d97c401750">inode_list</a>, <a class="el" href="namespacejrfs.html#ad08d6878092f6e0dbdd71b4efbbedf5a">jrfs::kNULL</a>, <a class="el" href="structjrfs_1_1inode.html#ad7684e5adb139c7452bccfc62d03fa0d">jrfs::inode::name</a>, <a class="el" href="structjrfs_1_1filesystem.html#a377882f175d080b45d8c839be1c8f939">path_to_inode()</a> , 以及 <a class="el" href="namespacejrfs_1_1utility.html#a9fb2e784a7954f56b44990d6a5bc34a6">jrfs::utility::split()</a>.</p>
 
 </div>
 </div>
@@ -610,6 +698,8 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>[底层API] 将文件（夹）路径转化为inode下标 </p>
 <dl class="exception"><dt>异常</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::logic_error</td><td></td></tr>
@@ -622,7 +712,9 @@ Public 属性</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>inode下标 \breif [底层API] 将文件（夹）路径转化为inode下标 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>inode下标 </dd></dl>
+
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1filesystem.html#a377882f175d080b45d8c839be1c8f939">path_to_inode()</a> , 以及 <a class="el" href="namespacejrfs_1_1utility.html#a9fb2e784a7954f56b44990d6a5bc34a6">jrfs::utility::split()</a>.</p>
 
 </div>
 </div>
@@ -668,6 +760,10 @@ Public 属性</h2></td></tr>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>inode下标 </dd></dl>
 
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1filesystem.html#a95d98188e38e335a7be2f5d97c401750">inode_list</a> , 以及 <a class="el" href="namespacejrfs.html#ad08d6878092f6e0dbdd71b4efbbedf5a">jrfs::kNULL</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#ad70d4ecc9dd3fd11e97570c6e8dc3b76">fcreate()</a>, <a class="el" href="structjrfs_1_1filesystem.html#a46a53166108a8cfbfa9bc2b8955ae00b">fdelete()</a>, <a class="el" href="structjrfs_1_1filesystem.html#acee327c9df2d044a0d279218e595df60">fopen()</a>, <a class="el" href="structjrfs_1_1filesystem.html#a1e995f5752a7f5d2502c41627d8f6b6f">mkdir()</a>, <a class="el" href="structjrfs_1_1filesystem.html#af8d027dd7283688d9bb5dbb94e928d7d">path_to_inode()</a> , 以及 <a class="el" href="structjrfs_1_1filesystem.html#a34214b143e5e602bb0b703fefd194710">rmdir()</a>.</p>
+
 </div>
 </div>
 <a id="a34214b143e5e602bb0b703fefd194710"></a>
@@ -685,6 +781,8 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>[高层API] 删除文件夹 </p>
 <dl class="exception"><dt>异常</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::logic_error</td><td></td></tr>
@@ -693,10 +791,12 @@ Public 属性</h2></td></tr>
 </dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>文件夹路径，如<code>/path/to/dir</code> \breif [高层API] 删除文件夹 </td></tr>
+    <tr><td class="paramname">path</td><td>文件夹路径，如<code>/path/to/dir</code> </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1filesystem.html#a17e0deb01708f03bc8911a70bf82227c">delete_directory_inode()</a>, <a class="el" href="structjrfs_1_1filesystem.html#a377882f175d080b45d8c839be1c8f939">path_to_inode()</a> , 以及 <a class="el" href="namespacejrfs_1_1utility.html#a9fb2e784a7954f56b44990d6a5bc34a6">jrfs::utility::split()</a>.</p>
 
 </div>
 </div>
@@ -714,12 +814,18 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>[底层API] 检查bitmap和当前文件系统是否一致 </p>
 <dl class="exception"><dt>异常</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::logic_error</td><td>\breif [底层API] 检查bitmap和当前文件系统是否一致 </td></tr>
+    <tr><td class="paramname">std::logic_error</td><td></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1filesystem.html#adc8ed2f2b9dca8b71f776ddef5727ddb">mark_bitmap()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#a18491cc4b123f5bc9a7f997b0de0121d">filesystem()</a>.</p>
 
 </div>
 </div>
@@ -737,12 +843,18 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>\breif [底层API] 同步内存与磁盘中的镜像 </p><dl class="exception"><dt>异常</dt><dd>
+
+<p>[底层API] 同步内存与磁盘中的镜像 </p>
+<dl class="exception"><dt>异常</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::logic_error</td><td></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1filesystem.html#abe50fc92fd0d06b5b9c022c9b2587aa0">block_list</a>, <a class="el" href="structjrfs_1_1filesystem.html#a95d98188e38e335a7be2f5d97c401750">inode_list</a>, <a class="el" href="structjrfs_1_1filesystem.html#a0d82c9eba689a92ce433b6cf45a85000">meta_data</a>, <a class="el" href="structjrfs_1_1filesystem.html#ab9538c42ac704e826033c3ba4fde7e3e">mount_point</a>, <a class="el" href="structjrfs_1_1super__block.html#a3c3af0de1687838a3823f0137c805489">jrfs::super_block::write()</a> , 以及 <a class="el" href="structjrfs_1_1inode.html#a8b8725f0ee29a296f20aa9e5b3e89ebc">jrfs::inode::write()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#a26ec9929d2526eed015baaf977925bb1">create_image()</a> , 以及 <a class="el" href="structjrfs_1_1filesystem.html#a63d3fdb02d24cc7b1e30cadedcae2bb5">~filesystem()</a>.</p>
 
 </div>
 </div>
@@ -764,6 +876,8 @@ Public 属性</h2></td></tr>
 </blockquote>
 </p>
 
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#a26ec9929d2526eed015baaf977925bb1">create_image()</a>, <a class="el" href="structjrfs_1_1filesystem.html#acb89b0aec7285461cbb8124747de9dae">delete_file_inode()</a>, <a class="el" href="structjrfs_1_1filesystem.html#ad9370de99938007f975eeb620d6ed12d">load_image()</a> , 以及 <a class="el" href="structjrfs_1_1filesystem.html#adc8ed2f2b9dca8b71f776ddef5727ddb">mark_bitmap()</a>.</p>
+
 </div>
 </div>
 <a id="abe50fc92fd0d06b5b9c022c9b2587aa0"></a>
@@ -782,6 +896,8 @@ Public 属性</h2></td></tr>
 <p>文件系统inode部分对应内存的映射 </p>
 </blockquote>
 </p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#a26ec9929d2526eed015baaf977925bb1">create_image()</a>, <a class="el" href="structjrfs_1_1filesystem.html#acb89b0aec7285461cbb8124747de9dae">delete_file_inode()</a>, <a class="el" href="structjrfs_1_1filesystem.html#ad9370de99938007f975eeb620d6ed12d">load_image()</a>, <a class="el" href="structjrfs_1_1filesystem.html#adc8ed2f2b9dca8b71f776ddef5727ddb">mark_bitmap()</a> , 以及 <a class="el" href="structjrfs_1_1filesystem.html#ae54a3c77b3455e84c86b2dd9e450fc4c">sync_image()</a>.</p>
 
 </div>
 </div>
@@ -802,6 +918,8 @@ Public 属性</h2></td></tr>
 </blockquote>
 </p>
 
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#a510d4b454a2a520059b7321be3674bdb">create_dir_inode()</a>, <a class="el" href="structjrfs_1_1filesystem.html#a6f6758f06dc8871a2978ffa628af04f4">create_file_inode()</a>, <a class="el" href="structjrfs_1_1filesystem.html#a26ec9929d2526eed015baaf977925bb1">create_image()</a>, <a class="el" href="structjrfs_1_1filesystem.html#a17e0deb01708f03bc8911a70bf82227c">delete_directory_inode()</a>, <a class="el" href="structjrfs_1_1filesystem.html#ad70d4ecc9dd3fd11e97570c6e8dc3b76">fcreate()</a>, <a class="el" href="structjrfs_1_1filesystem.html#ad9370de99938007f975eeb620d6ed12d">load_image()</a>, <a class="el" href="structjrfs_1_1filesystem.html#adc8ed2f2b9dca8b71f776ddef5727ddb">mark_bitmap()</a> , 以及 <a class="el" href="structjrfs_1_1filesystem.html#a1e995f5752a7f5d2502c41627d8f6b6f">mkdir()</a>.</p>
+
 </div>
 </div>
 <a id="a95d98188e38e335a7be2f5d97c401750"></a>
@@ -821,6 +939,8 @@ Public 属性</h2></td></tr>
 </blockquote>
 </p>
 
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#a510d4b454a2a520059b7321be3674bdb">create_dir_inode()</a>, <a class="el" href="structjrfs_1_1filesystem.html#a6f6758f06dc8871a2978ffa628af04f4">create_file_inode()</a>, <a class="el" href="structjrfs_1_1filesystem.html#a26ec9929d2526eed015baaf977925bb1">create_image()</a>, <a class="el" href="structjrfs_1_1filesystem.html#a17e0deb01708f03bc8911a70bf82227c">delete_directory_inode()</a>, <a class="el" href="structjrfs_1_1filesystem.html#acb89b0aec7285461cbb8124747de9dae">delete_file_inode()</a>, <a class="el" href="structjrfs_1_1filesystem.html#ad70d4ecc9dd3fd11e97570c6e8dc3b76">fcreate()</a>, <a class="el" href="structjrfs_1_1filesystem.html#ad9370de99938007f975eeb620d6ed12d">load_image()</a>, <a class="el" href="structjrfs_1_1filesystem.html#adc8ed2f2b9dca8b71f776ddef5727ddb">mark_bitmap()</a>, <a class="el" href="structjrfs_1_1filesystem.html#a1e995f5752a7f5d2502c41627d8f6b6f">mkdir()</a>, <a class="el" href="structjrfs_1_1filesystem.html#a377882f175d080b45d8c839be1c8f939">path_to_inode()</a> , 以及 <a class="el" href="structjrfs_1_1filesystem.html#ae54a3c77b3455e84c86b2dd9e450fc4c">sync_image()</a>.</p>
+
 </div>
 </div>
 <a id="a0d82c9eba689a92ce433b6cf45a85000"></a>
@@ -834,6 +954,8 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#a26ec9929d2526eed015baaf977925bb1">create_image()</a>, <a class="el" href="structjrfs_1_1filesystem.html#ad9370de99938007f975eeb620d6ed12d">load_image()</a> , 以及 <a class="el" href="structjrfs_1_1filesystem.html#ae54a3c77b3455e84c86b2dd9e450fc4c">sync_image()</a>.</p>
 
 </div>
 </div>
@@ -853,6 +975,8 @@ Public 属性</h2></td></tr>
 <p>文件系统的元数据 </p>
 </blockquote>
 </p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#a26ec9929d2526eed015baaf977925bb1">create_image()</a>, <a class="el" href="structjrfs_1_1filesystem.html#ad9370de99938007f975eeb620d6ed12d">load_image()</a> , 以及 <a class="el" href="structjrfs_1_1filesystem.html#ae54a3c77b3455e84c86b2dd9e450fc4c">sync_image()</a>.</p>
 
 </div>
 </div>

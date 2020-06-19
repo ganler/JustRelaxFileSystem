@@ -127,6 +127,10 @@ Public 属性</h2></td></tr>
   </dd>
 </dl>
 
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1super__block.html#a57ad56d3f6b86c117a008183bbd41a19">block_total</a>, <a class="el" href="structjrfs_1_1super__block.html#aaab3baf0c4a7cef7ea953864c216fd5f">inode_total</a>, <a class="el" href="namespacejrfs.html#a84e64054e5045194cd9979fc9b6215df">jrfs::llread()</a> , 以及 <a class="el" href="structjrfs_1_1super__block.html#a6d2c6a932748237e2bdce47800c326f7">magic</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#ad9370de99938007f975eeb620d6ed12d">jrfs::filesystem::load_image()</a>.</p>
+
 </div>
 </div>
 <a id="a3c3af0de1687838a3823f0137c805489"></a>
@@ -151,6 +155,10 @@ Public 属性</h2></td></tr>
   </dd>
 </dl>
 
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1super__block.html#a57ad56d3f6b86c117a008183bbd41a19">block_total</a>, <a class="el" href="structjrfs_1_1super__block.html#aaab3baf0c4a7cef7ea953864c216fd5f">inode_total</a>, <a class="el" href="namespacejrfs.html#a17ffab750b4621eb09f8550ddf1ed502">jrfs::llwrite()</a> , 以及 <a class="el" href="structjrfs_1_1super__block.html#a6d2c6a932748237e2bdce47800c326f7">magic</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#ae54a3c77b3455e84c86b2dd9e450fc4c">jrfs::filesystem::sync_image()</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">类成员变量说明</h2>
@@ -168,6 +176,8 @@ Public 属性</h2></td></tr>
 
 <p>block总数 </p>
 
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#a26ec9929d2526eed015baaf977925bb1">jrfs::filesystem::create_image()</a>, <a class="el" href="structjrfs_1_1filesystem.html#ad9370de99938007f975eeb620d6ed12d">jrfs::filesystem::load_image()</a>, <a class="el" href="structjrfs_1_1super__block.html#a25fea83ebc92f642f93411c9e2acebf9">read()</a> , 以及 <a class="el" href="structjrfs_1_1super__block.html#a3c3af0de1687838a3823f0137c805489">write()</a>.</p>
+
 </div>
 </div>
 <a id="aaab3baf0c4a7cef7ea953864c216fd5f"></a>
@@ -183,6 +193,8 @@ Public 属性</h2></td></tr>
 </div><div class="memdoc">
 
 <p>inode总数 </p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#a26ec9929d2526eed015baaf977925bb1">jrfs::filesystem::create_image()</a>, <a class="el" href="structjrfs_1_1filesystem.html#ad9370de99938007f975eeb620d6ed12d">jrfs::filesystem::load_image()</a>, <a class="el" href="structjrfs_1_1super__block.html#a25fea83ebc92f642f93411c9e2acebf9">read()</a> , 以及 <a class="el" href="structjrfs_1_1super__block.html#a3c3af0de1687838a3823f0137c805489">write()</a>.</p>
 
 </div>
 </div>
@@ -207,6 +219,8 @@ Public 属性</h2></td></tr>
 </div><div class="memdoc">
 
 <p>用来标识文件系统的编号，镜像若前4byte不一致则说明不属于本文件系统； </p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1super__block.html#a25fea83ebc92f642f93411c9e2acebf9">read()</a> , 以及 <a class="el" href="structjrfs_1_1super__block.html#a3c3af0de1687838a3823f0137c805489">write()</a>.</p>
 
 </div>
 </div>

@@ -221,6 +221,10 @@ Public 属性</h2></td></tr>
 </p>
 <p>判断当前inode是否是文件夹 </p><dl class="section return"><dt>返回</dt><dd>是否是文件夹 </dd></dl>
 
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1inode.html#a0464ef6394f47d37a3139169c58d0ec3">is_directory</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#a17e0deb01708f03bc8911a70bf82227c">jrfs::filesystem::delete_directory_inode()</a>, <a class="el" href="structjrfs_1_1filesystem.html#acb89b0aec7285461cbb8124747de9dae">jrfs::filesystem::delete_file_inode()</a>, <a class="el" href="structjrfs_1_1filesystem_1_1filehander.html#a733a19f1881413662112296451c49072">jrfs::filesystem::filehander::read()</a> , 以及 <a class="el" href="structjrfs_1_1filesystem_1_1filehander.html#ae5ba31896370b238e3c75eab8f1243b7">jrfs::filesystem::filehander::write()</a>.</p>
+
 </div>
 </div>
 <a id="a23012411ff0a7e8066d84888aadaf078"></a>
@@ -298,10 +302,14 @@ Public 属性</h2></td></tr>
 <p>从文件系统中读取inode块 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fstream</td><td>文件系统镜像流 </td></tr>
+    <tr><td class="paramname">istream</td><td>文件系统镜像流 </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1inode.html#abe25efe5e098c40a4333858af8d4b64e">direct_block</a>, <a class="el" href="structjrfs_1_1inode.html#a0464ef6394f47d37a3139169c58d0ec3">is_directory</a>, <a class="el" href="namespacejrfs.html#a84e64054e5045194cd9979fc9b6215df">jrfs::llread()</a>, <a class="el" href="structjrfs_1_1inode.html#ad7684e5adb139c7452bccfc62d03fa0d">name</a>, <a class="el" href="structjrfs_1_1inode.html#a44ecb244068972450cf78f3b970ded2d">size</a>, <a class="el" href="structjrfs_1_1inode.html#a7e476a564c794f73781242183977bbf1">unix_time</a> , 以及 <a class="el" href="structjrfs_1_1inode.html#a1b6fbbe8af9d584049be55c680bca463">valid</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#ad9370de99938007f975eeb620d6ed12d">jrfs::filesystem::load_image()</a>.</p>
 
 </div>
 </div>
@@ -324,10 +332,14 @@ Public 属性</h2></td></tr>
 <p>将inode块写入二级文件系统 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fstream</td><td>文件系统镜像流 </td></tr>
+    <tr><td class="paramname">ostream</td><td>文件系统镜像流 </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">引用了 <a class="el" href="structjrfs_1_1inode.html#abe25efe5e098c40a4333858af8d4b64e">direct_block</a>, <a class="el" href="structjrfs_1_1inode.html#a0464ef6394f47d37a3139169c58d0ec3">is_directory</a>, <a class="el" href="namespacejrfs.html#a17ffab750b4621eb09f8550ddf1ed502">jrfs::llwrite()</a>, <a class="el" href="structjrfs_1_1inode.html#ad7684e5adb139c7452bccfc62d03fa0d">name</a>, <a class="el" href="structjrfs_1_1inode.html#a44ecb244068972450cf78f3b970ded2d">size</a>, <a class="el" href="structjrfs_1_1inode.html#a7e476a564c794f73781242183977bbf1">unix_time</a> , 以及 <a class="el" href="structjrfs_1_1inode.html#a1b6fbbe8af9d584049be55c680bca463">valid</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#ae54a3c77b3455e84c86b2dd9e450fc4c">jrfs::filesystem::sync_image()</a>.</p>
 
 </div>
 </div>
@@ -349,6 +361,8 @@ Public 属性</h2></td></tr>
 </blockquote>
 </p>
 
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#a17e0deb01708f03bc8911a70bf82227c">jrfs::filesystem::delete_directory_inode()</a>, <a class="el" href="structjrfs_1_1filesystem.html#acb89b0aec7285461cbb8124747de9dae">jrfs::filesystem::delete_file_inode()</a>, <a class="el" href="structjrfs_1_1filesystem_1_1filehander.html#a733a19f1881413662112296451c49072">jrfs::filesystem::filehander::read()</a>, <a class="el" href="structjrfs_1_1inode.html#af3d4710f5943d193954cd9e80bdefae3">read()</a>, <a class="el" href="structjrfs_1_1filesystem_1_1filehander.html#ae5ba31896370b238e3c75eab8f1243b7">jrfs::filesystem::filehander::write()</a> , 以及 <a class="el" href="structjrfs_1_1inode.html#a8b8725f0ee29a296f20aa9e5b3e89ebc">write()</a>.</p>
+
 </div>
 </div>
 <a id="a0464ef6394f47d37a3139169c58d0ec3"></a>
@@ -367,6 +381,8 @@ Public 属性</h2></td></tr>
 <p>inode数据的逻辑字节大小 </p>
 </blockquote>
 </p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1inode.html#ac04b9538f8e0dd8f6db23186e60acde4">is_dir()</a>, <a class="el" href="namespacejrfs.html#a56395fb97a975458e94f9385fa74f576">jrfs::make_empty_dir()</a>, <a class="el" href="structjrfs_1_1inode.html#af3d4710f5943d193954cd9e80bdefae3">read()</a> , 以及 <a class="el" href="structjrfs_1_1inode.html#a8b8725f0ee29a296f20aa9e5b3e89ebc">write()</a>.</p>
 
 </div>
 </div>
@@ -387,6 +403,8 @@ Public 属性</h2></td></tr>
 </blockquote>
 </p>
 
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#ad70d4ecc9dd3fd11e97570c6e8dc3b76">jrfs::filesystem::fcreate()</a>, <a class="el" href="structjrfs_1_1filesystem.html#a1e995f5752a7f5d2502c41627d8f6b6f">jrfs::filesystem::mkdir()</a>, <a class="el" href="structjrfs_1_1inode.html#af3d4710f5943d193954cd9e80bdefae3">read()</a> , 以及 <a class="el" href="structjrfs_1_1inode.html#a8b8725f0ee29a296f20aa9e5b3e89ebc">write()</a>.</p>
+
 </div>
 </div>
 <a id="a44ecb244068972450cf78f3b970ded2d"></a>
@@ -405,6 +423,8 @@ Public 属性</h2></td></tr>
 <p>是否当前inode正在被使用 </p>
 </blockquote>
 </p>
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem_1_1filehander.html#a733a19f1881413662112296451c49072">jrfs::filesystem::filehander::read()</a>, <a class="el" href="structjrfs_1_1inode.html#af3d4710f5943d193954cd9e80bdefae3">read()</a>, <a class="el" href="structjrfs_1_1filesystem_1_1filehander.html#ae5ba31896370b238e3c75eab8f1243b7">jrfs::filesystem::filehander::write()</a> , 以及 <a class="el" href="structjrfs_1_1inode.html#a8b8725f0ee29a296f20aa9e5b3e89ebc">write()</a>.</p>
 
 </div>
 </div>
@@ -425,6 +445,8 @@ Public 属性</h2></td></tr>
 </blockquote>
 </p>
 
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#a17e0deb01708f03bc8911a70bf82227c">jrfs::filesystem::delete_directory_inode()</a>, <a class="el" href="structjrfs_1_1filesystem.html#acb89b0aec7285461cbb8124747de9dae">jrfs::filesystem::delete_file_inode()</a>, <a class="el" href="namespacejrfs.html#a56395fb97a975458e94f9385fa74f576">jrfs::make_empty_dir()</a>, <a class="el" href="structjrfs_1_1filesystem_1_1filehander.html#a733a19f1881413662112296451c49072">jrfs::filesystem::filehander::read()</a>, <a class="el" href="structjrfs_1_1inode.html#af3d4710f5943d193954cd9e80bdefae3">read()</a>, <a class="el" href="structjrfs_1_1filesystem_1_1filehander.html#ae5ba31896370b238e3c75eab8f1243b7">jrfs::filesystem::filehander::write()</a> , 以及 <a class="el" href="structjrfs_1_1inode.html#a8b8725f0ee29a296f20aa9e5b3e89ebc">write()</a>.</p>
+
 </div>
 </div>
 <a id="a1b6fbbe8af9d584049be55c680bca463"></a>
@@ -438,6 +460,8 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="reference">被这些函数引用 <a class="el" href="structjrfs_1_1filesystem.html#a17e0deb01708f03bc8911a70bf82227c">jrfs::filesystem::delete_directory_inode()</a>, <a class="el" href="structjrfs_1_1filesystem.html#acb89b0aec7285461cbb8124747de9dae">jrfs::filesystem::delete_file_inode()</a>, <a class="el" href="namespacejrfs.html#a56395fb97a975458e94f9385fa74f576">jrfs::make_empty_dir()</a>, <a class="el" href="structjrfs_1_1filesystem_1_1filehander.html#a733a19f1881413662112296451c49072">jrfs::filesystem::filehander::read()</a>, <a class="el" href="structjrfs_1_1inode.html#af3d4710f5943d193954cd9e80bdefae3">read()</a>, <a class="el" href="structjrfs_1_1filesystem_1_1filehander.html#ae5ba31896370b238e3c75eab8f1243b7">jrfs::filesystem::filehander::write()</a> , 以及 <a class="el" href="structjrfs_1_1inode.html#a8b8725f0ee29a296f20aa9e5b3e89ebc">write()</a>.</p>
 
 </div>
 </div>
