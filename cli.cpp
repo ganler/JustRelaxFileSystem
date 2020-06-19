@@ -12,23 +12,16 @@ DEFINE_string(mount_path, "", "Path to mount the image.");
 DEFINE_bool(create, false, "Whether to create new image.");
 DEFINE_int32(block_size, 2048, "Total numbers of blocks in new image.");
 
-/*
- * TODO LIST:
- * + ls
- * + rm
- * + mkdir
- * + to_jrfs
- * + from_jrfs
- */
-
 namespace jrfs {
 class cli {
 public:
     int ls();
     int rm(std::string_view dest);
     int mkdir(std::string_view dest);
+    int touch(std::string_view dest);
+    int cat(std::string_view path);
+    int append(std::string_view dest, std::string_view content);
     int echo(std::string_view input);
-    int cd(std::string_view dest);
     int to_jrfs(std::string_view from, std::string_view to);
     int from_jrfs(std::string_view from, std::string_view to);
     int exit();
@@ -52,9 +45,13 @@ public:
                     if (string_vector.size() != 2)
                         throw std::logic_error("Invalid use of `rm`. Run like this: `rm ${FILE_PATH}`");
                     return rm(string_vector[1]);
-                } else if (string_vector[0] == "cd") {
+                } else if (string_vector[0] == "touch") {
                     if (string_vector.size() != 2)
-                        throw std::logic_error("Invalid use of `cd`. Run like this: `cd ${FILE_PATH}`");
+                        throw std::logic_error("Invalid use of `touch`. Run like this: `touch ${FILE_PATH}`");
+                    return rm(string_vector[1]);
+                } else if (string_vector[0] == "cat") {
+                    if (string_vector.size() != 2)
+                        throw std::logic_error("Invalid use of `cat`. Run like this: `cat ${FILE_PATH}`");
                     return rm(string_vector[1]);
                 } else if (string_vector[0] == "mkdir") {
                     if (string_vector.size() != 2)
@@ -71,6 +68,10 @@ public:
                 } else if (string_vector[0] == "from_jrfs") {
                     if (string_vector.size() != 3)
                         throw std::logic_error("Invalid use of `from_jrfs`. Run like this: `from_jrfs ${src_image} ${dest_image}`");
+                    return from_jrfs(string_vector[1], string_vector[2]);
+                }else if (string_vector[0] == "append") {
+                    if (string_vector.size() != 3)
+                        throw std::logic_error("Invalid use of `append`. Run like this: `append ${dest_file} ${string}`");
                     return from_jrfs(string_vector[1], string_vector[2]);
                 } else if (string_vector[0] == "exit") {
                     if (string_vector.size() != 1)
@@ -173,8 +174,16 @@ int cli::ls()
     return 0;
 }
 
-int cli::cd(std::string_view dest)
-{
+int cli::touch(std::string_view dest) {
+    std::cout << __PRETTY_FUNCTION__ << ": Not Implemented.\n";
+    return 0;
+}
+int cli::cat(std::string_view path) {
+    std::cout << __PRETTY_FUNCTION__ << ": Not Implemented.\n";
+    return 0;
+}
+
+int cli::append(std::string_view dest, std::string_view content) {
     std::cout << __PRETTY_FUNCTION__ << ": Not Implemented.\n";
     return 0;
 }
