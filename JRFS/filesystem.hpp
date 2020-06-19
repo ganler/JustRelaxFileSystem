@@ -9,16 +9,25 @@
 
 namespace jrfs {
 
+/// \brief　文件系统类，包含对整个文件系统的系统调用。
 struct filesystem {
+    ///
+    /// \param path
     filesystem(const std::string& path); // Load filesystem;
+
+    ///
+    /// \param count_blocks
+    /// \param path
     filesystem(int count_blocks, const std::string& path); // Create filesystem;
+
+    /// \brief 文件系统析构函数，会最后对文件系统进行一次整体同步
     ~filesystem();
 
     super_block meta_data; ///> 文件系统的元数据
     const std::string& mount_point; ///> 原来镜像的位置
     std::vector<char> block_bitmap; ///> 对于全局所有block的标记，如果是空闲的则为0，否则为1
     std::vector<char> inode_bitmap; ///> 对于全局inode进行标记，如果是空闲的则为0，否则为1
-    std::vector<inode> inode_list;
+    std::vector<inode> inode_list; ///> 
     std::vector<data_block> block_list;
 
     struct filehander {
