@@ -81,6 +81,7 @@ $(function() {
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1data__block.html">data_block</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html">filesystem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">　文件系统类，包含对整个文件系统的系统调用  <a href="structjrfs_1_1filesystem.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1inode.html">inode</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -91,12 +92,18 @@ $(function() {
 函数</h2></td></tr>
 <tr class="memitem:a56395fb97a975458e94f9385fa74f576"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjrfs_1_1inode.html">inode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejrfs.html#a56395fb97a975458e94f9385fa74f576">make_empty_dir</a> ()</td></tr>
 <tr class="separator:a56395fb97a975458e94f9385fa74f576"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84e64054e5045194cd9979fc9b6215df"><td class="memTemplParams" colspan="2">template&lt;typename S , typename T &gt; </td></tr>
+<tr class="memitem:a84e64054e5045194cd9979fc9b6215df"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejrfs.html#a84e64054e5045194cd9979fc9b6215df">llread</a> (S &amp;stream, T &amp;&amp;v)</td></tr>
+<tr class="separator:a84e64054e5045194cd9979fc9b6215df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17ffab750b4621eb09f8550ddf1ed502"><td class="memTemplParams" colspan="2">template&lt;typename S , typename T &gt; </td></tr>
+<tr class="memitem:a17ffab750b4621eb09f8550ddf1ed502"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejrfs.html#a17ffab750b4621eb09f8550ddf1ed502">llwrite</a> (S &amp;stream, const T &amp;v)</td></tr>
+<tr class="separator:a17ffab750b4621eb09f8550ddf1ed502"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 变量</h2></td></tr>
 <tr class="memitem:a9d38f6cf04562aa7b1ad8711db25d962"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejrfs.html#a9d38f6cf04562aa7b1ad8711db25d962">kBlockSize</a> = 512</td></tr>
 <tr class="separator:a9d38f6cf04562aa7b1ad8711db25d962"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80f20f59756a7da008056232a9b68343"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejrfs.html#a80f20f59756a7da008056232a9b68343">kSuperBlockSize</a> = 64</td></tr>
+<tr class="memitem:a80f20f59756a7da008056232a9b68343"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejrfs.html#a80f20f59756a7da008056232a9b68343">kSuperBlockSize</a> = 12</td></tr>
 <tr class="separator:a80f20f59756a7da008056232a9b68343"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d535198ee00fb9623233fcea9af0bd5"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejrfs.html#a2d535198ee00fb9623233fcea9af0bd5">kInodeSize</a> = 128</td></tr>
 <tr class="separator:a2d535198ee00fb9623233fcea9af0bd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -106,6 +113,66 @@ $(function() {
 <tr class="separator:a14fb6b5833830103b0ccb7a548cd0805"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">函数说明</h2>
+<a id="a84e64054e5045194cd9979fc9b6215df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84e64054e5045194cd9979fc9b6215df">&#9670;&nbsp;</a></span>llread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename S , typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void jrfs::llread </td>
+          <td>(</td>
+          <td class="paramtype">S &amp;&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T &amp;&amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a17ffab750b4621eb09f8550ddf1ed502"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17ffab750b4621eb09f8550ddf1ed502">&#9670;&nbsp;</a></span>llwrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename S , typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void jrfs::llwrite </td>
+          <td>(</td>
+          <td class="paramtype">S &amp;&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a56395fb97a975458e94f9385fa74f576"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a56395fb97a975458e94f9385fa74f576">&#9670;&nbsp;</a></span>make_empty_dir()</h2>
 
@@ -222,7 +289,7 @@ $(function() {
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr int jrfs::kSuperBlockSize = 64</td>
+          <td class="memname">constexpr int jrfs::kSuperBlockSize = 12</td>
         </tr>
       </table>
   </td>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['read_153',['read',['../structjrfs_1_1data__block.html#a43275b52af31e6d3ff939febb836b450',1,'jrfs::data_block::read()'],['../structjrfs_1_1inode.html#af3d4710f5943d193954cd9e80bdefae3',1,'jrfs::inode::read()'],['../structjrfs_1_1super__block.html#a25fea83ebc92f642f93411c9e2acebf9',1,'jrfs::super_block::read()'],['../structjrfs_1_1filesystem_1_1filehander.html#a1b77299a138e9a2779fe25f68126c7fc',1,'jrfs::filesystem::filehander::read()']]],
-  ['red_154',['RED',['../namespacept.html#a04bb36042b1e99bbfc347df68717d7c4',1,'pt']]],
-  ['rmdir_155',['rmdir',['../structjrfs_1_1filesystem.html#a34214b143e5e602bb0b703fefd194710',1,'jrfs::filesystem']]]
+  ['padding_155',['padding',['../classpt_1_1_term_style.html#a39ef842f6141dc6ef0ac9955f0420392',1,'pt::TermStyle']]],
+  ['path_5fto_5finode_156',['path_to_inode',['../structjrfs_1_1filesystem.html#a377882f175d080b45d8c839be1c8f939',1,'jrfs::filesystem::path_to_inode(const std::vector&lt; std::string &gt; &amp;tokens, const std::string &amp;path)'],['../structjrfs_1_1filesystem.html#af8d027dd7283688d9bb5dbb94e928d7d',1,'jrfs::filesystem::path_to_inode(const std::string &amp;path)']]],
+  ['purple_157',['PURPLE',['../namespacept.html#ad92cacc72f518e28d090619d841ff9b2',1,'pt']]]
 ];

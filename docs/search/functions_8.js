@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['padding_150',['padding',['../classpt_1_1_term_style.html#a39ef842f6141dc6ef0ac9955f0420392',1,'pt::TermStyle']]],
-  ['path_5fto_5finode_151',['path_to_inode',['../structjrfs_1_1filesystem.html#a377882f175d080b45d8c839be1c8f939',1,'jrfs::filesystem']]],
-  ['purple_152',['PURPLE',['../namespacept.html#ad92cacc72f518e28d090619d841ff9b2',1,'pt']]]
+  ['node_5fid_154',['node_id',['../structjrfs_1_1filesystem_1_1filehander.html#a701e76cca01ad6cd351b4147d00125e1',1,'jrfs::filesystem::filehander']]]
 ];

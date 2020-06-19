@@ -1,20 +1,11 @@
 #!/bin/bash
 set -e
 
-format_dir_common() {
-    find $1 -regex '.*\.\(cpp\|hpp\|cc\|cxx\)' -exec clang-format -style=file -i {} \;
-}
-
-format_dir_darwin() {
-    find -E $1 -regex '.*\.\(cpp\|hpp\|cc\|cxx\)' -exec clang-format -style=file -i {} \;
+format_dir() {
+    find $1 -name '*.cpp' -exec clang-format -style=file -i {} \;
+    find $1 -name '*.hpp' -exec clang-format -style=file -i {} \;
 }
 
 cd $(dirname $0)
-
-if [[ "${OSTYPE}" == "darwin"* ]]; then
-  format_dir_darwin ./JRFS
-  format_dir_common ./tests
-else
-  format_dir_common ./JRFS
-  format_dir_common ./tests
-fi
+format_dir ./JRFS
+format_dir ./tests

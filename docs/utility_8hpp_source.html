@@ -75,12 +75,27 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacejrfs.html">jrfs</a> {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>utility {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    std::vector&lt;std::string&gt; <a class="code" href="namespacejrfs_1_1utility.html#a9fb2e784a7954f56b44990d6a5bc34a6">split</a>(std::string strtem, <span class="keywordtype">char</span> a);</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;}</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> S, <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="namespacejrfs.html#a84e64054e5045194cd9979fc9b6215df">    9</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacejrfs.html#a84e64054e5045194cd9979fc9b6215df">llread</a>(S&amp; stream, T&amp;&amp; v)</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{ <span class="comment">// Low Level Read.</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    stream.read(<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(&amp;v), <span class="keyword">sizeof</span>(v));</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> S, <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespacejrfs.html#a17ffab750b4621eb09f8550ddf1ed502">   15</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacejrfs.html#a17ffab750b4621eb09f8550ddf1ed502">llwrite</a>(S&amp; stream, <span class="keyword">const</span> T&amp; v)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{ <span class="comment">// Low Level Write.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    stream.write(<span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(&amp;v), <span class="keyword">sizeof</span>(v));</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span>utility {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    std::vector&lt;std::string&gt; <a class="code" href="namespacejrfs_1_1utility.html#a9fb2e784a7954f56b44990d6a5bc34a6">split</a>(std::string strtem, <span class="keywordtype">char</span> a);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespacejrfs_1_1utility_html_a9fb2e784a7954f56b44990d6a5bc34a6"><div class="ttname"><a href="namespacejrfs_1_1utility.html#a9fb2e784a7954f56b44990d6a5bc34a6">jrfs::utility::split</a></div><div class="ttdeci">std::vector&lt; std::string &gt; split(std::string strtem, char a)</div><div class="ttdef"><b>Definition:</b> utility.cpp:5</div></div>
+<div class="ttc" id="anamespacejrfs_html_a17ffab750b4621eb09f8550ddf1ed502"><div class="ttname"><a href="namespacejrfs.html#a17ffab750b4621eb09f8550ddf1ed502">jrfs::llwrite</a></div><div class="ttdeci">void llwrite(S &amp;stream, const T &amp;v)</div><div class="ttdef"><b>Definition:</b> utility.hpp:15</div></div>
+<div class="ttc" id="anamespacejrfs_html_a84e64054e5045194cd9979fc9b6215df"><div class="ttname"><a href="namespacejrfs.html#a84e64054e5045194cd9979fc9b6215df">jrfs::llread</a></div><div class="ttdeci">void llread(S &amp;stream, T &amp;&amp;v)</div><div class="ttdef"><b>Definition:</b> utility.hpp:9</div></div>
 <div class="ttc" id="anamespacejrfs_html"><div class="ttname"><a href="namespacejrfs.html">jrfs</a></div><div class="ttdef"><b>Definition:</b> config.hpp:3</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

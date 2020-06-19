@@ -74,70 +74,66 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="config_8hpp.html">config.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="data__block_8hpp.html">data_block.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacejrfs.html">jrfs</a> {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html">   10</a></span>&#160;<span class="keyword">struct </span>alignas(kInodeSize) <a class="code" href="structjrfs_1_1inode.html">inode</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#a1b6fbbe8af9d584049be55c680bca463">   11</a></span>&#160;    <span class="keywordtype">int</span> valid = <a class="code" href="namespacejrfs.html#ad08d6878092f6e0dbdd71b4efbbedf5a">kNULL</a>; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#a44ecb244068972450cf78f3b970ded2d">   12</a></span>&#160;    <span class="keywordtype">int</span> size = 0; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#a0464ef6394f47d37a3139169c58d0ec3">   13</a></span>&#160;    <span class="keywordtype">int</span> is_directory = <span class="keyword">false</span>; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#ad7684e5adb139c7452bccfc62d03fa0d">   15</a></span>&#160;    <span class="keywordtype">char</span> name[32] = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#a7e476a564c794f73781242183977bbf1">   16</a></span>&#160;    uint32_t unix_time {0};</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#abe25efe5e098c40a4333858af8d4b64e">   18</a></span>&#160;    std::array&lt;int, 20&gt; direct_block {}; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">// Dir:  [Curr] [UpLevel] [...]</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">// File: [Curr] [...]</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#a6fde6e8f82ee5f33819197d71d6e7a1a">   22</a></span>&#160;    <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> kMaxFileSize = <span class="keyword">sizeof</span>(direct_block) / <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>) * <a class="code" href="structjrfs_1_1data__block.html">data_block</a>{}.<a class="code" href="structjrfs_1_1data__block.html#a94e8b181b725b5897ab6252e64711fc9">kContentSize</a>;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacejrfs.html">jrfs</a> {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html">   11</a></span>&#160;<span class="keyword">struct </span>alignas(kInodeSize) <a class="code" href="structjrfs_1_1inode.html">inode</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#a1b6fbbe8af9d584049be55c680bca463">   12</a></span>&#160;    <span class="keywordtype">int</span> valid = <a class="code" href="namespacejrfs.html#ad08d6878092f6e0dbdd71b4efbbedf5a">kNULL</a>; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#a44ecb244068972450cf78f3b970ded2d">   13</a></span>&#160;    <span class="keywordtype">int</span> size = 0; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#a0464ef6394f47d37a3139169c58d0ec3">   14</a></span>&#160;    <span class="keywordtype">int</span> is_directory = <span class="keyword">false</span>; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#ad7684e5adb139c7452bccfc62d03fa0d">   16</a></span>&#160;    <span class="keywordtype">char</span> name[32] = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#a7e476a564c794f73781242183977bbf1">   17</a></span>&#160;    uint32_t unix_time{ 0 };</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#abe25efe5e098c40a4333858af8d4b64e">   19</a></span>&#160;    std::array&lt;int, 20&gt; direct_block{}; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">// Dir:  [Curr] [UpLevel] [...]</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">// File: [Curr] [...]</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">bool</span> is_dir() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#a81edfdba7b616aa98701f70b2c308e68">   26</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">int</span>&amp; <a class="code" href="structjrfs_1_1inode.html#a81edfdba7b616aa98701f70b2c308e68">current_dir</a>()</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        assert(is_directory);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> direct_block[0];</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#a23012411ff0a7e8066d84888aadaf078">   32</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">int</span>&amp; <a class="code" href="structjrfs_1_1inode.html#a23012411ff0a7e8066d84888aadaf078">last_level_dir</a>()</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        assert(is_directory);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span> direct_block[1];</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#a33e370b59fbae4c6006b98825c5c65aa">   38</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; <a class="code" href="structjrfs_1_1inode.html#a33e370b59fbae4c6006b98825c5c65aa">current_dir</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        assert(is_directory);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">return</span> direct_block[0];</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#ad0fa1befee5020c9f50970d52b4e5df1">   44</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; <a class="code" href="structjrfs_1_1inode.html#ad0fa1befee5020c9f50970d52b4e5df1">last_level_dir</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        assert(is_directory);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span> direct_block[1];</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> read(std::fstream&amp; istream);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> write(std::fstream&amp; ostream);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">return</span> direct_block[0];</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#a23012411ff0a7e8066d84888aadaf078">   31</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">int</span>&amp; <a class="code" href="structjrfs_1_1inode.html#a23012411ff0a7e8066d84888aadaf078">last_level_dir</a>()</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        assert(is_directory);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span> direct_block[1];</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#a33e370b59fbae4c6006b98825c5c65aa">   37</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; <a class="code" href="structjrfs_1_1inode.html#a33e370b59fbae4c6006b98825c5c65aa">current_dir</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">return</span> direct_block[0];</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structjrfs_1_1inode.html#ad0fa1befee5020c9f50970d52b4e5df1">   42</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; <a class="code" href="structjrfs_1_1inode.html#ad0fa1befee5020c9f50970d52b4e5df1">last_level_dir</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        assert(is_directory);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> direct_block[1];</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> read(std::fstream&amp; istream);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> write(std::fstream&amp; ostream);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;inode <a class="code" href="namespacejrfs.html#a56395fb97a975458e94f9385fa74f576">make_empty_dir</a>();</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;inode <a class="code" href="namespacejrfs.html#a56395fb97a975458e94f9385fa74f576">make_empty_dir</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;static_assert(<span class="keyword">sizeof</span>(inode) == <a class="code" href="namespacejrfs.html#a2d535198ee00fb9623233fcea9af0bd5">kInodeSize</a>, <span class="stringliteral">&quot;A inode must be less than or equal to 128 bytes.&quot;</span>);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;static_assert(<span class="keyword">sizeof</span>(inode) == <a class="code" href="namespacejrfs.html#a2d535198ee00fb9623233fcea9af0bd5">kInodeSize</a>, <span class="stringliteral">&quot;A inode must be less than or equal to 128 bytes.&quot;</span>);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructjrfs_1_1inode_html_a33e370b59fbae4c6006b98825c5c65aa"><div class="ttname"><a href="structjrfs_1_1inode.html#a33e370b59fbae4c6006b98825c5c65aa">jrfs::inode::current_dir</a></div><div class="ttdeci">const int &amp; current_dir() const</div><div class="ttdef"><b>Definition:</b> inode.hpp:38</div></div>
+<div class="ttc" id="astructjrfs_1_1inode_html_a33e370b59fbae4c6006b98825c5c65aa"><div class="ttname"><a href="structjrfs_1_1inode.html#a33e370b59fbae4c6006b98825c5c65aa">jrfs::inode::current_dir</a></div><div class="ttdeci">const int &amp; current_dir() const</div><div class="ttdef"><b>Definition:</b> inode.hpp:37</div></div>
 <div class="ttc" id="aconfig_8hpp_html"><div class="ttname"><a href="config_8hpp.html">config.hpp</a></div></div>
 <div class="ttc" id="anamespacejrfs_html_a2d535198ee00fb9623233fcea9af0bd5"><div class="ttname"><a href="namespacejrfs.html#a2d535198ee00fb9623233fcea9af0bd5">jrfs::kInodeSize</a></div><div class="ttdeci">constexpr int kInodeSize</div><div class="ttdef"><b>Definition:</b> config.hpp:7</div></div>
-<div class="ttc" id="astructjrfs_1_1data__block_html"><div class="ttname"><a href="structjrfs_1_1data__block.html">jrfs::data_block</a></div><div class="ttdef"><b>Definition:</b> data_block.hpp:8</div></div>
-<div class="ttc" id="astructjrfs_1_1inode_html_a23012411ff0a7e8066d84888aadaf078"><div class="ttname"><a href="structjrfs_1_1inode.html#a23012411ff0a7e8066d84888aadaf078">jrfs::inode::last_level_dir</a></div><div class="ttdeci">int &amp; last_level_dir()</div><div class="ttdef"><b>Definition:</b> inode.hpp:32</div></div>
+<div class="ttc" id="astructjrfs_1_1inode_html_a23012411ff0a7e8066d84888aadaf078"><div class="ttname"><a href="structjrfs_1_1inode.html#a23012411ff0a7e8066d84888aadaf078">jrfs::inode::last_level_dir</a></div><div class="ttdeci">int &amp; last_level_dir()</div><div class="ttdef"><b>Definition:</b> inode.hpp:31</div></div>
 <div class="ttc" id="astructjrfs_1_1inode_html_a81edfdba7b616aa98701f70b2c308e68"><div class="ttname"><a href="structjrfs_1_1inode.html#a81edfdba7b616aa98701f70b2c308e68">jrfs::inode::current_dir</a></div><div class="ttdeci">int &amp; current_dir()</div><div class="ttdef"><b>Definition:</b> inode.hpp:26</div></div>
-<div class="ttc" id="astructjrfs_1_1inode_html_ad0fa1befee5020c9f50970d52b4e5df1"><div class="ttname"><a href="structjrfs_1_1inode.html#ad0fa1befee5020c9f50970d52b4e5df1">jrfs::inode::last_level_dir</a></div><div class="ttdeci">const int &amp; last_level_dir() const</div><div class="ttdef"><b>Definition:</b> inode.hpp:44</div></div>
-<div class="ttc" id="astructjrfs_1_1data__block_html_a94e8b181b725b5897ab6252e64711fc9"><div class="ttname"><a href="structjrfs_1_1data__block.html#a94e8b181b725b5897ab6252e64711fc9">jrfs::data_block::kContentSize</a></div><div class="ttdeci">static constexpr int kContentSize</div><div class="ttdef"><b>Definition:</b> data_block.hpp:9</div></div>
+<div class="ttc" id="astructjrfs_1_1inode_html_ad0fa1befee5020c9f50970d52b4e5df1"><div class="ttname"><a href="structjrfs_1_1inode.html#ad0fa1befee5020c9f50970d52b4e5df1">jrfs::inode::last_level_dir</a></div><div class="ttdeci">const int &amp; last_level_dir() const</div><div class="ttdef"><b>Definition:</b> inode.hpp:42</div></div>
 <div class="ttc" id="anamespacejrfs_html_ad08d6878092f6e0dbdd71b4efbbedf5a"><div class="ttname"><a href="namespacejrfs.html#ad08d6878092f6e0dbdd71b4efbbedf5a">jrfs::kNULL</a></div><div class="ttdeci">constexpr int kNULL</div><div class="ttdef"><b>Definition:</b> config.hpp:9</div></div>
-<div class="ttc" id="astructjrfs_1_1inode_html"><div class="ttname"><a href="structjrfs_1_1inode.html">jrfs::inode</a></div><div class="ttdef"><b>Definition:</b> inode.hpp:10</div></div>
+<div class="ttc" id="astructjrfs_1_1inode_html"><div class="ttname"><a href="structjrfs_1_1inode.html">jrfs::inode</a></div><div class="ttdef"><b>Definition:</b> inode.hpp:11</div></div>
 <div class="ttc" id="anamespacejrfs_html_a56395fb97a975458e94f9385fa74f576"><div class="ttname"><a href="namespacejrfs.html#a56395fb97a975458e94f9385fa74f576">jrfs::make_empty_dir</a></div><div class="ttdeci">inode make_empty_dir()</div><div class="ttdef"><b>Definition:</b> inode.cpp:7</div></div>
 <div class="ttc" id="adata__block_8hpp_html"><div class="ttname"><a href="data__block_8hpp.html">data_block.hpp</a></div></div>
 <div class="ttc" id="anamespacejrfs_html"><div class="ttname"><a href="namespacejrfs.html">jrfs</a></div><div class="ttdef"><b>Definition:</b> config.hpp:3</div></div>

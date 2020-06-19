@@ -75,11 +75,18 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>　文件系统类，包含对整个文件系统的系统调用  
+ <a href="structjrfs_1_1filesystem.html#details">更多...</a></p>
+
 <p><code>#include &lt;<a class="el" href="filesystem_8hpp_source.html">filesystem.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 类</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem_1_1filehander.html">filehander</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><blockquote class="doxtable">
+<p>文件系统存储块部分对应内存的映射 </p>
+</blockquote>
+ <a href="structjrfs_1_1filesystem_1_1filehander.html#details">更多...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -89,6 +96,7 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:aba95d17f8e4a9edf68091364ecadcea9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#aba95d17f8e4a9edf68091364ecadcea9">filesystem</a> (int count_blocks, const std::string &amp;path)</td></tr>
 <tr class="separator:aba95d17f8e4a9edf68091364ecadcea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63d3fdb02d24cc7b1e30cadedcae2bb5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a63d3fdb02d24cc7b1e30cadedcae2bb5">~filesystem</a> ()</td></tr>
+<tr class="memdesc:a63d3fdb02d24cc7b1e30cadedcae2bb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">文件系统析构函数，会最后对文件系统进行一次整体同步  <a href="structjrfs_1_1filesystem.html#a63d3fdb02d24cc7b1e30cadedcae2bb5">更多...</a><br /></td></tr>
 <tr class="separator:a63d3fdb02d24cc7b1e30cadedcae2bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e995f5752a7f5d2502c41627d8f6b6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a1e995f5752a7f5d2502c41627d8f6b6f">mkdir</a> (std::string_view path)</td></tr>
 <tr class="separator:a1e995f5752a7f5d2502c41627d8f6b6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -106,31 +114,35 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a17e0deb01708f03bc8911a70bf82227c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a377882f175d080b45d8c839be1c8f939"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a377882f175d080b45d8c839be1c8f939">path_to_inode</a> (const std::vector&lt; std::string &gt; &amp;tokens, const std::string &amp;path)</td></tr>
 <tr class="separator:a377882f175d080b45d8c839be1c8f939"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac970dce1f147b1bc29d3ecf7e3b9c094"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#ac970dce1f147b1bc29d3ecf7e3b9c094">create_unlinked_file</a> (const std::string &amp;new_file_name, int dir_index)</td></tr>
-<tr class="separator:ac970dce1f147b1bc29d3ecf7e3b9c094"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae31c3d88107544399f21f89ca80dbd7a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#ae31c3d88107544399f21f89ca80dbd7a">create_unlinked_directory</a> (const std::string &amp;new_dir_name, int dir_index)</td></tr>
-<tr class="separator:ae31c3d88107544399f21f89ca80dbd7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8d027dd7283688d9bb5dbb94e928d7d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#af8d027dd7283688d9bb5dbb94e928d7d">path_to_inode</a> (const std::string &amp;path)</td></tr>
+<tr class="separator:af8d027dd7283688d9bb5dbb94e928d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f6758f06dc8871a2978ffa628af04f4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a6f6758f06dc8871a2978ffa628af04f4">create_file_inode</a> (const std::string &amp;new_file_name, int dir_index)</td></tr>
+<tr class="separator:a6f6758f06dc8871a2978ffa628af04f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a510d4b454a2a520059b7321be3674bdb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a510d4b454a2a520059b7321be3674bdb">create_dir_inode</a> (const std::string &amp;new_dir_name, int dir_index)</td></tr>
+<tr class="separator:a510d4b454a2a520059b7321be3674bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9370de99938007f975eeb620d6ed12d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#ad9370de99938007f975eeb620d6ed12d">load_image</a> ()</td></tr>
 <tr class="separator:ad9370de99938007f975eeb620d6ed12d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26ec9929d2526eed015baaf977925bb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a26ec9929d2526eed015baaf977925bb1">create_image</a> (int count_blocks)</td></tr>
 <tr class="separator:a26ec9929d2526eed015baaf977925bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0405f525e4c078f8c66912667c726b3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a0405f525e4c078f8c66912667c726b3b">generate_image</a> ()</td></tr>
-<tr class="separator:a0405f525e4c078f8c66912667c726b3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae54a3c77b3455e84c86b2dd9e450fc4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#ae54a3c77b3455e84c86b2dd9e450fc4c">sync_image</a> ()</td></tr>
+<tr class="memdesc:ae54a3c77b3455e84c86b2dd9e450fc4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">\breif [底层API] 同步内存与磁盘中的镜像  <a href="structjrfs_1_1filesystem.html#ae54a3c77b3455e84c86b2dd9e450fc4c">更多...</a><br /></td></tr>
+<tr class="separator:ae54a3c77b3455e84c86b2dd9e450fc4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a383874eb1d61f3f5fd90b59c256686d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a383874eb1d61f3f5fd90b59c256686d1">scan_bitmap</a> ()</td></tr>
+<tr class="memdesc:a383874eb1d61f3f5fd90b59c256686d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">\breif [底层API] 检查bitmap和当前文件系统是否一致  <a href="structjrfs_1_1filesystem.html#a383874eb1d61f3f5fd90b59c256686d1">更多...</a><br /></td></tr>
 <tr class="separator:a383874eb1d61f3f5fd90b59c256686d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc8ed2f2b9dca8b71f776ddef5727ddb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#adc8ed2f2b9dca8b71f776ddef5727ddb">mark_bitmap</a> (int inode_id)</td></tr>
 <tr class="separator:adc8ed2f2b9dca8b71f776ddef5727ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public 属性</h2></td></tr>
-<tr class="memitem:a4d71e918f5fd12d7b88ca76e11bd79d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjrfs_1_1super__block.html">super_block</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a4d71e918f5fd12d7b88ca76e11bd79d0">super_block</a></td></tr>
-<tr class="separator:a4d71e918f5fd12d7b88ca76e11bd79d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e4a66aa574c05e516ca284c2b94b6c6"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a1e4a66aa574c05e516ca284c2b94b6c6">mount_point</a></td></tr>
-<tr class="memdesc:a1e4a66aa574c05e516ca284c2b94b6c6"><td class="mdescLeft">&#160;</td><td class="mdescRight"><blockquote class="doxtable">
+<tr class="memitem:a0d82c9eba689a92ce433b6cf45a85000"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjrfs_1_1super__block.html">super_block</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#a0d82c9eba689a92ce433b6cf45a85000">meta_data</a></td></tr>
+<tr class="separator:a0d82c9eba689a92ce433b6cf45a85000"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9538c42ac704e826033c3ba4fde7e3e"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#ab9538c42ac704e826033c3ba4fde7e3e">mount_point</a></td></tr>
+<tr class="memdesc:ab9538c42ac704e826033c3ba4fde7e3e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><blockquote class="doxtable">
 <p>文件系统的元数据 </p>
 </blockquote>
- <a href="structjrfs_1_1filesystem.html#a1e4a66aa574c05e516ca284c2b94b6c6">更多...</a><br /></td></tr>
-<tr class="separator:a1e4a66aa574c05e516ca284c2b94b6c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+ <a href="structjrfs_1_1filesystem.html#ab9538c42ac704e826033c3ba4fde7e3e">更多...</a><br /></td></tr>
+<tr class="separator:ab9538c42ac704e826033c3ba4fde7e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae333f2b484689834255dd60921c05d5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#aae333f2b484689834255dd60921c05d5">block_bitmap</a></td></tr>
 <tr class="memdesc:aae333f2b484689834255dd60921c05d5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><blockquote class="doxtable">
 <p>原来镜像的位置 </p>
@@ -150,9 +162,15 @@ Public 属性</h2></td></tr>
  <a href="structjrfs_1_1filesystem.html#a95d98188e38e335a7be2f5d97c401750">更多...</a><br /></td></tr>
 <tr class="separator:a95d98188e38e335a7be2f5d97c401750"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe50fc92fd0d06b5b9c022c9b2587aa0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structjrfs_1_1data__block.html">data_block</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjrfs_1_1filesystem.html#abe50fc92fd0d06b5b9c022c9b2587aa0">block_list</a></td></tr>
+<tr class="memdesc:abe50fc92fd0d06b5b9c022c9b2587aa0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><blockquote class="doxtable">
+<p>文件系统inode部分对应内存的映射 </p>
+</blockquote>
+ <a href="structjrfs_1_1filesystem.html#abe50fc92fd0d06b5b9c022c9b2587aa0">更多...</a><br /></td></tr>
 <tr class="separator:abe50fc92fd0d06b5b9c022c9b2587aa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">构造及析构函数说明</h2>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>　文件系统类，包含对整个文件系统的系统调用 </p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
 <a id="a18491cc4b123f5bc9a7f997b0de0121d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a18491cc4b123f5bc9a7f997b0de0121d">&#9670;&nbsp;</a></span>filesystem() <span class="overload">[1/2]</span></h2>
 
@@ -168,6 +186,12 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -196,6 +220,13 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count_blocks</td><td></td></tr>
+    <tr><td class="paramname">path</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -214,35 +245,19 @@ Public 属性</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>文件系统析构函数，会最后对文件系统进行一次整体同步 </p>
+
 </div>
 </div>
 <h2 class="groupheader">成员函数说明</h2>
-<a id="a26ec9929d2526eed015baaf977925bb1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26ec9929d2526eed015baaf977925bb1">&#9670;&nbsp;</a></span>create_image()</h2>
+<a id="a510d4b454a2a520059b7321be3674bdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a510d4b454a2a520059b7321be3674bdb">&#9670;&nbsp;</a></span>create_dir_inode()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void jrfs::filesystem::create_image </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>count_blocks</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae31c3d88107544399f21f89ca80dbd7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae31c3d88107544399f21f89ca80dbd7a">&#9670;&nbsp;</a></span>create_unlinked_directory()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int jrfs::filesystem::create_unlinked_directory </td>
+          <td class="memname">int jrfs::filesystem::create_dir_inode </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>new_dir_name</em>, </td>
@@ -260,17 +275,25 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>\breif [底层API] 创建文件夹inode </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">new_dir_name</td><td>文件夹名 </td></tr>
+    <tr><td class="paramname">dir_index</td><td>当前文件夹的inode下标 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>inode下标 </dd></dl>
 
 </div>
 </div>
-<a id="ac970dce1f147b1bc29d3ecf7e3b9c094"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac970dce1f147b1bc29d3ecf7e3b9c094">&#9670;&nbsp;</a></span>create_unlinked_file()</h2>
+<a id="a6f6758f06dc8871a2978ffa628af04f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f6758f06dc8871a2978ffa628af04f4">&#9670;&nbsp;</a></span>create_file_inode()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int jrfs::filesystem::create_unlinked_file </td>
+          <td class="memname">int jrfs::filesystem::create_file_inode </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>new_file_name</em>, </td>
@@ -288,6 +311,38 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>\breif [底层API] 创建文件inode </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">new_file_name</td><td>文件名 </td></tr>
+    <tr><td class="paramname">dir_index</td><td>所在文件夹的inode下标 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>inode下标 </dd></dl>
+
+</div>
+</div>
+<a id="a26ec9929d2526eed015baaf977925bb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26ec9929d2526eed015baaf977925bb1">&#9670;&nbsp;</a></span>create_image()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jrfs::filesystem::create_image </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>count_blocks</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>\breif [底层API] 构建镜像 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count_blocks</td><td>镜像所需的block的大小 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -306,6 +361,12 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>\breif [底层API] 删除文件夹对应的inode </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>inode下标 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -324,6 +385,12 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>\breif [底层API] 删除文件对应的inode </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>inode下标 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -342,6 +409,18 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>\breif [高层API] 创建文件 </p><dl class="exception"><dt>异常</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>文件路径，如<code>/path/to/file</code> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -360,6 +439,18 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>\breif [高层API] 删除文件 </p><dl class="exception"><dt>异常</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>件路径，如<code>/path/to/file</code> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -378,23 +469,19 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0405f525e4c078f8c66912667c726b3b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0405f525e4c078f8c66912667c726b3b">&#9670;&nbsp;</a></span>generate_image()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void jrfs::filesystem::generate_image </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>\breif [高层API] 打开文件夹，返回handler </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>件路径，如<code>/path/to/file</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>异常</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>返回filehander对象，可对其进行文件读写 </dd></dl>
 
 </div>
 </div>
@@ -412,6 +499,7 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>\breif [底层API] 加载镜像 </p><dl class="section note"><dt>注解</dt><dd>所需的数据信息（如文件位置）已经在filesystem类初始化的时候得到 </dd></dl>
 
 </div>
 </div>
@@ -430,6 +518,12 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>\breif [底层API] 标记一个inode（文件夹/文件）下所对应的所有inode和block块 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inode_id</td><td>inode下标 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -448,11 +542,48 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>\breif [高层API] 创建文件夹 </p><dl class="exception"><dt>异常</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>文件夹路径，如<code>/path/to/dir</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af8d027dd7283688d9bb5dbb94e928d7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8d027dd7283688d9bb5dbb94e928d7d">&#9670;&nbsp;</a></span>path_to_inode() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int jrfs::filesystem::path_to_inode </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>\breif [底层API] 将文件（夹）路径转化为inode下标 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>文件（夹）路径 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>inode下标 </dd></dl>
 
 </div>
 </div>
 <a id="a377882f175d080b45d8c839be1c8f939"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a377882f175d080b45d8c839be1c8f939">&#9670;&nbsp;</a></span>path_to_inode()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a377882f175d080b45d8c839be1c8f939">&#9670;&nbsp;</a></span>path_to_inode() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -476,6 +607,14 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>\breif [底层API] 将文件（夹）路径转化为inode下标 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tokens</td><td>路径字符串数组 </td></tr>
+    <tr><td class="paramname">path</td><td>源路径（用于报错） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>inode下标 </dd></dl>
 
 </div>
 </div>
@@ -494,6 +633,18 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>\breif [高层API] 删除文件夹 </p><dl class="exception"><dt>异常</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>文件夹路径，如<code>/path/to/dir</code> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -511,6 +662,27 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>\breif [底层API] 检查bitmap和当前文件系统是否一致 </p>
+
+</div>
+</div>
+<a id="ae54a3c77b3455e84c86b2dd9e450fc4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae54a3c77b3455e84c86b2dd9e450fc4c">&#9670;&nbsp;</a></span>sync_image()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jrfs::filesystem::sync_image </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>\breif [底层API] 同步内存与磁盘中的镜像 </p>
 
 </div>
 </div>
@@ -545,6 +717,11 @@ Public 属性</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><blockquote class="doxtable">
+<p>文件系统inode部分对应内存的映射 </p>
+</blockquote>
+</p>
 
 </div>
 </div>
@@ -586,14 +763,28 @@ Public 属性</h2></td></tr>
 
 </div>
 </div>
-<a id="a1e4a66aa574c05e516ca284c2b94b6c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e4a66aa574c05e516ca284c2b94b6c6">&#9670;&nbsp;</a></span>mount_point</h2>
+<a id="a0d82c9eba689a92ce433b6cf45a85000"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d82c9eba689a92ce433b6cf45a85000">&#9670;&nbsp;</a></span>meta_data</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string_view jrfs::filesystem::mount_point</td>
+          <td class="memname"><a class="el" href="structjrfs_1_1super__block.html">super_block</a> jrfs::filesystem::meta_data</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab9538c42ac704e826033c3ba4fde7e3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9538c42ac704e826033c3ba4fde7e3e">&#9670;&nbsp;</a></span>mount_point</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string&amp; jrfs::filesystem::mount_point</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -602,20 +793,6 @@ Public 属性</h2></td></tr>
 <p>文件系统的元数据 </p>
 </blockquote>
 </p>
-
-</div>
-</div>
-<a id="a4d71e918f5fd12d7b88ca76e11bd79d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d71e918f5fd12d7b88ca76e11bd79d0">&#9670;&nbsp;</a></span>super_block</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structjrfs_1_1super__block.html">super_block</a> jrfs::filesystem::super_block</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>

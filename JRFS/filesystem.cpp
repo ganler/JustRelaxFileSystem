@@ -37,7 +37,7 @@ void filesystem::load_image()
 
 filesystem::~filesystem()
 {
-    generate_image();
+    sync_image();
 }
 
 filesystem::filehander filesystem::fopen(std::string_view path_)
@@ -80,7 +80,7 @@ void filesystem::fcreate(std::string_view path_)
     if (next_slot == directory_inode.direct_block.size())
         throw std::logic_error("A Directory Can Only Contain " + std::to_string(directory_inode.direct_block.size()) + " At Most.");
 
-    directory_inode.direct_block[next_slot] = create_unlinked_file(std::move(new_file_name), dir);
+    directory_inode.direct_block[next_slot] = create_file_inode(std::move(new_file_name), dir);
 }
 
 void filesystem::delete_directory_inode(int index)
@@ -168,7 +168,7 @@ void filesystem::mkdir(std::string_view path_)
     if (next_slot == directory_inode.direct_block.size())
         throw std::logic_error("A Directory Can Only Contain " + std::to_string(directory_inode.direct_block.size()) + " At Most.");
 
-    directory_inode.direct_block[next_slot] = create_unlinked_directory(std::move(new_dir_name), father_dir);
+    directory_inode.direct_block[next_slot] = create_dir_inode(std::move(new_dir_name), father_dir);
 }
 
 void filesystem::delete_file_inode(int index)
@@ -216,7 +216,7 @@ void filesystem::delete_file_inode(int index)
     assert(false); // Cannot find current inode in his father directory.
 }
 
-int filesystem::create_unlinked_file(const std::string& new_file_name, int dir_ind)
+int filesystem::create_file_inode(const std::string& new_file_name, int dir_index)
 {
     auto it = std::find(inode_bitmap.begin(), inode_bitmap.end(), false);
     if (it == inode_bitmap.end())
@@ -231,13 +231,13 @@ int filesystem::create_unlinked_file(const std::string& new_file_name, int dir_i
     new_inode.is_directory = false;
     new_file_name.copy(new_inode.name, new_file_name.length());
     new_inode.unix_time = std::time(nullptr);
-    new_inode.direct_block[0] = dir_ind;
+    new_inode.direct_block[0] = dir_index;
     new_inode.size = 0;
 
     return new_inode_index;
 }
 
-int filesystem::create_unlinked_directory(const std::string& new_dir_name, int dir_index)
+int filesystem::create_dir_inode(const std::string& new_dir_name, int dir_index)
 {
     auto it = std::find(inode_bitmap.begin(), inode_bitmap.end(), false);
     if (it == inode_bitmap.end())
@@ -281,7 +281,7 @@ int filesystem::path_to_inode(const std::vector<std::string>& tokens, const std:
     return last_dir_index;
 }
 
-void filesystem::generate_image()
+void filesystem::sync_image()
 {
     std::fstream os(mount_point, std::ios::trunc | std::ios::out | std::ios::binary);
     if (!os.is_open())
@@ -312,7 +312,7 @@ void filesystem::create_image(int count_blocks)
     inode_list.front().current_dir() = 0;
     inode_list.front().last_level_dir() = -1;
 
-    this->generate_image();
+    this->sync_image();
 
     // MK ROOT DIR.
     block_bitmap = decltype(block_bitmap)(meta_data.block_total, false);
