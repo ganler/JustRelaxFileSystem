@@ -7,7 +7,7 @@ TEST(JRFSFileAndDir, CheckRootDir)
     {
         jrfs::filesystem image(100, test_image);
 
-        EXPECT_EQ(0, system(("ls " + test_image).c_str()));
+        EXPECT_EQ(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 
         // Check If Root Node Index == 0
         EXPECT_EQ(0, image.path_to_inode({ "" }, "/"));
@@ -17,10 +17,10 @@ TEST(JRFSFileAndDir, CheckRootDir)
         EXPECT_EQ(image.inode_list[0].current_dir(), 0);
     }
 
-    if (system(("ls " + test_image).c_str()) == 0)
-        system(("rm " + test_image).c_str()); // Clean the file.
+    if (system(("ls " + test_image + ">/dev/null 2>&1").c_str()) == 0)
+        system(("rm " + test_image + ">/dev/null 2>&1").c_str()); // Clean the file.
 
-    EXPECT_NE(0, system(("ls " + test_image).c_str()));
+    EXPECT_NE(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 }
 
 TEST(JRFSFileAndDir, CheckPathNotFoundThrow)
@@ -30,16 +30,16 @@ TEST(JRFSFileAndDir, CheckPathNotFoundThrow)
     {
         jrfs::filesystem image(100, test_image);
 
-        EXPECT_EQ(0, system(("ls " + test_image).c_str()));
+        EXPECT_EQ(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 
         // Check If Root Node Index == 0
         EXPECT_THROW(image.path_to_inode({ "", "path", "to", "nowhere" }, "/path/to/nowhere"), std::logic_error);
     }
 
-    if (system(("ls " + test_image).c_str()) == 0)
-        system(("rm " + test_image).c_str()); // Clean the file.
+    if (system(("ls " + test_image + ">/dev/null 2>&1").c_str()) == 0)
+        system(("rm " + test_image + ">/dev/null 2>&1").c_str()); // Clean the file.
 
-    EXPECT_NE(0, system(("ls " + test_image).c_str()));
+    EXPECT_NE(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 }
 
 TEST(JRFSFileAndDir, CheckFileCreation)
@@ -49,7 +49,7 @@ TEST(JRFSFileAndDir, CheckFileCreation)
     {
         jrfs::filesystem image(100, test_image);
 
-        EXPECT_EQ(0, system(("ls " + test_image).c_str()));
+        EXPECT_EQ(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 
         // Check If Root Node Index == 0
         image.fcreate("/lrznb.txt");
@@ -67,10 +67,10 @@ TEST(JRFSFileAndDir, CheckFileCreation)
         EXPECT_EQ(file_inode.name, std::string("lrznb.txt"));
     }
 
-    if (system(("ls " + test_image).c_str()) == 0)
-        system(("rm " + test_image).c_str()); // Clean the file.
+    if (system(("ls " + test_image + ">/dev/null 2>&1").c_str()) == 0)
+        system(("rm " + test_image + ">/dev/null 2>&1").c_str()); // Clean the file.
 
-    EXPECT_NE(0, system(("ls " + test_image).c_str()));
+    EXPECT_NE(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 }
 
 TEST(JRFSFileAndDir, CheckFileDeletion)
@@ -80,7 +80,7 @@ TEST(JRFSFileAndDir, CheckFileDeletion)
     {
         jrfs::filesystem image(100, test_image);
 
-        EXPECT_EQ(0, system(("ls " + test_image).c_str()));
+        EXPECT_EQ(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 
         // Check If Root Node Index == 0
         image.fcreate("/lrznb.txt");
@@ -88,10 +88,10 @@ TEST(JRFSFileAndDir, CheckFileDeletion)
         EXPECT_THROW(image.fopen("/lrznb.txt"), std::logic_error);
     }
 
-    if (system(("ls " + test_image).c_str()) == 0)
-        system(("rm " + test_image).c_str()); // Clean the file.
+    if (system(("ls " + test_image + ">/dev/null 2>&1").c_str()) == 0)
+        system(("rm " + test_image + ">/dev/null 2>&1").c_str()); // Clean the file.
 
-    EXPECT_NE(0, system(("ls " + test_image).c_str())); // Expect: The file is removed.
+    EXPECT_NE(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 }
 
 TEST(JRFSFileAndDir, CheckDirectoryCreation)
@@ -101,7 +101,7 @@ TEST(JRFSFileAndDir, CheckDirectoryCreation)
     {
         jrfs::filesystem image(100, test_image);
 
-        EXPECT_EQ(0, system(("ls " + test_image).c_str()));
+        EXPECT_EQ(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 
         // Check If Root Node Index == 0
         EXPECT_NO_THROW(image.mkdir("/what"));
@@ -120,10 +120,10 @@ TEST(JRFSFileAndDir, CheckDirectoryCreation)
         EXPECT_NE(image.inode_list[dir_index].direct_block[2], jrfs::kNULL);
     }
 
-    if (system(("ls " + test_image).c_str()) == 0)
-        system(("rm " + test_image).c_str()); // Clean the file.
+    if (system(("ls " + test_image + ">/dev/null 2>&1").c_str()) == 0)
+        system(("rm " + test_image + ">/dev/null 2>&1").c_str()); // Clean the file.
 
-    EXPECT_NE(0, system(("ls " + test_image).c_str())); // Expect: The file is removed.
+    EXPECT_NE(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 }
 
 TEST(JRFSFileAndDir, CheckDirectoryDeletion)
@@ -133,7 +133,7 @@ TEST(JRFSFileAndDir, CheckDirectoryDeletion)
     {
         jrfs::filesystem image(100, test_image);
 
-        EXPECT_EQ(0, system(("ls " + test_image).c_str()));
+        EXPECT_EQ(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 
         // Check If Root Node Index == 0
         EXPECT_NO_THROW(image.mkdir("/what"));
@@ -143,10 +143,10 @@ TEST(JRFSFileAndDir, CheckDirectoryDeletion)
         EXPECT_THROW(image.path_to_inode("/what/the"), std::logic_error);
     }
 
-    if (system(("ls " + test_image).c_str()) == 0)
-        system(("rm " + test_image).c_str()); // Clean the file.
+    if (system(("ls " + test_image + ">/dev/null 2>&1").c_str()) == 0)
+        system(("rm " + test_image + ">/dev/null 2>&1").c_str()); // Clean the file.
 
-    EXPECT_NE(0, system(("ls " + test_image).c_str())); // Expect: The file is removed.
+    EXPECT_NE(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 }
 
 TEST(JRFSFileAndDir, CheckSmallFileReadWrite)
@@ -156,7 +156,7 @@ TEST(JRFSFileAndDir, CheckSmallFileReadWrite)
     {
         jrfs::filesystem image(100, test_image);
 
-        EXPECT_EQ(0, system(("ls " + test_image).c_str()));
+        EXPECT_EQ(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 
         // Check If Root Node Index == 0
         EXPECT_NO_THROW(image.fcreate("/lrznb.txt"));
@@ -172,10 +172,10 @@ TEST(JRFSFileAndDir, CheckSmallFileReadWrite)
         EXPECT_EQ(test_message, str);
     }
 
-    if (system(("ls " + test_image).c_str()) == 0)
-        system(("rm " + test_image).c_str()); // Clean the file.
+    if (system(("ls " + test_image + ">/dev/null 2>&1").c_str()) == 0)
+        system(("rm " + test_image + ">/dev/null 2>&1").c_str()); // Clean the file.
 
-    EXPECT_NE(0, system(("ls " + test_image).c_str())); // Expect: The file is removed.
+    EXPECT_NE(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 }
 
 TEST(JRFSFileAndDir, CheckBigFileReadWriteSimple)
@@ -185,7 +185,7 @@ TEST(JRFSFileAndDir, CheckBigFileReadWriteSimple)
     {
         jrfs::filesystem image(100, test_image);
 
-        EXPECT_EQ(0, system(("ls " + test_image).c_str()));
+        EXPECT_EQ(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 
         // Check If Root Node Index == 0
         EXPECT_NO_THROW(image.fcreate("/lrznb.txt"));
@@ -202,10 +202,10 @@ TEST(JRFSFileAndDir, CheckBigFileReadWriteSimple)
         EXPECT_EQ(simple, str);
     }
 
-    if (system(("ls " + test_image).c_str()) == 0)
-        system(("rm " + test_image).c_str()); // Clean the file.
+    if (system(("ls " + test_image + ">/dev/null 2>&1").c_str()) == 0)
+        system(("rm " + test_image + ">/dev/null 2>&1").c_str()); // Clean the file.
 
-    EXPECT_NE(0, system(("ls " + test_image).c_str())); // Expect: The file is removed.
+    EXPECT_NE(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 }
 
 TEST(JRFSFileAndDir, CheckBigFileReadWriteComplex)
@@ -215,7 +215,7 @@ TEST(JRFSFileAndDir, CheckBigFileReadWriteComplex)
     {
         jrfs::filesystem image(100, test_image);
 
-        EXPECT_EQ(0, system(("ls " + test_image).c_str()));
+        EXPECT_EQ(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 
         // Check If Root Node Index == 0
         EXPECT_NO_THROW(image.fcreate("/lrznb.txt"));
@@ -235,10 +235,10 @@ TEST(JRFSFileAndDir, CheckBigFileReadWriteComplex)
         EXPECT_EQ(test_str, str);
     }
 
-    if (system(("ls " + test_image).c_str()) == 0)
-        system(("rm " + test_image).c_str()); // Clean the file.
+    if (system(("ls " + test_image + ">/dev/null 2>&1").c_str()) == 0)
+        system(("rm " + test_image + ">/dev/null 2>&1").c_str()); // Clean the file.
 
-    EXPECT_NE(0, system(("ls " + test_image).c_str())); // Expect: The file is removed.
+    EXPECT_NE(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 }
 
 TEST(JRFSFileAndDir, CheckBigFileReadWriteVeryComplex)
@@ -248,7 +248,7 @@ TEST(JRFSFileAndDir, CheckBigFileReadWriteVeryComplex)
     {
         jrfs::filesystem image(100, test_image);
 
-        EXPECT_EQ(0, system(("ls " + test_image).c_str()));
+        EXPECT_EQ(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 
         // Check If Root Node Index == 0
         EXPECT_NO_THROW(image.fcreate("/lrznb.txt"));
@@ -273,8 +273,8 @@ TEST(JRFSFileAndDir, CheckBigFileReadWriteVeryComplex)
         EXPECT_EQ(test_message, str);
     }
 
-    if (system(("ls " + test_image).c_str()) == 0)
-        system(("rm " + test_image).c_str()); // Clean the file.
+    if (system(("ls " + test_image + ">/dev/null 2>&1").c_str()) == 0)
+        system(("rm " + test_image + ">/dev/null 2>&1").c_str()); // Clean the file.
 
-    EXPECT_NE(0, system(("ls " + test_image).c_str())); // Expect: The file is removed.
+    EXPECT_NE(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 }

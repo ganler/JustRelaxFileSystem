@@ -7,13 +7,13 @@ TEST(JRFSImage, CheckCreation)
     {
         jrfs::filesystem image(1000, test_image);
 
-        EXPECT_EQ(0, system(("ls " + test_image).c_str()));
+        EXPECT_EQ(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
     }
 
-    if (system(("ls " + test_image).c_str()) == 0)
-        system(("rm " + test_image).c_str()); // Clean the file.
+    if (system(("ls " + test_image + ">/dev/null 2>&1").c_str()) == 0)
+        system(("rm " + test_image + ">/dev/null 2>&1").c_str()); // Clean the file.
 
-    EXPECT_NE(0, system(("ls " + test_image).c_str()));
+    EXPECT_NE(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 }
 
 TEST(JRFSImage, CheckCapacity)
@@ -23,11 +23,11 @@ TEST(JRFSImage, CheckCapacity)
         {
             jrfs::filesystem image(100 + i * 1000, test_image);
 
-            EXPECT_EQ(0, system(("ls " + test_image).c_str()));
+            EXPECT_EQ(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
         }
-        if (system(("ls " + test_image).c_str()) == 0)
-            system(("rm " + test_image).c_str()); // Clean the file.
-        EXPECT_NE(0, system(("ls " + test_image).c_str()));
+        if (system(("ls " + test_image + ">/dev/null 2>&1").c_str()) == 0)
+            system(("rm " + test_image + ">/dev/null 2>&1").c_str()); // Clean the file.
+        EXPECT_NE(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
     }
 }
 
@@ -39,7 +39,7 @@ TEST(JRFSImage, CheckSuperBlock)
     {
         jrfs::filesystem image(block_total, test_image);
 
-        EXPECT_EQ(0, system(("ls " + test_image).c_str()));
+        EXPECT_EQ(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
     }
 
     { // Read The Headers.
@@ -58,10 +58,10 @@ TEST(JRFSImage, CheckSuperBlock)
         EXPECT_LE(check_block.inode_total, check_block.block_total);
     }
 
-    if (system(("ls " + test_image).c_str()) == 0)
-        system(("rm " + test_image).c_str()); // Clean the file.
+    if (system(("ls " + test_image + ">/dev/null 2>&1").c_str()) == 0)
+        system(("rm " + test_image + ">/dev/null 2>&1").c_str()); // Clean the file.
 
-    EXPECT_NE(0, system(("ls " + test_image).c_str()));
+    EXPECT_NE(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 }
 
 TEST(JRFSImage, CheckImageSize)
@@ -71,7 +71,7 @@ TEST(JRFSImage, CheckImageSize)
     {
         jrfs::filesystem image(1000, test_image);
 
-        EXPECT_EQ(0, system(("ls " + test_image).c_str()));
+        EXPECT_EQ(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
     }
 
     {
@@ -88,10 +88,10 @@ TEST(JRFSImage, CheckImageSize)
         EXPECT_EQ(end - begin, jrfs::kSuperBlockSize + check_block.block_total * jrfs::kBlockSize + check_block.inode_total * jrfs::kInodeSize);
     }
 
-    if (system(("ls " + test_image).c_str()) == 0)
-        system(("rm " + test_image).c_str()); // Clean the file.
+    if (system(("ls " + test_image + ">/dev/null 2>&1").c_str()) == 0)
+        system(("rm " + test_image + ">/dev/null 2>&1").c_str()); // Clean the file.
 
-    EXPECT_NE(0, system(("ls " + test_image).c_str()));
+    EXPECT_NE(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 }
 
 TEST(JRFSImage, CheckLoad)
@@ -102,7 +102,7 @@ TEST(JRFSImage, CheckLoad)
     {
         jrfs::filesystem image(block_total, test_image);
 
-        EXPECT_EQ(0, system(("ls " + test_image).c_str()));
+        EXPECT_EQ(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
     }
 
     { // Read Image.
@@ -117,8 +117,8 @@ TEST(JRFSImage, CheckLoad)
         EXPECT_EQ(fs.inode_bitmap.size(), fs.meta_data.inode_total);
     }
 
-    if (system(("ls " + test_image).c_str()) == 0)
-        system(("rm " + test_image).c_str()); // Clean the file.
+    if (system(("ls " + test_image + ">/dev/null 2>&1").c_str()) == 0)
+        system(("rm " + test_image + ">/dev/null 2>&1").c_str()); // Clean the file.
 
-    EXPECT_NE(0, system(("ls " + test_image).c_str()));
+    EXPECT_NE(0, system(("ls " + test_image + ">/dev/null 2>&1").c_str()));
 }
